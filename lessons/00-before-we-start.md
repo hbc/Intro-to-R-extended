@@ -106,7 +106,7 @@ window and press `Esc`; this should help you out of trouble.
 
 
 
-# Seeking help
+## Seeking help
 
 ### I know the name of the function I want to use, but I'm not sure how to use it
 

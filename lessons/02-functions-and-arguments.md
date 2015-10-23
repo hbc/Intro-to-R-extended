@@ -2,7 +2,7 @@
 layout: topic
 title: Functions in R
 author: Data Carpentry contributors
-minutes: 20
+minutes: 45
 ---
 
 ## Learning Objectives
@@ -61,6 +61,7 @@ how to do that by getting information about the `round` function. We can use `ar
 
 
 	args(round)
+
 	?round
 
 
@@ -185,55 +186,6 @@ objects besides `data.frame`.
 > * What is the class of the object `metadata`?
 > * How many rows and how many columns are in this object?
 > * Load in data again, storing it as `test_data` and using `stringsAsFactors=F`. How does this change the structure of the data?
-
-
-
-## Packages and Libraries
-
-**Packages** are collections of R functions, data, and compiled code in a well-defined format. The directory where packages are stored is called the **library**. The two terms are sometimes used synonomously and there has been [discussion](http://www.r-bloggers.com/packages-v-libraries-in-r/) amongst the community to resolve this. It is somewhat counter-intuitive to _load a package_ using the `library()` function 
-and so you can see how confusion can arise.
-
-
-There are a set of **standard (or base) packages** which are considered part of the R source code and automatically available as part of your R installation. Base packages contain the **basic functions** that allow R to work, and enable standard statistical and graphical functions on datasets; for example all of the functions that we have been using so far in our examples.
-
-You can check what base packages are loaded by typing into the console:
-
-	sessionInfo()
-
-
-In this workshop we will mostly be using functions from the standard base packages. However, the more you work with R you will come to realize that there is a cornucopia of R packages that offer a wide variety of functionality. To use additional packages will require installation.
-
- 
-Packages for R can be installed from the [CRAN](http://cran.r-project.org/) package repository. An example is given below as we install the `gplots` package required for some images we will create later on.
-
-
-```r
-install.packages('gplots')
-```
-
-Alternatively, packages can also be installed from [Bioconductor](https://www.bioconductor.org/) by using the `biocLite.R` installation script. You will first need to install Bioconductor and all the standard packages (this only needs to be done once ever):
-
-
-```r
-source("http://bioconductor.org/biocLite.R")
-biocLite()
-```
-
-Once you have the standard packages installed, you can add install additional packages using the `biocLite.R` script. If it's a new R session you will also have to source the script again. Here we will install another package useful for visualization `ggplot2`:
-
-
-```r
-biocLite('ggplot2')
-```
-
-
-Once you have the package installed, you can load it into your R session for use. Any of the functions that are specific to that package will be available for you to use by simply calling the function as you would for any of the base functions. *Note that quotations are not required here.*
-
-
-```r
-library(gplots)
-library(ggplot2)
-```
 
 
 

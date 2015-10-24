@@ -7,9 +7,9 @@ minutes: 15
 
 ## Learning Objectives
 
-* Introduce participants to R and RStudio
-* Set up participants to have a working directory with a `data/` folder inside
-* Point to relevant information on how to get help, and understand how to ask well formulated questions
+* An introduction to R and RStudio
+* Creating a directory structure for efficient data management
+* Knowing where to get help and understanding how to ask well formulated questions
 
 
 ## What is R?
@@ -235,7 +235,7 @@ sessionInfo()
   the complete list is [here](http://www.r-project.org/mail.html).
 
 ### More resources
-
+git
 * The [Posting Guide](http://www.r-project.org/posting-guide.html) for the R
   mailing lists.
 * [How to ask for R help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html)

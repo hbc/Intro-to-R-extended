@@ -2,15 +2,14 @@
 layout: topic
 title: Introduction to R
 author: Data Carpentry contributors
-minutes: 45
+minutes: 20
 ---
 
 ## Learning Objectives
 
 * Familiarize participants with R syntax
-* Understand the concepts of objects and assignment
-* Understand the concepts of vector and data types
-* Get exposed to a few functions
+* Understanding the concepts of variables and the assignment operator
+* Understanding the concepts data types and data structures
 
 
 ## The R syntax

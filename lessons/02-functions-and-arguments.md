@@ -7,9 +7,10 @@ minutes: 45
 
 ## Learning Objectives
 
-* Familiarize participants with functions in R
-* Get exposed to a few commonly used functions
+* Understanding the structure of a function and how it is used
+* Exposure to a few commonly used base functions in R
 * Explore and inspect different data structures
+* An brief introduction to packages in R 
 
 
 ## Functions and their arguments

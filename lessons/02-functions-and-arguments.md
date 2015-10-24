@@ -2,7 +2,7 @@
 layout: topic
 title: Functions in R
 author: Data Carpentry contributors
-minutes: 45
+minutes: 20
 ---
 
 ## Learning Objectives

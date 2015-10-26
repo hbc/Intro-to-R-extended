@@ -7,9 +7,9 @@ minutes: 20
 
 ## Learning Objectives
 
-* Familiarize participants with R syntax
-* Understanding the concepts of variables and the assignment operator
-* Understanding the concepts data types and data structures
+* Become familiar with R syntax
+* Understand variables and the assignment operator in R
+* Understand the various data types and data structures in R
 
 
 ## The R syntax

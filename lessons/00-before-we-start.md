@@ -235,7 +235,6 @@ sessionInfo()
   the complete list is [here](http://www.r-project.org/mail.html).
 
 ### More resources
-git
 * The [Posting Guide](http://www.r-project.org/posting-guide.html) for the R
   mailing lists.
 * [How to ask for R help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html)

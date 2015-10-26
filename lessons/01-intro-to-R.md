@@ -81,7 +81,7 @@ _variables_.
 the left. So, after executing `x <- 3`, the value of `x` is `3`. The arrow can
 be read as 3 **goes into** `x`.  
 
-*In RStudio, typing `Alt + -` (push `Alt`, the key next to your space bar at the same time as the `-` key) will write ` <- ` in a single keystroke.*
+*In RStudio, typing `Alt + -` (push `Alt` at the same time as the `-` key) will write ` <- ` in a single keystroke.*
 
 
 ## Variables

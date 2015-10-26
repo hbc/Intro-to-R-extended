@@ -102,7 +102,7 @@ We could also use class on a data frame or any other type of object. Let's load 
 > Note: When typing out read.csv try pressing the `Tab` key after typing only `read`. You will find that a drop-down menu will appear listing all `read` options for loading in files. The window to the right gives you more information on the function and its arguments as you scroll down and highlight each individually.
 
 
-	metadata <- read.csv(file='meta/mouse_exp_design.csv')
+	metadata <- read.csv(file='data/mouse_exp_design.csv')
 
 
 The function has *one required argument* and several *options* that can be changed. The mandatory argument is a path to the file and filename, which in our  case is  `mouse_exp_design.csv` file. We will put the function to the right of the assignment operator, meaning that any output will be saved as the variable name provided on the left.

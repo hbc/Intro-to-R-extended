@@ -6,7 +6,7 @@ minutes: 30
 ---
 
 ## Learning Objectives
-* Using indexes and sequences to select data within vectors and dataframes
+* Using indexes and sequences to select data from vectors and dataframes
 * Manipulating data by subsetting with use of logical operators
 * Examining contents of vectors using matching
 * Re-organizing data based on match indices

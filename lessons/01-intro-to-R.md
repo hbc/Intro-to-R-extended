@@ -7,9 +7,9 @@ minutes: 20
 
 ## Learning Objectives
 
-* Familiarize participants with R syntax
-* Understanding the concepts of variables and the assignment operator
-* Understanding the concepts data types and data structures
+* Become familiar with R syntax
+* Understand variables and the assignment operator in R
+* Understand the various data types and data structures in R
 
 
 ## The R syntax
@@ -88,7 +88,7 @@ be read as 3 **goes into** `x`.
 
 A variable is a symbolic name for (or reference to) information. Variables in computer programming are analogous to "buckets", where information can be maintained and referenced. On the outside of the bucket is a name. When referring to the bucket, we use the name of the bucket, not the data stored in the bucket.
 
-In the example above, we created a variable or a 'bucket' called `x`. Inside we put a value. Let's create another variable called `y`and give it a value of 5. When assigning a value to an value, R does not print anything to the console. You can force to
+In the example above, we created a variable or a 'bucket' called `x`. Inside we put a value. Let's create another variable called `y`and give it a value of 5. When assigning a value to an variable, R does not print anything to the console. You can force to
 print the value by using parentheses or by typing the name.
 
 ```
@@ -165,9 +165,9 @@ We just saw 2 of the 6 **data types** that R uses: `"character"` and `"numeric"`
 
 
 
-### Data frame vs. Matrix
+### Data Frame vs. Matrix
 
-A `matrix` in R is a collection of vectors of **same length and identical datatype**. Vectors can be combined as columns in the matrix or by row. Usually matrices are numeric and used in various computational algorithms to serve as a checkpoint. For example, if input data is not of identical datatype, the `matrix()` function will throw an error and stop any downstream code execution.
+A `matrix` in R is a collection of vectors of **same length and identical datatype**. Vectors can be combined as columns in the matrix or by row. Usually matrices are numeric and used in various computational algorithms to serve as a checkpoint. For example, if input data is not of identical data type (numeric, character, etc.), the `matrix()` function will throw an error and stop any downstream code execution.
 
 `data.frame` is the _de facto_ data structure for most tabular data and what we use for statistics and plotting. A `data.frame` is a collection of vectors of identical lengths. Each vector represents a column, and **each vector can be of a different data type** (e.g., characters, integers, factors). 
 

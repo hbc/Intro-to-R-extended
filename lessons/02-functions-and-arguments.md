@@ -17,7 +17,7 @@ minutes: 20
 
 The other key feature of R is functions. Functions are **"self contained" modules of code that accomplish a specific task**. Functions usually take in some sort of data structure (value, vector, dataframe etc.), process it, and return a result.
 
-The input(s) are called **arguments** and can be anything, not only numbers or filenames, but also other objects. Exactly what each argument means differs per function, and must be looked up in the documentation (? for help). If an argument alters the way the function operates, such as whether to ignore 'bad values', sit is sometimes called an *option*.
+The input(s) are called **arguments** and can be anything, not only numbers or filenames, but also other objects. Exactly what each argument means differs per function, and must be looked up in the documentation (? for help). If an argument alters the way the function operates, such as whether to ignore 'bad values', it is sometimes called an *option*.
 
 Most functions can take several arguments, but many have so-called *defaults*. If you don't specify such an argument when calling the function, the function
 itself will fall back on using the *default*. This is a standard value that the author of the function specified as being "good enough in standard cases". An
@@ -58,7 +58,7 @@ Let's try a function that we can change some of the *options*, for example `roun
 
 
 We can see that we get `3`. That's because the default is to round to the nearest whole number. If we want more digits we can see 
-how to do that by getting information about the `round` function. We can use `args(round)` or look at thehelp for this function using `?round`.
+how to do that by getting information about the `round` function. We can use `args(round)` or look at the help for this function using `?round`.
 
 
 	args(round)
@@ -105,7 +105,7 @@ We could also use class on a data frame or any other type of object. Let's load 
 	metadata <- read.csv(file='data/mouse_exp_design.csv')
 
 
-The function has *one required argument* and several *options* that can be changed. The mandatory argument is a path to the file and filename, which in our  case is  `mouse_exp_design.csv` file. We will put the function to the right of the assignment operator, meaning that any output will be saved as the variable name provided on the left.
+The function has *one required argument* and several *options* that can be changed. The mandatory argument is a path to the file and filename, which in our case is `mouse_exp_design.csv` file. We will put the function to the right of the assignment operator, meaning that any output will be saved as the variable name provided on the left.
 
 Take a look at the file by typing out the variable name `metadata` and pressing return. The file contains information describing the samples in our study. Each row holds information for a single sample, and the columns represent `genotype`(WT or KO),  `celltype` (typeA or typeB), and `replicate number`.
 

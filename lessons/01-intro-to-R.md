@@ -88,7 +88,7 @@ be read as 3 **goes into** `x`.
 
 A variable is a symbolic name for (or reference to) information. Variables in computer programming are analogous to "buckets", where information can be maintained and referenced. On the outside of the bucket is a name. When referring to the bucket, we use the name of the bucket, not the data stored in the bucket.
 
-In the example above, we created a variable or a 'bucket' called `x`. Inside we put a value. Let's create another variable called `y`and give it a value of 5. When assigning a value to an value, R does not print anything to the console. You can force to
+In the example above, we created a variable or a 'bucket' called `x`. Inside we put a value. Let's create another variable called `y`and give it a value of 5. When assigning a value to an variable, R does not print anything to the console. You can force to
 print the value by using parentheses or by typing the name.
 
 ```

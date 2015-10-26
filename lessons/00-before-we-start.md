@@ -37,7 +37,7 @@ RStudio is freely available open-source IDE (Integrated Development Environment)
 * real-time access to environment, plotting and history
 * good tool for workspace management
 
-_Point out the different panels in RStudio._
+**The RStudio interface has four main panels:**
 
 1. Console: where you can type commands and see output
 2. Editor: where you can type out commands and save to file. You can also run in console with `Ctrl Enter`

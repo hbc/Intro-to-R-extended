@@ -128,9 +128,6 @@ Take a look at the file by typing out the variable name `metadata` and pressing 
 ## sample12       KO    typeB         3
 ```
 
-__At this point, make sure all participants have the data loaded__
-
-
 > Note: By default, `data.frame` converts (= coerces) columns that contain characters (i.e., text) into the `factor` data type. Depending on what you want to do with
 > the data, you may want to keep these columns as `character`. To do so, `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which can be set to `FALSE`.
 

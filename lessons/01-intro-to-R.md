@@ -33,7 +33,7 @@ resultsDir <- file.path(baseDir, "results")
 meta <- read.delim(file.path(metaDir, '2015-1018_sample_key.csv'), header=T, sep="\t", row.names=1)
 ```
 
-* Point to the different parts:
+* The above snippet of R code has many different "parts of speech" for R (syntax):
   - the **comments** `#` and how they are used to document function and its content
   - the **assignment operator** `<-`
   - **variables** and **objects**

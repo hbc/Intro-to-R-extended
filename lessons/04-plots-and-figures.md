@@ -89,7 +89,7 @@ Let's start with a **scatterplot**. A scatter plot provides a graphical view of 
 plot(samplemeans)
 ```
 
-<img src="figure/scatter-plot1-1.png" title="plot of chunk scatter-plot1" alt="plot of chunk scatter-plot1" style="display: block; margin: auto;" />
+ ![scatter-1](../figure/scatter-plot1-1.png) 
 
 Each point represents a sample and the value on the x-axis is the sample number, where the values on the y-axis correspond to the average expression for that sample. For any plot you can customize many features of your graphs (fonts, colors, axes, titles) through [graphic options](http://www.statmethods.net/advgraphs/parameters.html)
 We can change the shape of the data point using `pch`.
@@ -99,7 +99,7 @@ We can change the shape of the data point using `pch`.
 plot(samplemeans, pch=8)
 ```
 
-<img src="figure/unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
+ ![scatter-2](../figure/unnamed-chunk-8-1.png)
 
 We can add a title to the plot by assigning a string to `main`
 
@@ -108,7 +108,7 @@ We can add a title to the plot by assigning a string to `main`
 plot(samplemeans, pch=8, main="Scatter plot of mean values")
 ```
 
-<img src="figure/unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
+ ![scatter-3](../figure/unnamed-chunk-9-1.png) 
 
 ## Barplot
 In the case of our data, a **barplot**  would be much more useful. We can use `barplot` to draw a single bar representing each sample and the height indicates the average expression level. 
@@ -118,7 +118,7 @@ In the case of our data, a **barplot**  would be much more useful. We can use `b
 barplot(samplemeans)
 ```
 
-<img src="figure/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
+ ![bar-1](../figure/unnamed-chunk-10-1.png) 
 
 The sample names appear to be too large for the plot, we can change that by changing the `cex.names` value. 
 
@@ -127,7 +127,7 @@ The sample names appear to be too large for the plot, we can change that by chan
 barplot(samplemeans, cex.names=0.5)
 ```
 
-<img src="figure/unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" />
+ ![bar-2](../figure/unnamed-chunk-11-1.png) 
 
 The names are too small to read. Alternatively we can also just change the names to be numeric values and keep the same size.
 
@@ -136,7 +136,7 @@ The names are too small to read. Alternatively we can also just change the names
 barplot(samplemeans, names.arg=c(1:12)) # supply numbers as labels
 ```
 
-<img src="figure/unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
+ ![bar-3](../figure/unnamed-chunk-12-1.png) 
 
 We can also flip the axes so that the plot is projected horizontally.
 
@@ -145,7 +145,7 @@ We can also flip the axes so that the plot is projected horizontally.
 barplot(samplemeans, names.arg=c(1:12), horiz=TRUE) 
 ```
 
-<img src="figure/unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" style="display: block; margin: auto;" />
+ ![bar-4](../figure/unnamed-chunk-13-1.png) 
 
 ## Histogram
 If we are interested in an overall distribution of values, **histogram** is a plot very commonly used. It plots the frequencies that data appears within certain ranges. To plot a histogram of the data use the `hist` command:
@@ -155,7 +155,7 @@ If we are interested in an overall distribution of values, **histogram** is a pl
 hist(samplemeans)
 ```
 
-<img src="figure/unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" style="display: block; margin: auto;" />
+ ![hist-1](../figure/unnamed-chunk-14-1.png) 
 
 The range of values for sample means is 22 to 39. As you can see R will automatically calculate the intervals to use. There are many options to determine how to break up the intervals. Let's increase the number of breaks to see how that changes the plot:
 
@@ -164,7 +164,7 @@ The range of values for sample means is 22 to 39. As you can see R will automati
 hist(samplemeans, xlab="Mean expression level", main="", breaks=20) 
 ```
 
-<img src="figure/hist-1.png" title="plot of chunk hist" alt="plot of chunk hist" style="display: block; margin: auto;" />
+ ![hist-2](../figure/hist-1.png) 
 
 Similar to the other plots we can tweak the aesthetics. Let's color in the bar and remove the borders:
 
@@ -173,7 +173,7 @@ Similar to the other plots we can tweak the aesthetics. Let's color in the bar a
 hist(samplemeans, xlab="Mean expression level", main="", col="darkgrey", border=FALSE) 
 ```
 
-<img src="figure/unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" style="display: block; margin: auto;" />
+ ![hist-3](../figure/unnamed-chunk-15-1.png) 
 
 ##Boxplot
 
@@ -185,7 +185,7 @@ Using addiitonal sample information from our metadata, we can use plots to compa
 boxplot(samplemeans~celltype, df)
 ```
 
-<img src="figure/boxplot-1.png" title="plot of chunk boxplot" alt="plot of chunk boxplot" style="display: block; margin: auto;" />
+ ![box-1](../figure/boxplot-1.png) 
 
 Similar to the plots above, we can pass in arguments to add in extras like plot title, axis labels and colors.
 
@@ -194,9 +194,9 @@ Similar to the plots above, we can pass in arguments to add in extras like plot 
 boxplot(samplemeans~celltype, df,  col=c("blue","red"), main="Average expression differences between celltypes", ylab="Expression")
 ```
 
-<img src="figure/unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" style="display: block; margin: auto;" />
+ ![box-2](../figure/unnamed-chunk-16-1.png) 
 
-> ### Challenge {.challenge}
+> ### Challenge 
 > The previous challenge asked you to compute the standard error for "sample1". Using the `apply` function to generate a vector of standard error values for each sample. Use a boxplot to illustrate the differences in standard error between WT and KO samples. 
 
 
@@ -223,16 +223,8 @@ ggplot(data=df, aes(x= genotype, y=samplemeans)) +
   geom_boxplot() 
 ```
 
-<img src="figure/unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" style="display: block; margin: auto;" />
+ ![ggbox-1](../figure/unnamed-chunk-19-1.png title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" style="display: block; margin: auto;" />
 
-Now let's add in some more features to the boxplot. In the `aes()` we can specify the color of the boxes by adding in a `fill` value. If we add in We can also chain in additional functions to include titles for the axes and the plot area.
-
-
-```r
-	
-```
-
-<img src="figure/unnamed-chunk-20-1.png" title="plot of chunk unnamed-chunk-20" alt="plot of chunk unnamed-chunk-20" style="display: block; margin: auto;" />
 
 Unlike base R graphs, the ggplot graphs are not effected by many of the options set in the `par()` function (e.g. adjusting relative size of axis labels usin `cex`). They can be modified using the `theme()` function, and by adding graphic parameters. Here, we will increase the size of the axis labels and the main title. We can also change the `fill` variable to `celltype` - how does this change the plot? **What if you switch `genotype` with `celltype` in the aeshetics argument. How will that affect the figure?** 
 
@@ -248,7 +240,7 @@ ggplot(data=df, aes(x= genotype, y=samplemeans, fill=celltype)) +
         axis.text = element_text(size = rel(1.25)))
 ```
 
-<img src="figure/unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" style="display: block; margin: auto;" />
+ ![ggbox-2](../figure/unnamed-chunk-21-1.png)
 
 ### Barplot
 For the barplot, we need to define the graph type to `geom_bar`. Since we don't have an x variable, we need to specify the row names as our index so each sample is plotted on its own. For `fill` you can use `genotype` or `celltype` and see how the plot changes. **Can you determine how we got the axis labels on an angle?**
@@ -266,7 +258,7 @@ ggplot(data=df, aes(x=row.names(df), y=samplemeans, fill=genotype)) +
         axis.text.x = element_text(angle=45, vjust=0.5, hjust=0.6, size = rel(1.25)))
 ```
 
-<img src="figure/unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" style="display: block; margin: auto;" />
+ ![ggbar-1](../figure/unnamed-chunk-22-1.png) 
 
 
 

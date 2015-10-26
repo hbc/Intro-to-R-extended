@@ -167,7 +167,7 @@ We just saw 2 of the 6 **data types** that R uses: `"character"` and `"numeric"`
 
 ### Data frame vs. Matrix
 
-A `matrix` in R is a collection of vectors of **same length and identical datatype**. Vectors can be combined as columns in the matrix or by row. Usually matrices are numeric and used in various computational algorithms to serve as a checkpoint. For example, if input data is not of identical datatype, the `matrix()` function will throw an error and stop any downstream code execution.
+A `matrix` in R is a collection of vectors of **same length and identical datatype**. Vectors can be combined as columns in the matrix or by row. Usually matrices are numeric and used in various computational algorithms to serve as a checkpoint. For example, if input data is not of identical data type (numeric, character, etc.), the `matrix()` function will throw an error and stop any downstream code execution.
 
 `data.frame` is the _de facto_ data structure for most tabular data and what we use for statistics and plotting. A `data.frame` is a collection of vectors of identical lengths. Each vector represents a column, and **each vector can be of a different data type** (e.g., characters, integers, factors). 
 

@@ -223,7 +223,7 @@ ggplot(data=df, aes(x= genotype, y=samplemeans)) +
   geom_boxplot() 
 ```
 
- ![ggbox-1](../figure/unnamed-chunk-19-1.png title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" style="display: block; margin: auto;" />
+ ![ggbox-1](../figure/unnamed-chunk-19-1.png)
 
 
 Unlike base R graphs, the ggplot graphs are not effected by many of the options set in the `par()` function (e.g. adjusting relative size of axis labels usin `cex`). They can be modified using the `theme()` function, and by adding graphic parameters. Here, we will increase the size of the axis labels and the main title. We can also change the `fill` variable to `celltype` - how does this change the plot? **What if you switch `genotype` with `celltype` in the aeshetics argument. How will that affect the figure?** 

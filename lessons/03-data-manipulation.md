@@ -26,6 +26,7 @@ Let's start by creating a vector called age:
 
 	age <- c(15, 18, 22, 45, 52, 56, 67, 73, 81)
 
+
 Suppose we only wanted the fifth value of this vector, we would use the following syntax:
 
 	age[5]
@@ -103,7 +104,7 @@ metadata[, c("genotype", "celltype")]
 ## sample11       KO    typeB
 ## sample12       KO    typeB
 ```
-```
+
 
 
 ## Subsetting data

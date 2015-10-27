@@ -89,35 +89,37 @@ You can check what base packages are loaded by typing into the console:
 In this workshop we will mostly be using functions from the standard base packages. However, the more you work with R you will come to realize that there is a cornucopia of R packages that offer a wide variety of functionality. To use additional packages will require installation.
 
  
-Packages for R can be installed from the [CRAN](http://cran.r-project.org/) package repository. An example is given below as we install the `gplots` package required for some images we will create later on.
+Packages for R can be installed from the [CRAN](http://cran.r-project.org/) package repository using the `install.packages` function. An example is given below for the `ggplot2` package that will be required for some images we will create later on. *If you do not have access to internet, do not run this code. Instead we will install from source*
 
 
 ```r
-install.packages('gplots')
+install.packages('ggplot2')
 ```
 
-Alternatively, packages can also be installed from [Bioconductor](https://www.bioconductor.org/) by using the `biocLite.R` installation script. You will first need to install Bioconductor and all the standard packages (this only needs to be done once ever):
-
+Alternatively, packages can also be installed from [Bioconductor](https://www.bioconductor.org/), another repository of packages but mostly pertaining to genomic data analysis. There are many packages that are available in CRAN and Bioconductor, but there are also packages that are specific to one repository. Generally, you can find out this information with a Google search or by trial and error. To install from Bioconductor, you will first need to install Bioconductor and all the standard packages. This only needs to be done once ever for your R installation. 
 
 ```r
 source("http://bioconductor.org/biocLite.R")
 biocLite()
 ```
 
-Once you have the standard packages installed, you can add install additional packages using the `biocLite.R` script. If it's a new R session you will also have to source the script again. Here we will install another package useful for visualization `ggplot2`:
+Once you have the standard packages installed, you can install additional packages using the `biocLite.R` script. If it's a new R session you will also have to source the script again. Here we show that the same package `ggplot2` is available through Bioconductor:
 
 
 ```r
 biocLite('ggplot2')
 ```
 
-**Finally R packages can also be installed from source -- ADD THIS IN**
+Finally, R packages can also be installed from source. This is useful when you do not have an internet connection (and have the source files locally), since the other two methods are retrieving the source files from remote sites. For this class, we can install ggplot2 from source, because we have provided for you a compressed file containing all the required infromation to build and install the package into your environment. First locate the file `ggplot2_1.0.1.tar.gz` in your directory. To install it, we use the same `install.packages` function but we have additional *arguments* that need to be *changed from defaults*:
 
+	install.packages('ggplot2_1.0.1.tar.gz', type="source", repos=NULL)
+
+
+### Loading libraries
 Once you have the package installed, you can load it into your R session for use. Any of the functions that are specific to that package will be available for you to use by simply calling the function as you would for any of the base functions. *Note that quotations are not required here.*
 
 
 ```r
-library(gplots)
 library(ggplot2)
 ```
 

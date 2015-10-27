@@ -114,7 +114,7 @@ number <- x + y
 
 > ### Notes on variables
 > Variables can be given any name such as `x`, `current_temperature`, or
-> `subject_id`. You want your object names to be explicit and not too long. They
+> `subject_id`. You want your variable names to be explicit and not too long. They
 > cannot start with a number (`2x` is not valid but `x2` is). R is case sensitive
 > (e.g., `genome_length` is different from `Genome_length`). There are some names that
 > cannot be used because they represent the names of fundamental functions in R

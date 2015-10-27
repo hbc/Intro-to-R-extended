@@ -36,9 +36,8 @@ meta <- read.delim(file.path(metaDir, '2015-1018_sample_key.csv'), header=T, sep
 * The above snippet of R code has many different "parts of speech" for R (syntax):
   - the **comments** `#` and how they are used to document function and its content
   - the **assignment operator** `<-`
-  - **variables** and **objects**
-  - a **function** with arguments
-  - the `=` for **arguments**
+  - **variables** and **functions**
+  - the `=` for **arguments** for functions
 
 _NOTE: indentation and consistency in spacing to improve clarity and legibility_
 

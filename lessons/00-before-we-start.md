@@ -47,21 +47,23 @@ RStudio is freely available open-source IDE (Integrated Development Environment)
 
 ## Before we get started
 
+The instructions below are for students who have downloaded the `Intro-to-R-master.zip` prior to class. If you do not have this zip file please let the instructor know, and we can provide you with this data on a flash drive.
+
+* Move the `Intro-to-R-master.zip` to your Dektop abd extract contents. You should now have a directory by the same name on your Desktop.
+* Open up RStudio
 * Under the `File` menu, click on `New project`, choose `New directory`, then
-  `Empty project`
-* Enter a name for this new folder, and choose a convenient location for
-  it. This will be your **working directory** for the rest of the day
-  (e.g., `~/intro-to-R`)
-* Click on "Create project"
-* Under the `Files` tab on the right of the screen, click on `New Folder` and
-  create a folder named `data` within your newly created working directory.
-  (e.g., `~/intro-to-R/data`)
-* Create a new R script (File > New File > R script) and save it in your working
-  directory (e.g. `intro-to-Rscript.R`)
+  `Existing Directory`
+* Use `Browse...` to locate the `Intro-to-R-master` directory and then `Create Project`. This will be your **working directory** for the rest of the day
+  (e.g., `~/Desktop/Intro-to-R-master`)
 
 Your working directory should now look like this:
 
-![How it should look like at the beginning of this lesson](../img/r_starting_how_it_should_like.png)
+![How it should look like at the beginning of this lesson](../img/before_we_start.png)
+
+ 
+* Create a new R script (File > New File > R script) and save it in your working
+  directory (e.g. `intro-to-Rscript.R`). Here, you can type all the commands we run during the workshop, and save it for later reference.
+
 
 ## Best practices
 
@@ -77,6 +79,8 @@ you may create for the need of a particular analysis. For instance, you may want
 to create a `data/` directory within your working directory that stores the raw
 data, and have a `results/` directory for intermediate datasets and a
 `figures/` directory for the plots you will generate.
+
+> The current working directory has a `data` and `figure` folder already. Create an additional directory called `results`. You can do this by navigating to the lower right panel and using the `New Folder` button in the `Files` tab.
 
 
 ## Interacting with R
@@ -94,6 +98,8 @@ on if needed. You can copy-paste into the R console, but the Rstudio script
 editor allows you to 'send' the current line or the currently selected text to
 the R console using the `Ctrl-Enter` shortcut.
 
+### Command prompt
+
 If R is ready to accept commands, the R console shows a `>` prompt. If it
 receives a command (by typing, copy-pasting or sent from the script editor using
 `Ctrl-Enter`), R will try to execute it, and when ready, show the results and
@@ -103,7 +109,7 @@ If R is still waiting for you to enter more data because it isn't complete yet,
 the console will show a `+` prompt. It means that you haven't finished entering
 a complete command. This is because you have not 'closed' a parenthesis or
 quotation. If you're in Rstudio and this happens, click inside the console
-window and press `Esc`; this should help you out of trouble.
+window and press `Ctrl+c`; this should help you out of trouble.
 
 
 

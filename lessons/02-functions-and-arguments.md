@@ -9,8 +9,8 @@ minutes: 20
 
 * Understanding the structure of a function and how it is used
 * Exposure to a few commonly used base functions in R
-* Explore and inspect different data structures
-* An brief introduction to packages in R 
+* An brief introduction to packages and libraries in R 
+* knwoing where and how to find help 
 
 
 ## Functions and their arguments
@@ -119,7 +119,7 @@ Once you have the package installed, you can load it into your R session for use
 ```r
 library(gplots)
 library(ggplot2)
-``
+```
 
 ## Seeking help
 

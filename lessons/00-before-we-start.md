@@ -9,7 +9,8 @@ minutes: 15
 
 * An introduction to R and RStudio
 * Creating a directory structure for efficient data management
-* Knowing where to get help and understanding how to ask well formulated questions
+* Learning how to interact with R
+
 
 
 ## What is R?

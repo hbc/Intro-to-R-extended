@@ -323,4 +323,6 @@ Check and see what happened by using `head`. You can also verfy that column name
 >and only the results of the query returned.
 
 
-
+---
+*The materials used in this lesson is adapted from work that is Copyright © Data Carpentry (http://datacarpentry.org/). 
+All Data Carpentry instructional material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).*

@@ -47,7 +47,7 @@ RStudio is freely available open-source IDE (Integrated Development Environment)
 
 ## Before we get started
 
-The instructions below are for students who have downloaded the `Intro-to-R-master.zip` prior to class. If you do not have this zip file please let the instructor know, and we can provide you with this data on a flash drive.
+The instructions below are for students who have downloaded the `Intro-to-R-master.zip` prior to class. If you do not have this zip file please check the README file for this repo on what you need to get started.
 
 * Move the `Intro-to-R-master.zip` to your Dektop abd extract contents. You should now have a directory by the same name on your Desktop.
 * Open up RStudio

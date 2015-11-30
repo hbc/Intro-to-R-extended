@@ -88,7 +88,7 @@ be read as 3 **goes into** `x`.
 A variable is a symbolic name for (or reference to) information. Variables in computer programming are analogous to "buckets", where information can be maintained and referenced. On the outside of the bucket is a name. When referring to the bucket, we use the name of the bucket, not the data stored in the bucket.
 
 In the example above, we created a variable or a 'bucket' called `x`. Inside we put a value. Let's create another variable called `y`and give it a value of 5. When assigning a value to an variable, R does not print anything to the console. You can force to
-print the value by using parentheses or by typing the name.
+print the value by using parentheses or by typing the variable name.
 
 ```
 y <- 5
@@ -108,8 +108,8 @@ number <- x + y
 
 ### Exercise 
 
-- What happens if we change the value of what's inside `x` to 5. What happens to `number`?
-- Now try changing `y` to contain the value 10? What do you need to do, to update the variable `number`?
+1. Try changing the value of the variable `x` to 5. What happens to `number`?
+2. Now try changing the value of variable `y` to contain the value 10. What do you need to do, to update the variable `number`?
 
 > ### Notes on variables
 > Variables can be given any name such as `x`, `current_temperature`, or
@@ -137,9 +137,11 @@ We know that variables are like buckets, and so far we have seen that bucket fil
 
 ### Vectors
 
-A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a list of values, mainly either numbers or characters (or both). The analogy here is that your bucket now has different compartments; these compartments in a vector are called *elements*. Each element contains a single value, and there is no limit to how many elements you can have. The vector is assigned to a single variable, because regardless of how many elements it contains it is still a single bucket. Let's create a vector of genome lengths and assign it to a variable called `glengths`. 
+A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a collection of values, mainly either numbers or characters (or a combination of both). The analogy here is that your bucket now has different compartments; these compartments in a vector are called *elements*. Each element contains a single value, and there is no limit to how many elements you can have. A vector is assigned to a single variable, because regardless of how many elements it contains, in the end it is still a single entity (bucket). 
 
-Each element of the vector contains a single numeric value, and three values will be combined together using `c()` (the combine function). All of the values are put within the parentheses and separated with a comma.
+Let's create a vector of genome lengths and assign it to a variable called `glengths`. 
+
+Each element of this vector contains a single numeric value, and three values will be combined together using `c()` (the combine function). All of the values are put within the parentheses and separated with a comma.
 
 
 ```{r, purl=FALSE}
@@ -163,29 +165,39 @@ We just saw 2 of the 6 **data types** that R uses: `"character"` and `"numeric"`
 * `"raw"` that we won't discuss further
 
 
+### Exercise
 
-### Data Frame vs. Matrix
-
-A `matrix` in R is a collection of vectors of **same length and identical datatype**. Vectors can be combined as columns in the matrix or by row. Usually matrices are numeric and used in various computational algorithms to serve as a checkpoint. For example, if input data is not of identical data type (numeric, character, etc.), the `matrix()` function will throw an error and stop any downstream code execution.
-
-`data.frame` is the _de facto_ data structure for most tabular data and what we use for statistics and plotting. A `data.frame` is a collection of vectors of identical lengths. Each vector represents a column, and **each vector can be of a different data type** (e.g., characters, integers, factors). 
+1. Create a vector of numeric and character values by _combining_ the two vectors that we just created (`glengths` and `species`). Assign this combined vector to a new variable called `combined`. *Hint: you will need to use the combine `c()` function to do this*
+2. Take a look at the `combined` vector, you should have a total of 6 elements. Create a logical vector called `isChar`; this vector will have 6 elements, where each element is a logical value which represents whether that same element in the `combined` vector is a character datatype or not.
 
 
 ### Factors
 
-Factors are used to represent categorical data. Factors can be ordered or unordered and are an important class for statistical analysis and for plotting.
+A factor is a vector that can contain only predefined values, and is used to store categorical data. Factors can be ordered or unordered and are an important class for statistical analysis and for plotting.
 
-Factors are stored as integers, and have labels associated with these unique integers. While factors look (and often behave) like character vectors, they are actually integers under the hood, and you need to be careful when treating them like strings. To create a factor vector we use the `factor()` function:
+Factors are built on top of integer vectors using two attributes: the class(), “factor”, which makes them behave differently from regular integer vectors, and the levels(), which defines the set of allowed values. To create a factor vector we use the `factor()` function.
 
-```{r}
-expression <- factor(c("low", "high", "medium", "high", "low", "medium", "high"))
-levels(expression)
-```
+Lets start by creating a character vector describing three different levels of expression:
+
+	expression <- c("low", "high", "medium", "high", "low", "medium", "high")
+
+
+Now we can convert this character vector into a *factor*:
+ 
+	expression <- factor(expresssion)
+
+So, what exactly happened when we applied the `factor` function? The set of unique elements in the expression vector are ordered alphabetically and integer value-label pairs are created (i.e high=1, low=2, medium=3). 
+ 
+	levels(expression)
+
+With this assignment, we can now classify and count the elements based on the three different categories/levels:
+
+	summary(expression)
+
 
 Sometimes, the order of the factors does not matter, other times you might want
 to specify the order because it is meaningful (e.g., "low", "medium", "high") or
-it is required by particular type of analysis. Additionally, specifying the
-order of the levels allows one to compare levels:
+it is required by particular type of analysis. To specify a specific ordering of factor levels we need to give the desired order and add an argument to the function `ordered=TRUE`. In this way, R can access the elements as their actual integer values. Try the example below: 
 
 ```{r}
 expression <- factor(expression, levels=c("low", "medium", "high"))
@@ -202,6 +214,27 @@ better than using simple integer labels because factors are self describing:
 `"low"`, `"medium"`, and `"high"`" is more descriptive than `1`, `2`, `3`. Which
 is low?  You wouldn't be able to tell with just integer data. Factors have this
 information built in. It is particularly helpful when there are many levels.
+
+
+### Data Frame vs. Matrix
+
+A `matrix` in R is a collection of vectors of **same length and identical datatype**. Vectors can be combined as columns in the matrix or by row. Usually matrices are numeric and used in various computational algorithms to serve as a checkpoint. For example, if input data is not of identical data type (numeric, character, etc.), the `matrix()` function will throw an error and stop any downstream code execution.
+
+`data.frame` is the _de facto_ data structure for most tabular data and what we use for statistics and plotting. A `data.frame` is a collection of vectors of identical lengths. Each vector represents a column, and **each vector can be of a different data type** (e.g., characters, integers, factors). 
+
+We can create a dataframe by **binding vectors** together as columns in our dataframe. We do this using the `data.frame()` function, and passing in as arguments the different vectors we would like to bind together. *This function will only work for vectors  of the same length.*
+
+	df <- data.frame(species, glengths)
+
+To check that the vectors retain their original datatype we can use the `summary` function to inspect our dataframe. We will discuss this function in more detail during the next lesson.
+
+	summary(df)
+
+
+
+### Exercise <INSERT HERE>
+
+
 
 
 ---

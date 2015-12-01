@@ -156,7 +156,7 @@ The table below provides examples of each of the commonly used data types:
 
 ## Data Structures
 
-We know that variables are like buckets, and so far we have seen that bucket filled with a single value, which could be of any data type. Even when `number` was created, the result of the mathematical operation was a single value. **Variables can store more than just a single value, they can store a multitude of different data structures.** These include, but are not limited to, vectors, matrices (`matrix`), data frames (`data.frame`) and factors (`factor`).
+We know that variables are like buckets, and so far we have seen that bucket filled with a single value. Even when `number` was created, the result of the mathematical operation was a single value. **Variables can store more than just a single value, they can store a multitude of different data structures.** These include, but are not limited to, vectors, matrices (`matrix`), data frames (`data.frame`) and factors (`factor`).
 
 
 ### Vectors

@@ -107,7 +107,8 @@ number <- x + y
 ```
 
 ***
-*Exercise*
+**Exercise**
+
 1. Try changing the value of the variable `x` to 5. What happens to `number`?
 2. Now try changing the value of variable `y` to contain the value 10. What do you need to do, to update the variable `number`?
 ***

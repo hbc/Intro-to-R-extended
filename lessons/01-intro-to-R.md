@@ -37,7 +37,7 @@ meta <- read.delim(file.path(metaDir, '2015-1018_sample_key.csv'), header=T, sep
   - the **comments** `#` and how they are used to document function and its content
   - the **assignment operator** `<-`
   - **variables** and **functions**
-  - the `=` for **arguments** for functions
+  - the `=` for **arguments** in functions
 
 _NOTE: indentation and consistency in spacing to improve clarity and legibility_
 
@@ -64,7 +64,7 @@ I am adding 3 and 5. R is fun!
 ```
 
 Now R is trying to run that sentence as a command, and it 
-doesn't work. We get an error in the console "Error: unexpected symbol in "I am" means that the R interpreter did not know what to do with that command.
+doesn't work. We get an error in the console *"Error: unexpected symbol in "I am" means that the R interpreter did not know what to do with that command."*
 
 Ok so it's great that R is a glorified caluculator, but obviously
 we want to do more interesting things. 

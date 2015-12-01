@@ -137,7 +137,20 @@ We know that variables are like buckets, and so far we have seen that bucket fil
 
 ### Vectors
 
-A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a collection of values, mainly either numbers or characters (or a combination of both). The analogy here is that your bucket now has different compartments; these compartments in a vector are called *elements*. Each element contains a single value, and there is no limit to how many elements you can have. A vector is assigned to a single variable, because regardless of how many elements it contains, in the end it is still a single entity (bucket). 
+A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a collection of values, mainly either numbers,
+
+![numeric vector](../img/vector2.png)
+
+or characters,
+
+![character vector](../img/vector1.png)
+
+or a combination of both (which becomes a character vector). 
+
+![mixed img](../vector/vector4.png)
+
+
+The analogy here is that your bucket now has different compartments; these compartments in a vector are called *elements*. Each element contains a single value, and there is no limit to how many elements you can have. A vector is assigned to a single variable, because regardless of how many elements it contains, in the end it is still a single entity (bucket). 
 
 Let's create a vector of genome lengths and assign it to a variable called `glengths`. 
 
@@ -173,9 +186,7 @@ We just saw 2 of the 6 **data types** that R uses: `"character"` and `"numeric"`
 
 ### Factors
 
-A factor is a vector that can contain only predefined values, and is used to store categorical data. Factors can be ordered or unordered and are an important class for statistical analysis and for plotting.
-
-Factors are built on top of integer vectors using two attributes: the class(), “factor”, which makes them behave differently from regular integer vectors, and the levels(), which defines the set of allowed values. To create a factor vector we use the `factor()` function.
+A **factor** is a vector that can contain only predefined values, and is used to **store categorical data**. Factors are built on top of integer vectors using two attributes: the class(), “factor”, which makes them behave differently from regular integer vectors, and the levels(), which defines the set of allowed categories/factor levels. To create a factor vector we use the `factor()` function.
 
 Lets start by creating a character vector describing three different levels of expression:
 
@@ -186,54 +197,56 @@ Now we can convert this character vector into a *factor*:
  
 	expression <- factor(expresssion)
 
-So, what exactly happened when we applied the `factor` function? The set of unique elements in the expression vector are ordered alphabetically and integer value-label pairs are created (i.e high=1, low=2, medium=3). 
+So, what exactly happened when we applied the `factor()` function? The set of unique elements in the expression vector were obtained, ordered alphabetically, and integer value-label pairs were created (i.e high=1, low=2, medium=3). This in effect assigns the different levels: 
  
 	levels(expression)
 
-With this assignment, we can now classify and count the elements based on the three different categories/levels:
+With the establishment of defined levels, we can use the `summary()` function to classify and count the elements for each. *We will discuss this function in more detail during the next lesson.*
 
 	summary(expression)
 
+Factors can be ordered or unordered and are an important class for statistical analysis and for plotting. Sometimes, the order of the factors does not matter, other times you might want
+to specify the order because it is meaningful (e.g., "low" < "medium" < "high") or it is required by particular type of analysis. 
 
-Sometimes, the order of the factors does not matter, other times you might want
-to specify the order because it is meaningful (e.g., "low", "medium", "high") or
-it is required by particular type of analysis. To specify a specific ordering of factor levels we need to give the desired order and add an argument to the function `ordered=TRUE`. In this way, R can access the elements as their actual integer values. Try the example below: 
+In the example above, the factor is unordered. To order factor levels we need to specify the desired order of levels and add an argument to the function `ordered=TRUE`. In this way, R can access the elements as their actual integer values. Try the example below: 
 
 ```{r}
-expression <- factor(expression, levels=c("low", "medium", "high"))
-levels(expression)
-min(expression) ## doesn't work
+min(expression) # doesn't work!
 
 expression <- factor(expression, levels=c("low", "medium", "high"), ordered=TRUE)
 levels(expression)
 min(expression) ## works!
 ```
 
-In R's memory, these factors are represented by numbers (1, 2, 3). They are
-better than using simple integer labels because factors are self describing:
-`"low"`, `"medium"`, and `"high"`" is more descriptive than `1`, `2`, `3`. Which
-is low?  You wouldn't be able to tell with just integer data. Factors have this
-information built in. It is particularly helpful when there are many levels.
+### Exercise <INSERT HERE>
+
 
 
 ### Data Frame vs. Matrix
 
-A `matrix` in R is a collection of vectors of **same length and identical datatype**. Vectors can be combined as columns in the matrix or by row. Usually matrices are numeric and used in various computational algorithms to serve as a checkpoint. For example, if input data is not of identical data type (numeric, character, etc.), the `matrix()` function will throw an error and stop any downstream code execution.
+A `matrix` in R is a collection of vectors of **same length and identical datatype**. Vectors can be combined as columns in the matrix or by row, to create a 2-dimesional structure.
 
-`data.frame` is the _de facto_ data structure for most tabular data and what we use for statistics and plotting. A `data.frame` is a collection of vectors of identical lengths. Each vector represents a column, and **each vector can be of a different data type** (e.g., characters, integers, factors). 
+![matrix](../img/matrix.png)
 
-We can create a dataframe by **binding vectors** together as columns in our dataframe. We do this using the `data.frame()` function, and passing in as arguments the different vectors we would like to bind together. *This function will only work for vectors  of the same length.*
+Matrices are used commonly as part of the mathematical machinery of statistics. They are usually of numeric datatype and used in computational algorithms to serve as a checkpoint. For example, if input data is not of identical data type (numeric, character, etc.), the `matrix()` function will throw an error and stop any downstream code execution.
+
+A `data.frame` is the _de facto_ data structure for most tabular data and what we use for statistics and plotting. A `data.frame` is a similar to the matrix with a collection of vectors of identical lengths. Each vector represents a column, and **each vector can be of a different data type** (e.g., characters, integers, factors). 
+
+![dataframe](../img/dataframe.png)
+
+A data frame is the most common way of storing data in R, and if used systematically makes data analysis easier. 
+
+We can create a dataframe by bringing vectors together to form columns in our dataframe. We do this using the `data.frame()` function, and passing in as arguments the different vectors we would like to bind together. *This function will only work for vectors  of the same length.*
 
 	df <- data.frame(species, glengths)
 
-To check that the vectors retain their original datatype we can use the `summary` function to inspect our dataframe. We will discuss this function in more detail during the next lesson.
-
-	summary(df)
-
+Beware of `data.frame()`’s default behaviour which turns strings into factors. If we use the `summary` function to inspect our dataframe, you will see that although the species vector was a character vector, it automatically got converted into a factor inside the data frame. To change the default settings you can use `stringAsFactors = FALSE` to suppress this behaviour.
 
 
 ### Exercise <INSERT HERE>
 
+
+### Lists
 
 
 

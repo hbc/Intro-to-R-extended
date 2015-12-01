@@ -273,7 +273,7 @@ Let's add some additional data to coincide with our sample groups factor vector 
 
 1. Create 3 vectors with 9 values: 
 	
-	- "sample name"(vector): "C1", "C2", "C3", "KD1", "KD2", "KD3", "OE1", "OE2", "OE3"
+	- "samplename"(vector): "C1", "C2", "C3", "KD1", "KD2", "KD3", "OE1", "OE2", "OE3"
 	- "batch"(factor): 1, 1, 2, 1, 1, 2, 1, 1, 2
 	- "sex"(factor): "M", "F", "M", "F", "M", "M", "M", "M", "F"
 

@@ -147,7 +147,7 @@ or characters,
 
 or a combination of both (which becomes a character vector). 
 
-![mixed img](../vector/vector4.png)
+![mixed img](../img/vector4.png)
 
 
 The analogy here is that your bucket now has different compartments; these compartments in a vector are called *elements*. Each element contains a single value, and there is no limit to how many elements you can have. A vector is assigned to a single variable, because regardless of how many elements it contains, in the end it is still a single entity (bucket). 
@@ -222,13 +222,15 @@ min(expression) ## works!
 
 
 
-### Data Frame vs. Matrix
+### Matrix
 
 A `matrix` in R is a collection of vectors of **same length and identical datatype**. Vectors can be combined as columns in the matrix or by row, to create a 2-dimesional structure.
 
 ![matrix](../img/matrix.png)
 
 Matrices are used commonly as part of the mathematical machinery of statistics. They are usually of numeric datatype and used in computational algorithms to serve as a checkpoint. For example, if input data is not of identical data type (numeric, character, etc.), the `matrix()` function will throw an error and stop any downstream code execution.
+
+### Data Frame
 
 A `data.frame` is the _de facto_ data structure for most tabular data and what we use for statistics and plotting. A `data.frame` is a similar to the matrix with a collection of vectors of identical lengths. Each vector represents a column, and **each vector can be of a different data type** (e.g., characters, integers, factors). 
 

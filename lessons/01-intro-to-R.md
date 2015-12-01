@@ -138,7 +138,7 @@ number <- x + y
 Variables can contain values of specific types within R.
 
 | Data Type  | Examples|
-| -----------|-------------------------------|
+| -----------:|:-------------------------------:|
 | Numeric:  | 1, 1.5, 20, pi|
 | Character:  | “anytext”, “5”, “TRUE”|
 | Logical:  | TRUE, FALSE, T, F|

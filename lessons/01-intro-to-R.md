@@ -169,7 +169,7 @@ or characters.
 
 ![character vector](../img/vector1.png)
 
-**All values in a vector must be of the same data type.** If you try to create a vector with more than a single data type, R will try to coerce it into a single data type. 
+**Note that all values in a vector must be of the same data type.** If you try to create a vector with more than a single data type, R will try to coerce it into a single data type. 
 
 ![mixed img](../img/vector4.png)
 

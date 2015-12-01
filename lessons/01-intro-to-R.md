@@ -165,16 +165,15 @@ A vector is the most common and basic data structure in R, and is pretty much th
 
 ![numeric vector](../img/vector2.png)
 
-or characters,
+or characters.
 
 ![character vector](../img/vector1.png)
 
-or a combination of both (which becomes a character vector). 
+**All values in a vector must be of the same data type.** If you try to create a vector with more than a single data type, R will try to coerce it into a single data type. 
 
 ![mixed img](../img/vector4.png)
 
-
-The analogy here is that your bucket now has different compartments; these compartments in a vector are called *elements*. Each element contains a single value, and there is no limit to how many elements you can have. A vector is assigned to a single variable, because regardless of how many elements it contains, in the end it is still a single entity (bucket). 
+The analogy for a vector is that your bucket now has different compartments; these compartments in a vector are called *elements*. Each element contains a single value, and there is no limit to how many elements you can have. A vector is assigned to a single variable, because regardless of how many elements it contains, in the end it is still a single entity (bucket). 
 
 Let's create a vector of genome lengths and assign it to a variable called `glengths`. 
 
@@ -192,9 +191,6 @@ A vector can also contain characters. Create another vector called `species` wit
 species <- c("ecoli", "human", "corn")
 species
 ```
-
-
-
 
 ***
 **Exercise**
@@ -225,8 +221,7 @@ With the establishment of defined levels, we can use the `summary()` function to
 
 	summary(expression)
 
-Factors can be ordered or unordered and are an important class for statistical analysis and for plotting. Sometimes, the order of the factors does not matter, other times you might want
-to specify the order because it is meaningful (e.g., "low" < "medium" < "high") or it is required by particular type of analysis. 
+Factors can be ordered or unordered and are an important class for statistical analysis and for plotting. Sometimes, the order of the factors does not matter, other times you might want to specify the order because it is meaningful (e.g., "low" < "medium" < "high") or it is required by particular type of analysis. 
 
 In the example above, the factor is unordered. To order factor levels we need to specify the desired order of levels and add an argument to the function `ordered=TRUE`. In this way, R can access the elements as their actual integer values. Try the example below: 
 
@@ -238,9 +233,12 @@ levels(expression)
 min(expression) ## works!
 ```
 
-### Exercise <INSERT HERE>
-----------------------------------------
+***
+**Exercise**
+For our experimental analyses, we are working with normal cells, cells knocked out for geneA (a very exciting gene), and cells overexpressing geneA. We have three replicates for our normal cells, our knock-out cells, and our overexpressing cells.
 
+1. Create a vector named "samplegroup" of length nine with three control ("Ctrl") samples, three knock-out ("KO") samples, and three over-expressing ("OE") samples.
+2. Turn "samplegroup" into a factor data structure. Order the factor with ("KO" < "Ctrl" < "OE").
 
 
 ### Matrix
@@ -266,8 +264,10 @@ We can create a dataframe by bringing vectors together to form columns in our da
 Beware of `data.frame()`’s default behaviour which turns strings into factors. If we use the `summary` function to inspect our dataframe, you will see that although the species vector was a character vector, it automatically got converted into a factor inside the data frame. To change the default settings you can use `stringAsFactors = FALSE` to suppress this behaviour.
 
 
-### Exercise <INSERT HERE>
--------------------------------------------
+***
+**Exercise**
+
+
 
 
 ### Lists

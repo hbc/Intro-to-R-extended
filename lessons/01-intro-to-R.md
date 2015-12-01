@@ -136,12 +136,13 @@ number <- x + y
 ## Data Types
 
 Variables can contain values of specific types within R.
-| Data Type  | Examples |
+
+| Data Type  | Examples|
 | -----------|-------------------------------|
-| Numeric:  | 1, 1.5, 20, pi |
+| Numeric:  | 1, 1.5, 20, pi|
 | Character:  | “anytext”, “5”, “TRUE”|
 | Logical:  | TRUE, FALSE, T, F|
-| Complex:  | 5i, 3i + 5 |
+| Complex:  | 5i, 3i + 5|
 
 ## Data Structures
 

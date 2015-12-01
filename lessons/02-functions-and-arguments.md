@@ -15,9 +15,13 @@ minutes: 20
 
 ## Functions and their arguments
 
-The other key feature of R is functions. Functions are **"self contained" modules of code that accomplish a specific task**. Functions usually take in some sort of data structure (value, vector, dataframe etc.), process it, and return a result.
+A key feature of R is functions. Functions are **"self contained" modules of code that accomplish a specific task**. Functions usually take in some sort of data structure (value, vector, dataframe etc.), process it, and return a result.
 
-The input(s) are called **arguments** and can be anything, not only numbers or characters, but also other data structures. Exactly what each argument means differs per function, and must be looked up in the documentation (we will discuss help options at the end of this lesson). If an argument alters the way the function operates, such as whether to ignore 'bad values', it is sometimes called an *option*.
+The general usage for a function is the name of the function followed by parantheses:
+
+	function_name(input)
+
+The input(s) are called **arguments** and can be anything, not only numbers or characters, but also other data structures. Exactly what each argument means differs per function, and must be looked up in the documentation (we will discuss help options at the end of this lesson). If an argument alters the way the function operates, it is sometimes called an *option*.
 
 Most functions can take several arguments, but many have so-called *defaults*. If you don't specify such an argument when calling the function, the function
 itself will fall back on using the *default*. This is a standard value that the author of the function specified as being "good enough in standard cases". An
@@ -25,17 +29,16 @@ example would be what symbol to use in a plot. However, if you want something sp
 
 We have already used a few examples of basic functions in the previous lessons i.e `c()`, and  `factor()`. These functions are available as part of R's built in capabilities, and we will explore a few more of these base functions below. You can also get functions from libraries (which we'll talk about in a bit), or even write your own. 
 
-Let's revisit a function that we have used previously to combine data `c()`. The arguments it takes is any number of numbers, characters or strings and performs the task of combining them into a single vector. You can also use it to add elements to an existing vector:
+Let's revisit a function that we have used previously to combine data `c()`. The arguments it takes is a collection of numbers, characters or strings (separated by a comma) and performs the task of combining them into a single vector. You can also use it to add elements to an existing vector:
 
 
 	glengths <- c(glengths, 90) # adding at the end	
 	glengths <- c(30, glengths) # adding at the beginning
 
 
-What happens here is that we take the original vector `glengths`, and we are adding another item first to the end of the other ones, and then another item at
-the beginning. We can do this over and over again to build a vector or a dataset.
+What happens here is that we take the original vector `glengths` (containing three elements), and we are adding another item to either to the end. We can do this over and over again to build a vector or a dataset.
 
-Since R is used for statistical computing, many of the base functions involve mathematical operations. One example would be the function `sqrt()`. The input (argument) must be a number, and the the output is the square root of that number. Let's try finding the square root of 81:
+Since R is used for statistical computing, many of the base functions involve mathematical operations. One example would be the function `sqrt()`. The input/argument must be a number, and the the output is the square root of that number. Let's try finding the square root of 81:
 
 
 	sqrt(81)
@@ -50,7 +53,7 @@ Now what would happen if we called the function on a *vector of values* instead 
 In this case the task was performed on each individual value of the vector `number` and the respective results were displayed.
 
 
-Let's try a function that we can change some of the *options*, for example `round`:
+Let's try another function, this time using one that we can change some of the *options*, for example `round`:
 
 
 	round(3.14159)
@@ -71,12 +74,15 @@ If you provide the arguments in the exact same order as they are defined (in the
 However, it's usually not recommended practice because it's a lot of remembering to do, and if you share your code with others that includes less known functions
 it makes your code difficult to read. (It's however OK to not include the names of the arguments for basic functions like `mean`, `min`, etc...). Another advantage of naming arguments, is that the order doesn't matter.  This is useful when there start to be more arguments. 
 
+### Exercise 
+-------------------------------------------
+1. Another commonly used base function is `mean()`. Use this function to calculate an average for the `glengths` vector.
+2. Compute the [standard error](http://en.wikipedia.org/wiki/Standard_error) for `glengths`. (Hint: This will require multiple functions. SE is the standard deviation divided by the square root of *n*; where n is the number of observations.)
 
 
 ## Packages and Libraries
 
-**Packages** are collections of R functions, data, and compiled code in a well-defined format. The directory where packages are stored is called the **library**. The two terms are sometimes used synonomously and there has been [discussion](http://www.r-bloggers.com/packages-v-libraries-in-r/) amongst the community to resolve this. It is somewhat counter-intuitive to _load a package_ using the `library()` function 
-and so you can see how confusion can arise.
+**Packages** are collections of R functions, data, and compiled code in a well-defined format. The directory where packages are stored is called the **library**. The two terms are sometimes used synonomously and there has been [discussion](http://www.r-bloggers.com/packages-v-libraries-in-r/) amongst the community to resolve this. It is somewhat counter-intuitive to _load a package_ using the `library()` function and so you can see how confusion can arise.
 
 
 There are a set of **standard (or base) packages** which are considered part of the R source code and automatically available as part of your R installation. Base packages contain the **basic functions** that allow R to work, and enable standard statistical and graphical functions on datasets; for example all of the functions that we have been using so far in our examples.
@@ -96,7 +102,7 @@ Packages for R can be installed from the [CRAN](http://cran.r-project.org/) pack
 install.packages('ggplot2')
 ```
 
-Alternatively, packages can also be installed from [Bioconductor](https://www.bioconductor.org/), another repository of packages but mostly pertaining to genomic data analysis. There are many packages that are available in CRAN and Bioconductor, but there are also packages that are specific to one repository. Generally, you can find out this information with a Google search or by trial and error. To install from Bioconductor, you will first need to install Bioconductor and all the standard packages. This only needs to be done once ever for your R installation. 
+Alternatively, packages can also be installed from [Bioconductor](https://www.bioconductor.org/), another repository of packages but mostly pertaining to genomic data analysis. There are many packages that are available in CRAN and Bioconductor, but there are also packages that are specific to one repository. Generally, you can find out this information with a Google search or by trial and error. To install from Bioconductor, you will first need to install Bioconductor and all the standard packages. *This only needs to be done once ever for your R installation.* 
 
 ```r
 source("http://bioconductor.org/biocLite.R")
@@ -110,7 +116,7 @@ Once you have the standard packages installed, you can install additional packag
 biocLite('ggplot2')
 ```
 
-Finally, R packages can also be installed from source. This is useful when you do not have an internet connection (and have the source files locally), since the other two methods are retrieving the source files from remote sites. For this class, we can install ggplot2 from source, because we have provided for you a compressed file containing all the required infromation to build and install the package into your environment. First locate the file `ggplot2_1.0.1.tar.gz` in your directory. To install it, we use the same `install.packages` function but we have additional *arguments* that need to be *changed from defaults*:
+Finally, R packages can also be installed from source. This is useful when you do not have an internet connection (and have the source files locally), since the other two methods are retrieving the source files from remote sites. For this class, we can install ggplot2 from source, because we have provided for you a compressed file containing all the required information to build and install the package into your environment. First locate the file `ggplot2_1.0.1.tar.gz` in your directory. To install it, we use the same `install.packages` function but we have additional *arguments* that need to be *changed from defaults*:
 
 	install.packages('ggplot2_1.0.1.tar.gz', type="source", repos=NULL)
 
@@ -173,8 +179,8 @@ should make it as easy as possible to pinpoint where the issue might be.
 Try to use the correct words to describe your problem. For instance, a package
 is not the same thing as a library. Most people will understand what you meant,
 but others have really strong feelings about the difference in meaning. The key
-point is that it can make things confusing for people trying to help you. Be as
-precise as possible when describing your problem
+point is that it can make things confusing for people trying to help you. **Be as
+precise as possible when describing your problem.**
 
 If possible, try to reduce what doesn't work to a simple reproducible
 example. If you can reproduce the problem using a very small `data.frame`

@@ -238,8 +238,8 @@ min(expression) ## works!
 
 For our experimental analyses, we are working with normal cells, cells knocked out for geneA (a very exciting gene), and cells overexpressing geneA. We have three replicates for our normal cells, our knock-out cells, and our overexpressing cells.
 
-1. Create a vector named "samplegroup" of length nine with three control ("Ctrl") samples, three knock-out ("KO") samples, and three over-expressing ("OE") samples.
-2. Turn "samplegroup" into a factor data structure. Order the factor with "KO" < "Ctrl" < "OE".
+1. Create a vector named `samplegroup` of length nine with three control ("Ctrl") samples, three knock-out ("KO") samples, and three over-expressing ("OE") samples.
+2. Turn `samplegroup` into a factor data structure. Order the factor with "KO" < "Ctrl" < "OE".
 
 ***
 
@@ -271,11 +271,11 @@ Beware of `data.frame()`’s default behaviour which turns strings into factors.
 
 Let's add some additional data to coincide with our sample groups factor vector we recently created to generate a data frame with all of the information.
 
-1. Create 3 vectors with 9 values: 
+1. Create 3 vectors with 9 values each: 
 	
-	- "samplename"(vector): "C1", "C2", "C3", "KD1", "KD2", "KD3", "OE1", "OE2", "OE3"
-	- "batch"(factor): 1, 1, 2, 1, 1, 2, 1, 1, 2
-	- "sex"(factor): "M", "F", "M", "F", "M", "M", "M", "M", "F"
+	- `samplename`(character vector): "C1", "C2", "C3", "KD1", "KD2", "KD3", "OE1", "OE2", "OE3"
+	- `batch`(factor): 1, 1, 2, 1, 1, 2, 1, 1, 2
+	- `sex`(factor): "M", "F", "M", "F", "M", "M", "M", "M", "F"
 
 2. Combine the newly created vectors/factor variables with our samplegroup variable into a dataframe named "metadata".
 
@@ -317,8 +317,8 @@ There are three components corresponding to the three different variables we pas
 ***
 **Exercise**
 
-1. Create a list with "metadata", "samplegroup", and "number".
-2. Print out only the contents of the "samplegroup" factor vector.
+1. Create a list with `metadata`, `samplegroup`, and `number`.
+2. Print out only the contents of the `samplegroup` factor vector.
 
 ***
 

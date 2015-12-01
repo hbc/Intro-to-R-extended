@@ -135,12 +135,21 @@ number <- x + y
 
 ## Data Types
 
-Variables can contain values of specific types within R.
+Variables can contain values of specific types within R. The six **data types** that R uses include: 
+
+* `"character"`
+* `"numeric"`     
+* `"logical"` for `TRUE` and `FALSE` (the boolean data type)
+* `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R that it's an integer)
+* `"complex"` to represent complex numbers with real and imaginary parts (e.g.,
+  `1+4i`) and that's all we're going to say about them
+* `"raw"` that we won't discuss further
 
 | Data Type  | Examples|
 | -----------:|:-------------------------------:|
 | Numeric:  | 1, 1.5, 20, pi|
 | Character:  | “anytext”, “5”, “TRUE”|
+| Integer:  | 2L, 500L, -17L|
 | Logical:  | TRUE, FALSE, T, F|
 | Complex:  | 5i, 3i + 5|
 
@@ -183,13 +192,7 @@ species <- c("ecoli", "human", "corn")
 species
 ```
 
-We just saw 2 of the 6 **data types** that R uses: `"character"` and `"numeric"`. The other 4 are:       
 
-* `"logical"` for `TRUE` and `FALSE` (the boolean data type)
-* `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R that it's an integer)
-* `"complex"` to represent complex numbers with real and imaginary parts (e.g.,
-  `1+4i`) and that's all we're going to say about them
-* `"raw"` that we won't discuss further
 
 
 ***

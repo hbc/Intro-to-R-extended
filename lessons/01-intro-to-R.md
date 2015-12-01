@@ -107,6 +107,7 @@ number <- x + y
 ```
 
 ### Exercise 
+-----------------------------
 
 1. Try changing the value of the variable `x` to 5. What happens to `number`?
 2. Now try changing the value of variable `y` to contain the value 10. What do you need to do, to update the variable `number`?
@@ -179,6 +180,7 @@ We just saw 2 of the 6 **data types** that R uses: `"character"` and `"numeric"`
 
 
 ### Exercise
+---------------------------
 
 1. Create a vector of numeric and character values by _combining_ the two vectors that we just created (`glengths` and `species`). Assign this combined vector to a new variable called `combined`. *Hint: you will need to use the combine `c()` function to do this*
 2. Take a look at the `combined` vector, you should have a total of 6 elements. Create a logical vector called `isChar`; this vector will have 6 elements, where each element is a logical value which represents whether that same element in the `combined` vector is a character datatype or not.
@@ -219,6 +221,7 @@ min(expression) ## works!
 ```
 
 ### Exercise <INSERT HERE>
+----------------------------------------
 
 
 
@@ -246,6 +249,7 @@ Beware of `data.frame()`’s default behaviour which turns strings into factors.
 
 
 ### Exercise <INSERT HERE>
+-------------------------------------------
 
 
 ### Lists

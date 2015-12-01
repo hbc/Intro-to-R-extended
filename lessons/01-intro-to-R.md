@@ -235,11 +235,13 @@ min(expression) ## works!
 
 ***
 **Exercise**
+
 For our experimental analyses, we are working with normal cells, cells knocked out for geneA (a very exciting gene), and cells overexpressing geneA. We have three replicates for our normal cells, our knock-out cells, and our overexpressing cells.
 
 1. Create a vector named "samplegroup" of length nine with three control ("Ctrl") samples, three knock-out ("KO") samples, and three over-expressing ("OE") samples.
 2. Turn "samplegroup" into a factor data structure. Order the factor with ("KO" < "Ctrl" < "OE").
 
+***
 
 ### Matrix
 

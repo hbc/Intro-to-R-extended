@@ -269,7 +269,17 @@ Beware of `data.frame()`’s default behaviour which turns strings into factors.
 ***
 **Exercise**
 
+Let's add some additional data to coincide with our sample groups factor vector we recently created to generate a data frame with all of the information.
 
+1. Create 3 vectors with 9 values: 
+	
+	- "sample name"(vector): "C1", "C2", "C3", "KD1", "KD2", "KD3", "OE1", "OE2", "OE3"
+	- "batch"(factor): 1, 1, 2, 1, 1, 2, 1, 1, 2
+	- "sex"(factor): "M", "F", "M", "F", "M", "M", "M", "M", "F"
+
+2. Combine the newly created vectors/factor variables with our samplegroup variable into a dataframe named "metadata".
+
+***
 
 
 ### Lists
@@ -283,7 +293,7 @@ If you have vector, a dataframe, and a character/numeric variable, you can put a
 
 	list1 <- list(species, df, number)
 
-Print out the list to screen to take alook at the components:
+Print out the list to screen to take a look at the components:
 
 ```
 
@@ -301,11 +311,16 @@ Print out the list to screen to take alook at the components:
 
 ```
 
-There are three components corresponding to the three different variables we passed in, and what you see is that structure of each is retained. Each component of a list is referenced based on the number position. For example since the dataframe was the second structure we passed in, it is referenced with `list[[2]]`. We will talk more about how to inspect and manipulate components of lists in later lessons.
+There are three components corresponding to the three different variables we passed in, and what you see is that structure of each is retained. Each component of a list is referenced based on the number position. For example since the dataframe was the second structure we passed in, it is referenced with `list1[[2]]`. We will talk more about how to inspect and manipulate components of lists in later lessons.
 
 
-### Exercise <INSERT HERE>
--------------------------------------------
+***
+**Exercise**
+
+1. Create a list with "metadata", "samplegroup", and "number".
+2. Print out only the contents of the "samplegroup" factor vector.
+
+***
 
 
 ---

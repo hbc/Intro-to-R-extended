@@ -133,6 +133,16 @@ number <- x + y
 > guides are [Hadley Wickham's style guide](http://adv-r.had.co.nz/Style.html) and [Google's](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml).
 
 
+## Data Types
+
+Variables can contain values of specific types within R.
+Data Type  | Examples
+-----------|-------------------------------
+Numeric:  | 1, 1.5, 20, pi  
+Character:  | “anytext”, “5”, “TRUE”
+Logical:  | TRUE, FALSE, T, F
+Complex:  | 5i, 3i + 5 
+
 ## Data Structures
 
 We know that variables are like buckets, and so far we have seen that bucket filled with a single value. Even when `number` was created, the result of the mathematical operation was a single value. **Variables can store more than just a single value, they can store a multitude of different data structures.** These include, but are not limited to, vectors, matrices (`matrix`), data frames (`data.frame`) and factors (`factor`).

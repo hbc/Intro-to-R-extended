@@ -74,11 +74,12 @@ If you provide the arguments in the exact same order as they are defined (in the
 However, it's usually not recommended practice because it's a lot of remembering to do, and if you share your code with others that includes less known functions
 it makes your code difficult to read. (It's however OK to not include the names of the arguments for basic functions like `mean`, `min`, etc...). Another advantage of naming arguments, is that the order doesn't matter.  This is useful when there start to be more arguments. 
 
-### Exercise 
--------------------------------------------
+***
+**Exercise** 
+
 1. Another commonly used base function is `mean()`. Use this function to calculate an average for the `glengths` vector.
 2. Compute the [standard error](http://en.wikipedia.org/wiki/Standard_error) for `glengths`. (Hint: This will require multiple functions. SE is the standard deviation divided by the square root of *n*; where n is the number of observations.)
-
+***
 
 ## Packages and Libraries
 

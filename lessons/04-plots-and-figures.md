@@ -267,7 +267,7 @@ There are built-in themes we can use, or we can adjust specific elements. For ou
 ggplot(metadata) +
   geom_point(aes(x = row.names(df), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) +
   theme(axis.text.x = element_text(angle=45, hjust=1))
-``
+```
 
  ![ggscatter2](../img/gg-scatter-2.png) 
 
@@ -334,8 +334,6 @@ ggplot(data=df, aes(x= genotype, y=samplemeans, fill=celltype)) +
 
  ![ggbox-2](../figure/unnamed-chunk-21-1.png)
 
-
-**What if you switch `genotype` with `celltype` in the aeshetics argument. How will that affect the figure?** 
 
 
 We have only scratched the surface here. To learn more, see the [ggplot reference site](http://docs.ggplot2.org/), and Winston Chang's excellent [Cookbook for R](http://wiki.stdout.org/rcookbook/Graphs/) site. Though slightly out of date, [ggplot2: Elegant Graphics for Data Anaysis](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/0387981403) is still the definative book on this subject.

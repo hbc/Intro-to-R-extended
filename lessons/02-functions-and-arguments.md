@@ -79,6 +79,7 @@ it makes your code difficult to read. (It's however OK to not include the names 
 
 1. Another commonly used base function is `mean()`. Use this function to calculate an average for the `glengths` vector.
 2. Compute the [standard error](http://en.wikipedia.org/wiki/Standard_error) for `glengths`. (Hint: This will require multiple functions. SE is the standard deviation divided by the square root of *n*; where n is the number of observations.)
+
 ***
 
 ## Packages and Libraries

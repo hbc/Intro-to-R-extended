@@ -14,19 +14,19 @@ minutes: 30
 
 ## Using functions to explore data structures
 
-There are also a selection of base functions in R that are useful for inspecting your data and summarizing it. Let's start with a simple data structure such as vectors. A commonly used function is `length()`, which tells you how many elements are in a particular vector:
+There is a wide selection of base functions in R that are useful for inspecting your data and summarizing it. Let's start with a simple data structure such as vectors. A commonly used function is `length()`, which tells you how many elements are in a particular vector:
 
 
 	length(glengths)
 	length(species)
 
 
-The `class()` function is useful in indicating the datatype or data structure of a variable. So for example if we were interested in knowing what was inside `glengths`:
+The `class()` function is useful in indicating the datatype or data structure of a variable. For example, if we were interested in knowing what type of data was contained in `glengths`:
 
 	class(glengths)
 
 
-We could also use class on a data frame or any other type of object. Let's load in a data frame to test out some more functions. We will use `read.csv` to read in data from a csv (comma separated values) file. There are numerous other functions to load in data depending on your filetype, but `read.csv` is one of the more commonly used ones.
+We could also use class on a data frame or any other type of object. Let's load in a data frame to test out some more functions. We will use the `read.csv` function to read in data from a csv (comma separated values) file. There are numerous other functions to load in data depending on your filetype, but `read.csv` is one of the more commonly used ones.
 
 > Note: When typing out read.csv try pressing the `Tab` key after typing only `read`. You will find that a drop-down menu will appear listing all `read` options for loading in files. The window to the right gives you more information on the function and its arguments as you scroll down and highlight each individually.
 
@@ -34,7 +34,7 @@ We could also use class on a data frame or any other type of object. Let's load 
 	metadata <- read.csv(file='data/mouse_exp_design.csv')
 
 
-The function has *one required argument* and several *options* that can be changed. The mandatory argument is a path to the file and filename, which in our case is `mouse_exp_design.csv` file. We will put the function to the right of the assignment operator, meaning that any output will be saved as the variable name provided on the left.
+The function has *one required argument* and several *options* that can be changed. The mandatory argument is a path to the file and filename, which in our case is `mouse_exp_design.csv` file. We will put the function to the right of the assignment operator, meaning that **any output will be saved as the variable name provided on the left**.
 
 Take a look at the file by typing out the variable name `metadata` and pressing return. The file contains information describing the samples in our study. Each row holds information for a single sample, and the columns represent `genotype`(WT or KO),  `celltype` (typeA or typeB), and `replicate number`.
 
@@ -57,7 +57,7 @@ Take a look at the file by typing out the variable name `metadata` and pressing 
 ## sample12       KO    typeB         3
 ```
 
-> Note: By default, `data.frame` converts (= coerces) columns that contain characters (i.e., text) into the `factor` data type. Depending on what you want to do with
+> Note: By default, `read.csv` converts (= coerces) columns that contain characters (i.e., text) into the `factor` data type. Depending on what you want to do with
 > the data, you may want to keep these columns as `character`. To do so, `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which can be set to `FALSE`.
 
 
@@ -67,7 +67,7 @@ Suppose we had a larger file, we might not want to display all the contents in t
 	head(metadata)
 
 
-Let's now check the __str__ucture of this `data.frame` in more details with thefunction `str()`:
+Let's now check the __str__ucture of this `data.frame` in more details with the function `str()`:
 
 	str(metadata)
 
@@ -79,7 +79,7 @@ Let's now check the __str__ucture of this `data.frame` in more details with thef
 ##  $ replicate: int  1 2 3 1 2 3 1 2 3 1 ...
 ```
 
-As you can see, the columns `genotype` and `celltype` are of a special class called `factor` whereas the replicate column has been interpreted as integer data type.
+As you can see, the columns `genotype` and `celltype` are of the `factor` class, whereas the replicate column has been interpreted as integer data type.
 
 __You can also get this information from the "Environment" tab in RStudio.__
 
@@ -109,16 +109,18 @@ functions to get a sense of the content/structure of the data.
 Note: most of these functions are "generic", they can be used on other types of
 objects besides `data.frame`.
 
-> ### Challenge 
-> * What is the class of the object `metadata`?
-> * How many rows and how many columns are in this object?
-> * Load in data again, storing it as `test_data` and using `stringsAsFactors=F`. How does this change the structure of the data?
+***
+**Exercise** 
 
+1. What is the class of the variable `metadata`?
+2, How many rows and how many columns are in this object?
+3. Load in data again, storing it as `test_data` and using `stringsAsFactors=F`. How does this change the structure of the data?
 
+***
 
 ## Indexing and sequences
 
-When analyzing data, we often want to partition the data so that we are only working with selected columns or rows. A data frame or data matrix is simply a collection of vectors combined together. So let's begin with vectors, then apply those concepts to dataframes.
+When analyzing data, we often want to partition the data so that we are only working with selected columns or rows. A data frame or data matrix is simply a collection of vectors combined together. So let's begin with vectors, and then extend those concepts to dataframes.
 
 ### Vectors
 
@@ -129,13 +131,13 @@ Let's start by creating a vector called age:
 	age <- c(15, 18, 22, 45, 52, 56, 67, 73, 81)
 
 
-Suppose we only wanted the fifth value of this vector, we would use the following syntax:
+To index fom a data structure, we use the the square bracket notation `[]`. Suppose we only wanted the fifth value of this vector, we would use the following syntax:
 
 	age[5]
 
-If we wanted to index more than one element we would still use the square bracket sytntax, but rather than using a single value we would pass in a vector of the index values:
+If we wanted to index more than one element we would still use the square bracket notation, but rather than using a single value we would pass in a *vector of the index values*:
 
-	idx <- c(3,5,7)
+	idx <- c(3,5,7) # create vector of the elements of interest
 	age[idx]
 
 
@@ -143,11 +145,11 @@ To access a sequence of continuous values from a vector, we would use `:` which 
 
 	age[1:5]
 
-Alternatively, if you wanted the reverse could try `5:1` for instance and see what is returned. The function `seq()` (for __seq__uence) can also be used to create sequences, but allow for more complex patterns. Passing in the `by` argument will allow you to generate a sequence based on the specified interval:
+Alternatively, if you wanted the reverse could try `5:1` for instance, and see what is returned. The function `seq()` (for __seq__uence) can also be used to create sequences, but allow for more complex patterns. Passing in the `by` argument will allow you to generate a sequence based on the specified interval:
 
 	seq(1, 10, by=2)
 
-Additionally, the `length.out` parameter will provide the restriction on the maximum length of the resulting vector. A combininatioj of parameters can also be used:
+Additionally, the `length.out` parameter will provide the restriction on the maximum length of the resulting vector. A combinination of parameters can also be used:
 
 ```r
 seq(5, 10, length.out=3)       # equal breaks of sequence into vector length = length.out
@@ -157,12 +159,12 @@ seq(1, 8, by=3)                # sequence by 3 until you hit 8
 
 ### Dataframes
 
-Dataframes have 2 dimensions (rows and columns), so if we want to extract some specific data from it we need to specify the "coordinates" we want from it. We use the same square bracket syntax but rather than providing a single index, there are two inputs required. Within the square bracket, row numbers come first followed by column numbers (and the two are separated by a comma). For example:
+Dataframes (and matrices) have 2 dimensions (rows and columns), so if we want to extract some specific data from it we need to specify the "coordinates" we want from it. We use the same square bracket notation but rather than providing a single index, there are *two inputs required*. Within the square bracket, **row numbers come first followed by column numbers (and the two are separated by a comma)**. For example:
 
 	metadata[1, 1]   # first element in the first column of the data frame
 	metadata[1, 3]   # first element in the 3rd column
 
-Now if you only wanted to select based on rows, you would provide the indexes for the rows and leave the columns blank. The key here is to include the comma, to let R know that you are accessing a 2 dimensional data structure:
+Now if you only wanted to select based on rows, you would provide the indexes for the rows and leave the columns index blank. The key here is to include the comma, to let R know that you are accessing a 2 dimensional data structure:
 
 	metadata[3, ]    # the 3rd row for all columns
 	metadata[1:3, ] # first three rows
@@ -173,17 +175,17 @@ Similarly, if you were selecting specific columns from the data frame - the rows
 	metadata[ ,3]    # the entire 3rd column
 
 
-> ### Challenge
-> The function `nrow()` on a `data.frame` returns the number of rows. Use it, in conjuction with `seq()` to create a new `data.frame` called `data_by_2` that includes every other row of the metadata.
 
-
-For larger datasets, it can be tricky to remember the column number that corresponds to a particular variable. (Is celltype in column 2
+For larger datasets, it can be tricky to remember the column number that corresponds to a particular variable. (Is celltype in column 1
 or 2? oh, right... they are in column 1). In some cases, the column number for a variable can change if the script you are using adds or removes
 columns. It's therefore often better to use column names to refer to a particular variable, and it makes your code easier to read and your intentions
 clearer.
 
 You can do operations on a particular column, by selecting it using the `$` sign. In this case, the entire column is a vector. For instance, to extract all
-the gentotypes from our dataset, we can use: `metadata$genotype`. You can use `names(metadata)` or `colnames(metadata)` to remind yourself of the column names.
+the gentotypes from our dataset, we can use: `metadata$genotype`. You can use `names(metadata)` or `colnames(metadata)` to remind yourself of the column names. That vector can then be indexed for
+specific values. For example, if we wanted the genotype information for the first five samples in `metadata`:
+
+	metadata$genotype[1:5]
 
 To select multiple columns by name the square bracket syntax is used by concatenating a vector of strings that correspond to column names: 
 
@@ -208,6 +210,44 @@ metadata[, c("genotype", "celltype")]
 ```
 
 
+***
+
+**Exercise** 
+The function `nrow()` on a `data.frame` returns the number of rows. Use it, in conjuction with `seq()` to create a new `data.frame` called `data_by_2` that includes every other row of the metadata.
+**Add activities using indexes using the $ method and vector of strings**
+
+***
+
+
+### Lists
+
+Indexing a list requires a slightly different notation, even though in theory a list is a vector (that contains multiple data structures). To index a specific component of a list, you need to use double bracket notation `[[]]`. Let's use the `list1` that we created previously, and index the second component:
+
+	list1[[2]]
+
+What do you see printed to the console? Using the double bracket notation is useful for accessing the individual components whilst preserving the original data structure. When creating this list we know we had originally stored a dataframe in the second component. With the `class` function we can check if that is what we retrieve from indexing:
+
+	comp2 <- list1[[2]]
+	class(comp2)
+
+You can also reference what is inside the component by adding and additional bracket. For example, in the first component we have a vector stored. 
+
+	list1[[1]]
+
+Now, if we wanted to reference the first element of that vector we would use:
+
+	list1[[1]][1]
+
+You can also do the same for dataframes and matrices, although with larger datasets it is not advisable. Instead, it is better to save the contents of a list component to a variable (as we did above) and further manipulate it. Also, it is importanat to note that when indexing vectors we can only **access one component at a time**. To access multiple components of a list, see the note below. 
+
+> Note: Using the single bracket notation also works wth lists. The difference is the class of the information that is retrieved. Using single bracket notation i.e. `list[1]` will return the contents in a list form and *not the original data structure*. The benefit of this notation is that it allows indexing by vectors so you can access multiple components of the list at once.
+
+
+***
+**Exercise** 
+
+Add something here on 1) inspecting lists 2) Adding names to the components of the list and 3) index by names on lists
+***
 
 ## Subsetting data
 
@@ -243,7 +283,6 @@ We can also subset using other [logical operators](http://www.statmethods.net/ma
 Alternatively, we could try looking at only the first two replicates of each sample set. Here, we can use the less than operator since replicate is currently a numeric vector. Adding in the argument select allows us to specify which columns to keep. Which columns are left?
 
 	subset(metadata, replicate < 3, select = c('genotype', 'celltype'))
-
 
 
 
@@ -310,6 +349,12 @@ Check and see what happened by using `head`. You can also verfy that column name
 	head(data_ordered)
 	all(row.names(metadata) == colnames(data_ordered))
 
+
+***
+**Exercise** 
+ADD something here
+
+***
 
 > ### An R package for data manipulation
 > The package `dplyr` is a fairly new (2014) package that tries to provide easy

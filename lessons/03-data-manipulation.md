@@ -113,7 +113,7 @@ objects besides `data.frame`.
 **Exercise** 
 
 1. What is the class of the variable `metadata`?
-2. How many rows and how many columns are in this object?
+2. How many rows and how many columns are there?
 3. Load in data again, storing it as `test_data` and using `stringsAsFactors=F`. How does this change the structure of the data?
 
 ***
@@ -251,7 +251,8 @@ You can also do the same for dataframes and matrices, although with larger datas
 
 **Exercise** 
 
-Add something here on:
+Add something here on:   
+
 1. inspecting lists
 2. Adding names to the components of the list
 3. index by names on lists

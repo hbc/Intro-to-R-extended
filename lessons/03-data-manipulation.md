@@ -9,7 +9,7 @@ minutes: 30
 * Using functions to explore data structures
 * Using indexes and sequences to select data from vectors and dataframes
 * Subsetting data using logical operators
-* Re-organizing data based on match indices
+* Matching and Reorganizing data
 
 
 ## Using functions to explore data structures
@@ -113,7 +113,7 @@ objects besides `data.frame`.
 **Exercise** 
 
 1. What is the class of the variable `metadata`?
-2, How many rows and how many columns are in this object?
+2. How many rows and how many columns are in this object?
 3. Load in data again, storing it as `test_data` and using `stringsAsFactors=F`. How does this change the structure of the data?
 
 ***
@@ -213,8 +213,8 @@ metadata[, c("genotype", "celltype")]
 ***
 
 **Exercise** 
-The function `nrow()` on a `data.frame` returns the number of rows. Use it, in conjuction with `seq()` to create a new `data.frame` called `data_by_2` that includes every other row of the metadata.
-**Add activities using indexes using the $ method and vector of strings**
+* The function `nrow()` on a `data.frame` returns the number of rows. Use it, in conjuction with `seq()` to create a new `data.frame` called `data_by_2` that includes every other row of the metadata.
+* Add activities using indexes using the `$` method and vector of strings
 
 ***
 
@@ -248,9 +248,14 @@ You can also do the same for dataframes and matrices, although with larger datas
 
 
 ***
+
 **Exercise** 
 
-Add something here on 1) inspecting lists 2) Adding names to the components of the list and 3) index by names on lists
+Add something here on:
+1. inspecting lists
+2. Adding names to the components of the list
+3. index by names on lists
+
 ***
 
 ## Subsetting data

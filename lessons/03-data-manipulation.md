@@ -9,7 +9,7 @@ minutes: 30
 * Using functions to explore data structures
 * Using indexes and sequences to select data from vectors and dataframes
 * Subsetting data using logical operators
-* Matching and Reorganizing data
+* Matching and re-organizing data
 
 
 ## Using functions to explore data structures

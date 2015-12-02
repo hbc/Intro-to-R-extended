@@ -233,12 +233,16 @@ What do you see printed to the console? Using the double bracket notation is use
 You can also reference what is inside the component by adding and additional bracket. For example, in the first component we have a vector stored. 
 
 	list1[[1]]
+	
+	[1] "ecoli" "human" "corn" 
 
 Now, if we wanted to reference the first element of that vector we would use:
 
 	list1[[1]][1]
 
-You can also do the same for dataframes and matrices, although with larger datasets it is not advisable. Instead, it is better to save the contents of a list component to a variable (as we did above) and further manipulate it. Also, it is importanat to note that when indexing vectors we can only **access one component at a time**. To access multiple components of a list, see the note below. 
+	[1] "ecoli"
+
+You can also do the same for dataframes and matrices, although with larger datasets it is not advisable. Instead, it is better to save the contents of a list component to a variable (as we did above) and further manipulate it. Also, it is important to note that when indexing vectors we can only **access one component at a time**. To access multiple components of a list, see the note below. 
 
 > Note: Using the single bracket notation also works wth lists. The difference is the class of the information that is retrieved. Using single bracket notation i.e. `list[1]` will return the contents in a list form and *not the original data structure*. The benefit of this notation is that it allows indexing by vectors so you can access multiple components of the list at once.
 
@@ -267,7 +271,7 @@ Another way of partitioning your data, is by filtering based on the content that
 ## sample6       KO    typeA         3
 ```
 
-We can also subset using other [logical operators](http://www.statmethods.net/management/operators.html) in R. For example suppose we wanted to subset to keep only the **WT samples** from the **typeA** celltype.
+We can also use the `subset` function with other [logical operators](http://www.statmethods.net/management/operators.html) in R. For example, suppose we wanted to subset to keep only the **WT samples** from the **typeA** celltype.
 
 
 	subset(metadata, celltype == "typeA" & genotype == "Wt")
@@ -285,6 +289,12 @@ Alternatively, we could try looking at only the first two replicates of each sam
 	subset(metadata, replicate < 3, select = c('genotype', 'celltype'))
 
 
+***
+**Exercise** 
+
+NEEDS TO BE ADDED
+
+***
 
 ## Matching data 
 
@@ -308,56 +318,140 @@ It looks as if the sample names (header) in our data matrix are similar to the r
 
 What we want to know is, **do we have data for every sample that we have metadata?** 
 
+### The `%in%` operator
+ 
+Although lacking in [documentation](http://dr-k-lo.blogspot.com/2013/11/in-in-r-underused-in-operator.html) this operator is well-used and convenient once you get the hang of it. The operator is used with the following syntax: 
 
-There are many ways to answer this using R. We'll be using the `match` function, which takes at least 2 arguments: 1) a vector of values to be matched, and 2) a vector of values to be matched against. The function returns the position of the matches in the second vector. Take a look at the example below where vector B is the reverse of vector A:
+	vector1_of_values %in% vector2_of_values
 
 
-	A <- c(1,3,5,7,9,11)   
-	B <- c(11,9,7,5,3,1) 
+It will take a vector as input to the left and will **evaluate each element to see if there is a match in the vector that follows on the right of the operator.** *The two vectors do not have to be the same size.* This operation will return a vector of the same length as vector1 containing logical values to indicate whether or not there was a match. Take a look at the example below:
 
-Now if we use the match function with A as our first input and B as our second, you will be returned a vector of size `length(A)`. Each number that is returned represents the index of vector B where the matching values was observed. 
 
-	match(A.B)
+	A <- c(1,3,5,7,9,11)   # odd numbers
+	B <- c(2,4,6,8,10,12)  # even numbers
+
+	# test to see if any of A are in B	
+	A %in% B
+
+
+```
+## [1] FALSE FALSE FALSE FALSE FALSE FALSE
+```
+
+Since vector A contains only odd numbers and vector B contains only even numbers, there is no overlap and so the vector returned contains a `FALSE` for each element. Let's change a couple of numbers inside vector B to match vector A.
+
+
+```r
+B <- c(2,4,6,8,1,5)  # add some odd numbers in 
+
+# test to see if any of A are in B
+A %in% B
+```
+
+```
+## [1]  TRUE FALSE  TRUE FALSE FALSE FALSE
+```
+
+The logical vector returned tells us which elements are matching and which are not.  In this example the vectors are small and so it's easy to count by eye; but when we work with large datasets this is not practical. A quick way to assess whether or not we had any matches would be to use the `any` function to see if any of the values contained in vector A are also in vector B:
+
+	any(A %in% B)
+
+
+The `all` function is also useful. Given a logical vector, it will tell you whether are all values returned are `TRUE`. If there is atleast one `FALSE` value, the `all` function will return a `FALSE` and you know that all of A are not contained in B.
+
+
+	all(A %in% B)
+
+Suppose we had **two vectors that had the same values but just not in the same order**. We could also use `all` to test for that. Rather than using the `%in%` operator we would use `==` and compare each element to the same position in the other vector. Unlike the `%in%` operator, **for this to work you must have two vectors that are of equal length**.
+
+
+```r
+A <- c(1,2,3,4,5)
+B <- c(5,4,3,2,1)  # same numbers but backwards 
+
+# test to see if any of A are in B
+A %in% B
+
+# test to see if any of A is equal to B
+A == B
+
+# use all to check if they are a perfect match
+all(A == B)
+
+```
+
+Let's try this on our data and see whether we have metadata information for all samples in our expression data. We'll start by creating two vectors; one with the `row.names` of the metadata and `colnames` of the RPKM data. These are base functions in R which allow you to extract the row and column names as a vector:
+
+	x <- row.names(metadata)
+	y <- colnames(rpkm_data)
+
+Now check to see that all of `x` are in `y`:
+
+	all(x %in% y)
+
+
+We know that all samples are present, but are they in the same order:
+
+	all(x == y)
+
+**Looks like all of the samples are there, but will need to reordered.**
+
+***
+**Exercise** 
+
+NEEDS TO BE ADDED
+
+***
+
+### The `match` function
+
+We'll be using the `match` function to re-roder samples. This function takes at least 2 arguments: 1) a vector of values to *be matched*, and 2) a vector of values to be *matched against*. The function returns the position of the matches in the second vector. We can use the vectors A and B created previously to demonstrate how it works:
+
+	match(A,B)
+
+The function should return a vector of size `length(A)`. Each number that is returned represents the index of vector B where the matching value was observed. 
 
 Let's change vector B so that only a subset are retained:
 
-	A <- c(1,3,5,7,9,11)   
-	B <- c(9,5,1,1) 
+	A <- c(1,2,3,4,5)
+	B <- c(4,2,1)  # remove values 
 
-Note, for values that don't match you can specify what values you would have it assigned using `nomatch` argument (by default this is set to `NA`). Also, illustrated in the example, if there is more than one matching value found only the first is reported.
+And try to `match` again:
+
+	match(A, B)
+
+	[1]  3  2 NA  1 NA
+
+Note, for values that don't match by default return an `NA` value. You can specify what values you would have it assigned using `nomatch` argument. Also, if there is more than one matching value found only the first is reported.
 
 
-### Subset data using matching
-
-We are trying to *match the row names of our metadata with the column names of our expression data*, so these will be the arguments for `match`. There are base functions in R which allow you to extract the row and column names as a vector:
-
-	row.names(metadata)
-	col.names(rpkm_data)
- 
-Using these two arguments we will retrieve a vector of match indices. This vector represents the re-ordering of the column names in our data matrix to be identical to the rows in metadata:
+We are trying to *match the row names of our metadata with the column names of our expression data*, so these will be the arguments for `match` (we had previously assigned these to `x` and `y`, respectively). Using these two arguments we will retrieve a vector of match indices. This vector represents the re-ordering of the column names in our data matrix to be identical to the rows in metadata:
  
 	m <- match(row.names(metadata), colnames(rpkm_data))
 
 
 Now we can create a new data matrixin which columns are re-ordered based on the match indices:
 
-	data_ordered  <- rpkm_data[,m]
+	rpkm_ordered  <- rpkm_data[,m]
 
 
-Check and see what happened by using `head`. You can also verfy that column names of this new data matrix matches the metadata row names by using the `all` function:
+Check and see what happened by using `head`. You can also verify that column names of this new data matrix matches the metadata row names by using the `all` function:
 
-	head(data_ordered)
-	all(row.names(metadata) == colnames(data_ordered))
+	head(rpkm_ordered)
+	all(row.names(metadata) == colnames(rpkm_ordered))
 
 
 ***
 **Exercise** 
-ADD something here
+
+NEEDS TO BE ADDED
 
 ***
 
 > ### An R package for data manipulation
-> The package `dplyr` is a fairly new (2014) package that tries to provide easy
+> The methods presented above are using base R functions for data manipulation. For more advanced R users, 
+> the package `dplyr` is a fairly new (2014) package that tries to provide easy
 > tools for the most common data manipulation tasks. It is built to work directly
 > with data frames. The thinking behind it was largely inspired by the package
 > `plyr` which has been in use for some time but suffered from being slow in some

@@ -154,6 +154,36 @@ If you are looking for a function to do a particular task, you can use `help.sea
 If you can't find what you are looking for, you can use the [rdocumention.org](http://www.rdocumentation.org) website that search through
 the help files across all packages available.
 
+***
+**Exercise**
+
+1. Suppose we had two dataframes that we wanted to combine: our `metadata` dataframe and a dataframe called `sample` with age, genotype information, and number of RNA-Seq reads that map to geneX for our samples. Let's search for a function to combine the two datasets together by column.
+
+	- Create the `sample` dataframe using following code (you can copy and paste, but be sure you understand the steps):
+
+	```
+		age <- c(4,5,5,5,5,4,5,4,5)
+		genotype <- c("Hh","HH","Hh","HH","Hh","Hh","Hh","Hh","HH")
+		counts_geneX <- c(120,96,71,129,111,115,58,75,41)
+		sample <- data.frame(samplename, age, genotype, counts_geneX)
+	```	
+
+	- Search for a function to combine the newly created `sample` dataframe with the `metadata` dataframe by the `samplename` columns. Name the new dataframe `all_data`.
+	
+2. You decide you would like to use the plot() function to display the counts of geneX for each sample.
+	- Create a scatterplot with samplename on the x-axis and counts_geneX on the y-axis using the following code: 
+
+	```
+	plot(x=all_data$samplename, y=all_data$counts_geneX)
+	```
+	
+	- Look up arguments for the plot() function to add the following features to the plot:
+		- **Title:** *"Counts of GeneX by Sample Group"*
+		- **x-axis label:** *"Sample name"*
+		- **y-axis label:** *"Counts geneX"*
+
+***
+
 ### I am stuck... I get an error message that I don't understand
 
 Start by googling the error message. However, this doesn't always work very well

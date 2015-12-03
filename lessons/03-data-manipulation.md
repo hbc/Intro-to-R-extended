@@ -131,7 +131,7 @@ Let's start by creating a vector called age:
 	age <- c(15, 18, 22, 45, 52, 56, 67, 73, 81)
 
 
-To index fom a data structure, we use the the square bracket notation `[]`. Suppose we only wanted the fifth value of this vector, we would use the following syntax:
+To index from a data structure, we use the the square bracket notation `[]`. Suppose we only wanted the fifth value of this vector, we would use the following syntax:
 
 	age[5]
 
@@ -178,8 +178,7 @@ Similarly, if you were selecting specific columns from the data frame - the rows
 
 For larger datasets, it can be tricky to remember the column number that corresponds to a particular variable. (Is celltype in column 1
 or 2? oh, right... they are in column 1). In some cases, the column number for a variable can change if the script you are using adds or removes
-columns. It's therefore often better to use column names to refer to a particular variable, and it makes your code easier to read and your intentions
-clearer.
+columns. It's therefore often better to use column names to refer to a particular variable, and it makes your code easier to read and your intentions clearer.
 
 You can do operations on a particular column, by selecting it using the `$` sign. In this case, the entire column is a vector. For instance, to extract all
 the gentotypes from our dataset, we can use: `metadata$genotype`. You can use `names(metadata)` or `colnames(metadata)` to remind yourself of the column names. That vector can then be indexed for
@@ -213,8 +212,9 @@ metadata[, c("genotype", "celltype")]
 ***
 
 **Exercise** 
-* The function `nrow()` on a `data.frame` returns the number of rows. Use it, in conjuction with `seq()` to create a new `data.frame` called `data_by_2` that includes every other row of the metadata.
-* Add activities using indexes using the `$` method and vector of strings
+
+1. The function `nrow()` on a `data.frame` returns the number of rows. Use it, in conjuction with `seq()` to create a new `data.frame` called `data_by_2` that includes every other row of the metadata.
+2. Extract only those samples in the dataframe `all_data` where `samplename` is "C1", "C2", "C3", "KO1", "KO2", or "KO3".
 
 ***
 
@@ -244,16 +244,18 @@ Now, if we wanted to reference the first element of that vector we would use:
 
 You can also do the same for dataframes and matrices, although with larger datasets it is not advisable. Instead, it is better to save the contents of a list component to a variable (as we did above) and further manipulate it. Also, it is important to note that when indexing vectors we can only **access one component at a time**. To access multiple components of a list, see the note below. 
 
-> Note: Using the single bracket notation also works wth lists. The difference is the class of the information that is retrieved. Using single bracket notation i.e. `list[1]` will return the contents in a list form and *not the original data structure*. The benefit of this notation is that it allows indexing by vectors so you can access multiple components of the list at once.
+> Note: Using the single bracket notation also works wth lists. The difference is the class of the information that is retrieved. Using single bracket notation i.e. `list1[1]` will return the contents in a list form and *not the original data structure*. The benefit of this notation is that it allows indexing by vectors so you can access multiple components of the list at once.
 
 
 ***
 
-**Exercise** 
+**Exercise**  
 
-Add something here on:   
+1. Let's practice inspecting lists.
+	- Create a list named `random` with the following components: all_data, metadata, age, list1, samplename, number.
+	- Print out the values stored in the `samplename` vector.
+	- From the `all_data` component of the list, extract the number of counts for geneX for `samplename= 'C2'`.
 
-1. inspecting lists
 2. Adding names to the components of the list
 3. index by names on lists
 

@@ -180,15 +180,14 @@ For larger datasets, it can be tricky to remember the column number that corresp
 or 2? oh, right... they are in column 1). In some cases, the column number for a variable can change if the script you are using adds or removes
 columns. It's therefore often better to use column names to refer to a particular variable, and it makes your code easier to read and your intentions clearer.
 
-You can do operations on a particular column, by selecting it using the `$` sign. In this case, the entire column is a vector. For instance, to extract all
-the gentotypes from our dataset, we can use: `metadata$genotype`. You can use `names(metadata)` or `colnames(metadata)` to remind yourself of the column names. That vector can then be indexed for
+You can do operations on a particular column, by selecting it using the `$` sign. In this case, the entire column is a vector. For instance, to extract all the gentotypes from our dataset, we can use: `metadata$genotype`. You can use `names(metadata)` or `colnames(metadata)` to remind yourself of the column names. That vector can then be indexed for
 specific values. For example, if we wanted the genotype information for the first five samples in `metadata`:
 
 	metadata$genotype[1:5]
 
 To select multiple columns by name the square bracket syntax is used by concatenating a vector of strings that correspond to column names: 
 
-```r
+```
 metadata[, c("genotype", "celltype")]
 ```
 
@@ -251,15 +250,48 @@ You can also do the same for dataframes and matrices, although with larger datas
 
 **Exercise**  
 
-1. Let's practice inspecting lists.
-	- Create a list named `random` with the following components: all_data, metadata, age, list1, samplename, number.
-	- Print out the values stored in the `samplename` vector.
-	- From the `all_data` component of the list, extract the number of counts for geneX for `samplename= 'C2'`.
+Let's practice inspecting lists. Create a list named `random` with the following components: `all_data`, `metadata`, `age`, `list1`, `samplename`, and `number`.
 
-2. Adding names to the components of the list
-3. index by names on lists
+1. Print out the values stored in the `samplename` vector component.
+	
+2. From the `all_data` component of the list, extract the number of counts for geneX for `samplename= 'C2'`.
+	
+***
+
+Adding names to components of a list uses the same function as adding names to the columns of a dataframe, `names()`.
+	
+Let's check and see if the `random` list we just created currently has names for the components:
+
+	names(random)
+
+Assigning names to the components in a list can help distinguish each component. In addition, naming the components can facilitate extracting values from list components. Let's assign names to the components of the random vector:
+
+	names(random) <- c("all_data", "metadata", "age", "list1", "samplename")
+	
+	names(random)
+	
+Now that we have named our list components, we can extract components using the $ similar to extracting columns from a dataframe. To attain a component of a list using the component name, use list_name$component_name:
+
+To extract the `all_data` dataframe from the `random` list:
+
+	random$all_data
+
+Now we have three ways that we could extract a component from a list. Let's extract the `age` vector from the `random` list:
+
+	random[[3]]
+	random[["age"]]
+	random$age
 
 ***
+
+**Exercise**
+
+Let's practice combining ways to extract data from the data structures we have covered so far:
+
+1. Extract the sixth element of the `age` vector from the `random` list.
+2. Extract the control samples ("C1", "C2", "C3")from the `metadata` dataframe from the `random` list.
+3. Extract all elements from the `sex` vector from `list1` from the `random` list.
+4. Extract every other element of the `sex` vector from `list1` from the `random` list.
 
 ## Subsetting data
 
@@ -298,9 +330,11 @@ Alternatively, we could try looking at only the first two replicates of each sam
 
 
 ***
+
 **Exercise** 
 
-NEEDS TO BE ADDED
+1. Return only those samples from `all_data` dataframe with genotype `HH`.
+2. For samples from the `metadata` dataframe, return only the counts for geneX, where sample `sex` is female and `age` is greater than 4.
 
 ***
 

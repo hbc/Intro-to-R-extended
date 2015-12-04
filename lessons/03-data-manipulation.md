@@ -258,13 +258,13 @@ Let's practice inspecting lists. Create a list named `random` with the following
 	
 ***
 
+Assigning names to the components in a list can help identify what each list component contains, as well as, facilitating the extraction of values from list components. 
+
 Adding names to components of a list uses the same function as adding names to the columns of a dataframe, `names()`.
 	
 Let's check and see if the `random` list we just created currently has names for the components:
 
-	names(random)
-
-Assigning names to the components in a list can help distinguish each component. In addition, naming the components can facilitate extracting values from list components. Let's assign names to the components of the random vector:
+	names(random)Let's assign names to the components of the random vector:
 
 	names(random) <- c("all_data", "metadata", "age", "list1", "samplename")
 	

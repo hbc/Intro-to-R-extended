@@ -8,19 +8,17 @@ minutes: 30
 ## Learning Objectives 
 * Generating simple statistics in R
 * Applying functions to multiple rows/columns of a matrix
-* Basic plots in R
+* Visualizing data using basic plots in R
 * Advanced plots (introducing `ggplot`)
 * Writing images (and other things) to file
 
 
 ## Calculating simple statistics
 
-Let's get a closer look at our data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute the average value for a sample, or the minimum and maximum values? The R base package provides many built-in functions such as `mean`, `median`, `min`, `max`, and `range`. Try computing the mean for "sample1" (_Hint: apply what you have learned previously on indexing_)  
+Let's take a closer look at our data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute the average value for a sample, or the minimum and maximum values? As mentioned previously, R is used for statistical computing therefore many of the base functions involve mathematical operations. The R base package provides many built-in functions such as `mean`, `median`, `min`, `max`, and `range`, just to name a few. Try computing the mean for "sample1" (_Hint: apply what you have learned previously on indexing_)  
 
+	mean(rpkm_ordered[,'sample1'])
 
-```r
-mean(data_ordered[,'sample1'])
-```
 
 > ### Missing values
 > By default, all **R functions operating on vectors that contains missing data will return NA**. It's a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. When dealing with simple statistics like the mean, the easiest way to ignore `NA` (the missing data) is to use `na.rm=TRUE` (`rm` stands for remove). 
@@ -32,16 +30,11 @@ Let's test out a few other functions:
 
 ```r
 # Maximum
-max(data_ordered[,'sample1'])
+max(rpkm_ordered[,'sample1'])
 
 # Minimum
-min(data_ordered[,'sample1'])
+min(rpkm_ordered[,'sample1'])
 ```
-
-
-> ### Challenge
-> Compute the [standard error](http://en.wikipedia.org/wiki/Standard_error) for "sample1". (hints: there is no built-in function to compute standard errors, but there may be functions for the different components of the formula)
-
 
 
 ## The `apply` Function
@@ -58,14 +51,21 @@ base::rapply            Recursively Apply a Function to a List
 base::tapply            Apply a Function Over a Ragged Array
 ```
 
-We will be using `apply` in our examples today, but do take a moment on your own to explore the many options that are available. The `apply` function returns a vector or array or list of values obtained by applying a function to margins of an array or matrix. We know about vectors/arrays and functions, but what are these “margins”? Margins are referring to either the rows (denoted by 1), the columns (denoted by 2) or both (1:2). By “both”, we mean  apply the function to each individual value. Let's try this with the mean function on our data:
+We will be using `apply` in our examples today, but do take a moment on your own to explore the many options that are available. The `apply` function returns a vector or array or list of values obtained by applying a function to margins of an array or matrix. We know about vectors/arrays and functions, but what are these “margins”? Margins are referring to either the rows (denoted by 1), the columns (denoted by 2) or both (1:2). By “both”, we mean  apply the function to each individual value. 
+
+Let's try this to obtain mean expression values for each sample in our RPKM matrix:
+
+	samplemeans <- apply(rpkm_ordered, 2, mean) 
 
 
-```r
-samplemeans <- apply(data_ordered, 2, mean) 
-```
+***
 
-_How long is the vector of values returned?_
+**Exercise**
+
+NEEDS TO BE ADDED
+
+***
+
 
 ## Basic plots in R
 
@@ -111,7 +111,7 @@ plot(samplemeans, pch=8, main="Scatter plot of mean values")
  ![scatter-3](../figure/unnamed-chunk-9-1.png) 
 
 ## Barplot
-In the case of our data, a **barplot**  would be much more useful. We can use `barplot` to draw a single bar representing each sample and the height indicates the average expression level. 
+To visualize sample means, a **barplot**  would be much more useful. We can use `barplot` to draw a single bar representing each sample and the height indicates the average expression level. 
 
 
 ```r
@@ -129,7 +129,7 @@ barplot(samplemeans, cex.names=0.5)
 
  ![bar-2](../figure/unnamed-chunk-11-1.png) 
 
-The names are too small to read. Alternatively we can also just change the names to be numeric values and keep the same size.
+The names are too small to read. Alternatively, we can also just change the names to be numeric values and keep the same size.
 
 
 ```r
@@ -148,7 +148,7 @@ barplot(samplemeans, names.arg=c(1:12), horiz=TRUE)
  ![bar-4](../figure/unnamed-chunk-13-1.png) 
 
 ## Histogram
-If we are interested in an overall distribution of values, **histogram** is a plot very commonly used. It plots the frequencies that data appears within certain ranges. To plot a histogram of the data use the `hist` command:
+If we are interested in an overall distribution of values, a **histogram** is a plot very commonly used. It plots the frequencies that data appears within certain ranges. To plot a histogram of the data use the `hist` command:
 
 
 ```r
@@ -196,54 +196,109 @@ boxplot(samplemeans~celltype, df,  col=c("blue","red"), main="Average expression
 
  ![box-2](../figure/unnamed-chunk-16-1.png) 
 
-> ### Challenge 
-> The previous challenge asked you to compute the standard error for "sample1". Using the `apply` function to generate a vector of standard error values for each sample. Use a boxplot to illustrate the differences in standard error between WT and KO samples. 
 
+***
 
+**Exercise**
+
+NEED TO ADD EXERCISE
+
+***
 
 ## Advanced figures (`ggplot2`)
 
-There's also a plotting package called [`ggplot2`](http://docs.ggplot2.org/) that adds a lot of functionality to the basic plots seen above. The syntax takes some getting used to but it's extremely powerful and flexible. We can start by re-creating some of the above plots but using ggplot functions to get a feel for the syntax.
 
-`ggplot` is best used on data in the `data.frame` form, so we will will work with our combined `df` for the following figures. Let's start by loading the `ggplot2` library.
+More recently, R users have moved away from base graphic options and towards a plotting package called [`ggplot2`](http://docs.ggplot2.org/) that adds a lot of functionality to the basic plots seen above. The syntax takes some getting used to but it's extremely powerful and flexible. We can start by re-creating some of the above plots but using ggplot functions to get a feel for the syntax.
 
+`ggplot2` is best used on data in the `data.frame` form, so we will will work with `df` for the following figures. Let's start by loading the `ggplot2` library.
 
-```r
+```{r}
 library(ggplot2)
 ```
 
+The `ggplot()` function is used to initialize the basic graph structure, then we add to it. The basic idea is that you specify different parts of the plot, and add them together using the `+` operator.
 
-### Boxplot 
+We will start with a blank plot and will find that you will get an error, because you need to add layers.
 
-The `ggplot()` command creates a plot object. In it we assign our data frame to the `data` argument, and `aes()` creates what Hadley Wickham calls an aesthetic: a mapping of variables to various parts of the plot. Note that ggplot functions can be chained with `+` signs to adding layers to the final plot. The next in chain is `geom_boxplot()`. The `geom` function specifies the geometric objects that define the graph type. The geom option is expressed as a character vector with one or more entries. Values include `geom_point`, `geom_boxplot`, `geom_line` etc
-
-
-```r
-ggplot(data=df, aes(x= genotype, y=samplemeans)) + 
-  geom_boxplot() 
+```{r, eval=FALSE}
+ggplot(df) # note the error 
 ```
 
- ![ggbox-1](../figure/unnamed-chunk-19-1.png)
+Geometric objects are the actual marks we put on a plot. Examples include:
 
+* points (`geom_point`, for scatter plots, dot plots, etc)
+* lines (`geom_line`, for time series, trend lines, etc)
+* boxplot (`geom_boxplot`, for, well, boxplots!)
 
-Unlike base R graphs, the ggplot graphs are not effected by many of the options set in the `par()` function (e.g. adjusting relative size of axis labels usin `cex`). They can be modified using the `theme()` function, and by adding graphic parameters. Here, we will increase the size of the axis labels and the main title. We can also change the `fill` variable to `celltype` - how does this change the plot? **What if you switch `genotype` with `celltype` in the aeshetics argument. How will that affect the figure?** 
+A plot **must have at least one geom**; there is no upper limit. You can add a geom to a plot using the + operator
 
-
-```r
-ggplot(data=df, aes(x= genotype, y=samplemeans, fill=celltype)) + 
-  geom_boxplot() + 
-  ggtitle('Genotype differences in average gene expression') +
-  xlab('Genotype') +
-  ylab('Mean expression') +
-  theme(plot.title = element_text(size = rel(2.0)),
-        axis.title = element_text(size = rel(1.5)),
-        axis.text = element_text(size = rel(1.25)))
+```{r, eval=FALSE}
+ggplot(df) +
+  geom_point() # note what happens here
 ```
 
- ![ggbox-2](../figure/unnamed-chunk-21-1.png)
+Each type of geom usually has a **required set of aesthetics** to be set, and usually accepts only a subset of all aesthetics --refer to the geom help pages to see what mappings each geom accepts. Aesthetic mappings are set with the aes() function. Examples include:
+
+* position (i.e., on the x and y axes)
+* color ("outside" color)
+* fill ("inside" color) shape (of points)
+* linetype
+* size
+
+To start, we will add position for the x- and y-axis since `geom_point` requires mappings for x and y, all others are optional.
+
+```{r, fig.align='center'}
+ggplot(df) +
+     geom_point(aes(x = row.names(df), y= samplemeans))
+```
+
+ ![ggscatter1](../img/gg-scatter-1.png) 
+
+The labels on the x-axis are quite hard to read. To do this we need to add an additional theme layer. The ggplot2 `theme` system handles non-data plot elements such as:
+
+* Axis labels
+* Plot background
+* Facet label backround
+* Legend appearance
+
+There are built-in themes we can use, or we can adjust specific elements. For our figure we will change the x-axis labels to be plotted on a 45 degree angle with a small horizontal shift to avoid overlap. We will also add some additional aesthetics by mapping them to other variables in our dataframe. _For example, the color of the points will reflect the genotype and the shape will reflect celltype._ The size of the points can be adjusted within the `geom_point` but does not need to be included in `aes()` since the value is not mapping to a variable.
+
+```{r, fig.align='center'}
+ggplot(metadata) +
+  geom_point(aes(x = row.names(df), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) +
+  theme(axis.text.x = element_text(angle=45, hjust=1))
+```
+
+ ![ggscatter2](../img/gg-scatter-2.png) 
+
+
+## Histogram
+
+To plot a histogram we require another geometric object `geom_bar`, which requires a statistical transformation. Some plot types (such as scatterplots) do not require transformations, each point is plotted at x and y coordinates equal to the original value. Other plots, such as boxplots, histograms, prediction lines etc. need to be transformed, and usually has a default statistic that can be changed via the `stat_bin` argument. 
+
+```{r, eval=FALSE}
+ggplot(df) +
+  geom_bar(aes(x = samplemeans))
+  
+```
+
+ ![gghist1](../img/gg-hist-1.png) 
+
+
+Try plotting with the default value and compare it to the plot using the binwidth values. How do they differ?
+
+```{r, fig.align='center'}
+ggplot(df) +
+  geom_bar(aes(x = samplemeans), stat = "bin", binwidth=0.8)
+  
+```
+
+ ![gghist2](../img/gg-hist-2.png) 
+
+
 
 ### Barplot
-For the barplot, we need to define the graph type to `geom_bar`. Since we don't have an x variable, we need to specify the row names as our index so each sample is plotted on its own. For `fill` you can use `genotype` or `celltype` and see how the plot changes. **Can you determine how we got the axis labels on an angle?**
+For a barplot, we also use the geometric object `geom_bar` except we need to change the `stat` argument to `identity` to use the actual values. Since we don't have an x variable, we need to specify the row names as our index so each sample is plotted on its own. For `fill` you can use `genotype` or `celltype` and see how the plot changes. This time we also have additional layers to specify the labels for the x- and y-axis and a main title for the plot.
 
 
 ```r
@@ -261,9 +316,36 @@ ggplot(data=df, aes(x=row.names(df), y=samplemeans, fill=genotype)) +
  ![ggbar-1](../figure/unnamed-chunk-22-1.png) 
 
 
+## Boxplot
+
+Now that we have all the required information for plotting with ggplot2 let's try plotting a boxplot similar to what we had done using the base plot functions at the start of this lesson. We can add some additional layers to include a plot title and change the axis labels. Explore the code below and all the different layers that we have added to understand what each layer contributes to the final graphic.
+
+
+```r
+ggplot(data=df, aes(x= genotype, y=samplemeans, fill=celltype)) + 
+  geom_boxplot() + 
+  ggtitle('Genotype differences in average gene expression') +
+  xlab('Genotype') +
+  ylab('Mean expression') +
+  theme(plot.title = element_text(size = rel(2.0)),
+        axis.title = element_text(size = rel(1.5)),
+        axis.text = element_text(size = rel(1.25)))
+```
+
+ ![ggbox-2](../figure/unnamed-chunk-21-1.png)
+
+
 
 We have only scratched the surface here. To learn more, see the [ggplot reference site](http://docs.ggplot2.org/), and Winston Chang's excellent [Cookbook for R](http://wiki.stdout.org/rcookbook/Graphs/) site. Though slightly out of date, [ggplot2: Elegant Graphics for Data Anaysis](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/0387981403) is still the definative book on this subject.
 
+
+***
+
+**Exercise**
+
+NEED TO ADD EXERCISE FOR GGPLOT
+
+***
 
 ## Writing figures to file
 

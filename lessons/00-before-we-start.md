@@ -41,24 +41,24 @@ RStudio is freely available open-source IDE (Integrated Development Environment)
 **The RStudio interface has four main panels:**
 
 1. Console: where you can type commands and see output
-2. Editor: where you can type out commands and save to file. You can also run in console with `Ctrl Enter`
+2. Editor: where you can type out commands and save to file. You can also run in console with `Ctrl + Enter`
 3. Workspace/History: workspace shows all active objects and history keeps track of all commands run in console
 4. Files/Plots/Packages/Help
 
 ## Before we get started
 
-The instructions below are for students who have downloaded the `Intro-to-R-master.zip` prior to class. If you do not have this zip file please check the README file for this repo on what you need to get started.
+To get started take a look at the middle panel (under the red bar) of the main screen for this repo. You will find on the right hand side a button that allows you to 'Download ZIP'. You will need to click on that and a zip file 'Intro-to-R-master.zip' will be dowloaded to your computer, keep note of it's location. These are the materials required for this workshop.
 
-* Move the `Intro-to-R-master.zip` to your Dektop and extract contents. You should now have a directory by the same name on your Desktop.
+* Move the `Intro-to-R-extended-master.zip` to your Dektop and extract contents. You should now have a directory by the same name on your Desktop.
 * Open up RStudio
 * Under the `File` menu, click on `New project`, choose `New directory`, then
   `Existing Directory`
-* Use `Browse...` to locate the `Intro-to-R-master` directory and then `Create Project`. This will be your **working directory** for the rest of the day
-  (e.g., `~/Desktop/Intro-to-R-master`)
+* Use `Browse...` to locate the `Intro-to-R-extended-master` directory and then `Create Project`. This will be your **working directory** for the rest of the day
+  (e.g., `~/Desktop/Intro-to-R-exetended-master`)
 
 Your working directory should now look like this:
 
-![How it should look like at the beginning of this lesson](../img/before_we_start.png)
+![How it should look like at the beginning of this lesson](../img/r_starting_how_it_should_look.png)
 
  
 * Create a new R script (File > New File > R script) and save it in your working
@@ -80,8 +80,12 @@ to create a `data/` directory within your working directory that stores the raw
 data, and have a `results/` directory for intermediate datasets and a
 `figures/` directory for the plots you will generate.
 
-> The current working directory has a `data` and `figure` folder already. Create an additional directory called `results`. You can do this by navigating to the lower right panel and using the `New Folder` button in the `Files` tab.
+***
+**Exercise**
 
+1. The current working directory has a `data` and `figure` folder already. Create an additional directory called `results`. You can do this by navigating to the lower right panel and using the `New Folder` button in the `Files` tab.
+
+***
 
 ## Interacting with R
 

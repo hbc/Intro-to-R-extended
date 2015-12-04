@@ -163,30 +163,11 @@ the help files across all packages available.
 1. Compute the [standard error](http://en.wikipedia.org/wiki/Standard_error) for `glengths`. This will require multiple functions, and you may need to use the `?help` to find out more. (Hint: SE is the standard deviation divided by the square root of *n*; where n is the number of observations.)
 
 
-2. Suppose we had two dataframes that we wanted to combine: our `metadata` dataframe and a dataframe called `sample` with age, genotype information, and number of RNA-Seq reads that map to geneX for our samples. Let's search for a function to combine the two datasets together by column.
-
-	- Create the `sample` dataframe using following code (you can copy and paste, but be sure you understand the steps):
+2. Suppose we wanted to add age information for all of our samples in the `metadata` dataframe. Let's investigate how to use the `cbind` function to add the following `age` vector to the end of our `metadata` dataframe. Name the new dataframe `all_data`.
 
 	```
-		age <- c(4,5,5,5,5,4,5,4,5)
-		genotype <- c("Hh","HH","Hh","HH","Hh","Hh","Hh","Hh","HH")
-		counts_geneX <- c(120,96,71,129,111,115,58,75,41)
-		sample <- data.frame(samplename, age, genotype, counts_geneX)
+		age <- c(4,5,5,5,5,4,5,4,5,5,5,4)
 	```	
-
-	- Search for a function to combine the newly created `sample` dataframe with the `metadata` dataframe by the `samplename` columns. Name the new dataframe `all_data`.
-	
-2. You decide you would like to use the plot() function to display the counts of geneX for each sample.
-	- Create a scatterplot with samplename on the x-axis and counts_geneX on the y-axis using the following code: 
-
-	```
-	plot(x=all_data$samplename, y=all_data$counts_geneX)
-	```
-	
-	- Look up arguments for the plot() function to add the following features to the plot:
-		- **Title:** *"Counts of GeneX by Sample Group"*
-		- **x-axis label:** *"Sample name"*
-		- **y-axis label:** *"Counts geneX"*
 
 ***
 

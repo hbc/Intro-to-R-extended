@@ -34,7 +34,7 @@ We could also use class on a data frame or any other type of object. Let's load 
 	metadata <- read.csv(file='data/mouse_exp_design.csv')
 
 
-The function has *one required argument* and several *options* that can be changed. The mandatory argument is a path to the file and filename, which in our case is `mouse_exp_design.csv` file. We will put the function to the right of the assignment operator, meaning that **any output will be saved as the variable name provided on the left**.
+The function has *one required argument* and several *specifications* that can be provided. The mandatory argument is a path to the file and filename, which in our case is `mouse_exp_design.csv` file. We will put the function to the right of the assignment operator, meaning that **any output will be saved as the variable name provided on the left**.
 
 Take a look at the file by typing out the variable name `metadata` and pressing return. The file contains information describing the samples in our study. Each row holds information for a single sample, and the columns represent `genotype`(WT or KO),  `celltype` (typeA or typeB), and `replicate number`.
 
@@ -155,6 +155,28 @@ Additionally, the `length.out` parameter will provide the restriction on the max
 seq(5, 10, length.out=3)       # equal breaks of sequence into vector length = length.out
 seq(50, by=5, length.out=10)   # sequence 50 by 5 until you hit vector length = length.out
 seq(1, 8, by=3)                # sequence by 3 until you hit 8
+```
+
+### Factors
+
+We briefly introduced factors in the last lesson, but it becomes more intuitive once you've had a chance to work with them. Remember that when we created our factor, we took the set of unique elements in the expression vector were obtained, ordered alphabetically, and integer value-label pairs were created (i.e high=1, low=2, medium=3). The unique elements are referred to as "factor levels", and we can use the function `levels()` to idenitfy the different categories for a factor:  
+
+	levels(expression)
+
+With the establishment of defined levels, we can then use the `summary()` function to classify and count the elements for each level. 
+
+	summary(expression)
+
+Factors can be ordered or unordered and are an important class for statistical analysis and for plotting. Sometimes, the order of the factors does not matter, other times you might want to specify the order because it is meaningful (e.g., "low" < "medium" < "high") or it is required by particular type of analysis. 
+
+In the example above, the factor is unordered. To order factor levels we need to specify the desired order of levels and add an argument to the function `ordered=TRUE`. In this way, R can access the elements as their actual integer values. Try the example below: 
+
+```{r}
+min(expression) # doesn't work!
+
+expression <- factor(expression, levels=c("low", "medium", "high"), ordered=TRUE)
+levels(expression)
+min(expression) ## works!
 ```
 
 ### Dataframes

@@ -352,7 +352,7 @@ Take a look at the first few lines of the data matrix to see what's in there.
 	head(rpkm_data)
 
 
-It looks as if the sample names (header) in our data matrix are similar to the row names of our metadata file, but it's hard to tell since they are not in the same order. We can do a quick check of the dimensions and atleast see if the numbers match up. 
+It looks as if the sample names (header) in our data matrix are similar to the row names of our metadata file, but it's hard to tell since they are not in the same order. We can do a quick check of the dimensions and at least see if the numbers match up. 
 
 
 	ncol(rpkm_data)
@@ -407,7 +407,6 @@ The `all` function is also useful. Given a logical vector, it will tell you whet
 
 Suppose we had **two vectors that had the same values but just not in the same order**. We could also use `all` to test for that. Rather than using the `%in%` operator we would use `==` and compare each element to the same position in the other vector. Unlike the `%in%` operator, **for this to work you must have two vectors that are of equal length**.
 
-
 ```r
 A <- c(1,2,3,4,5)
 B <- c(5,4,3,2,1)  # same numbers but backwards 
@@ -442,8 +441,13 @@ We know that all samples are present, but are they in the same order:
 ***
 **Exercise** 
 
-NEEDS TO BE ADDED
+We have a list of IDs for genes of particular interest to us. Instead of scrolling through our list of counts, we want to see the number of counts associated with each of these genes. Let's use the `%in%` operator to extract the information for those genes from `rpkm_data`.
 
+1. Create a vector for your important gene IDs, and use the %in% operator to determine whether these genes are in the row names of our `rpkm_data` dataset.
+
+	- important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", 	"ENSMUSG00000065619", "ENSMUSG00000047945", "ENSMUSG00000081010", 	"ENSMUSG00000030970")
+	
+2. Extract the rows for the important genes from your `rpkm_data` dataset.	
 ***
 
 ### The `match` function

@@ -47,7 +47,7 @@ RStudio is freely available open-source IDE (Integrated Development Environment)
 
 ## Before we get started
 
-The instructions below are for students who have downloaded the `Intro-to-R-extended-master.zip` prior to class. If you do not have this zip file please check the README file for this repo on what you need to get started.
+To get started take a look at the middle panel (under the red bar) of the main screen for this repo. You will find on the right hand side a button that allows you to 'Download ZIP'. You will need to click on that and a zip file 'Intro-to-R-master.zip' will be dowloaded to your computer, keep note of it's location. These are the materials required for this workshop.
 
 * Move the `Intro-to-R-extended-master.zip` to your Dektop and extract contents. You should now have a directory by the same name on your Desktop.
 * Open up RStudio
@@ -80,8 +80,12 @@ to create a `data/` directory within your working directory that stores the raw
 data, and have a `results/` directory for intermediate datasets and a
 `figures/` directory for the plots you will generate.
 
-> The current working directory has a `data` and `figure` folder already. Create an additional directory called `results`. You can do this by navigating to the lower right panel and using the `New Folder` button in the `Files` tab.
+***
+**Exercise**
 
+1. The current working directory has a `data` and `figure` folder already. Create an additional directory called `results`. You can do this by navigating to the lower right panel and using the `New Folder` button in the `Files` tab.
+
+***
 
 ## Interacting with R
 

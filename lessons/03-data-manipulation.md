@@ -334,7 +334,7 @@ Alternatively, we could try looking at only the first two replicates of each sam
 **Exercise** 
 
 1. Return only those samples from `all_data` dataframe with genotype `HH`.
-2. For samples from the `metadata` dataframe, return only the counts for geneX, where sample `sex` is female and `age` is greater than 4.
+2. Using the `metadata` dataframe, return only the counts for geneX from those samples where `sex` is female and `age` is greater than 4.
 
 ***
 

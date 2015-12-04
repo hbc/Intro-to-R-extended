@@ -94,7 +94,17 @@ You can check what base packages are loaded by typing into the console:
 
 
 In this workshop we will mostly be using functions from the standard base packages. However, the more you work with R you will come to realize that there is a cornucopia of R packages that offer a wide variety of functionality. To use additional packages will require installation.
+***
+**Exercise**
 
+1. Compute the [standard error](http://en.wikipedia.org/wiki/Standard_error) for `glengths`. This will require multiple functions, and you may need to use the `?help` to find out more. (Hint: SE is the standard deviation divided by the square root of *n*; where n is the number of observations.)
+
+2. Suppose we wanted to add a column containing age information for all of our samples in the `metadata` dataframe that we previously created. To do this the `cbind` function is very useful. Let's investigate how to use the `cbind` function to add the `age` vector below to `metadata`. Name this new dataframe `all_data`.
+
+	# age vector to add
+	age <- c(4,5,5,5,5,4,5,4,5,5,5,4)
+
+***
  
 Packages for R can be installed from the [CRAN](http://cran.r-project.org/) package repository using the `install.packages` function. An example is given below for the `ggplot2` package that will be required for some images we will create later on. Run this code to install `ggplot2`.
 
@@ -160,14 +170,10 @@ the help files across all packages available.
 ***
 **Exercise**
 
-1. Compute the [standard error](http://en.wikipedia.org/wiki/Standard_error) for `glengths`. This will require multiple functions, and you may need to use the `?help` to find out more. (Hint: SE is the standard deviation divided by the square root of *n*; where n is the number of observations.)
+1. Suppose we wanted to add a column containing age information for all of our samples in the `metadata` dataframe that we previously created. To do this the `cbind` function is very useful. Let's investigate how to use the `cbind` function to add the `age` vector below to `metadata`. Name this new dataframe `all_data`.
 
-
-2. Suppose we wanted to add age information for all of our samples in the `metadata` dataframe. Let's investigate how to use the `cbind` function to add the following `age` vector to the end of our `metadata` dataframe. Name the new dataframe `all_data`.
-
-	```
-		age <- c(4,5,5,5,5,4,5,4,5,5,5,4)
-	```	
+	# age vector to add
+	age <- c(4,5,5,5,5,4,5,4,5,5,5,4)
 
 ***
 

@@ -6,15 +6,15 @@ minutes: 30
 ---
 
 ## Learning Objectives
-* Using functions to explore data structures
+* Inspecting data structures
 * Using indexes and sequences to select data from vectors and dataframes
 * Subsetting data using logical operators
 * Matching and re-organizing data
 
 
-## Using functions to explore data structures
+## Inspecting data structures
 
-There is a wide selection of base functions in R that are useful for inspecting your data and summarizing it. Let's start with a simple data structure such as vectors. A commonly used function is `length()`, which tells you how many elements are in a particular vector:
+There are a wide selection of base functions in R that are useful for inspecting your data and summarizing it. Let's start with a simple data structure such as vectors. A commonly used function is `length()`, which tells you how many elements are in a particular vector:
 
 
 	length(glengths)
@@ -26,39 +26,38 @@ The `class()` function is useful in indicating the datatype or data structure of
 	class(glengths)
 
 
-We could also use class on a data frame or any other type of object. Let's load in a data frame to test out some more functions. We will use the `read.csv` function to read in data from a csv (comma separated values) file. There are numerous other functions to load in data depending on your filetype, but `read.csv` is one of the more commonly used ones.
-
-> Note: When typing out read.csv try pressing the `Tab` key after typing only `read`. You will find that a drop-down menu will appear listing all `read` options for loading in files. The window to the right gives you more information on the function and its arguments as you scroll down and highlight each individually.
+We could also use class on a data frame or any other type of object. Let's use the metadata file that we created to test out some more functions. 
 
 
-	metadata <- read.csv(file='data/mouse_exp_design.csv')
-
-
-The function has *one required argument* and several *specifications* that can be provided. The mandatory argument is a path to the file and filename, which in our case is `mouse_exp_design.csv` file. We will put the function to the right of the assignment operator, meaning that **any output will be saved as the variable name provided on the left**.
-
-Take a look at the file by typing out the variable name `metadata` and pressing return. The file contains information describing the samples in our study. Each row holds information for a single sample, and the columns represent `genotype`(WT or KO),  `celltype` (typeA or typeB), and `replicate number`.
+Take a look at the dataframe by typing out the variable name `metadata` and pressing return. The file contains information describing the samples in our study. Each row holds information for a single sample, and the columns represent `genotype`(WT or KO),  `celltype` (typeA or typeB), and `replicate number`.
 
 
 	metadata
 
 ```
-##          genotype celltype replicate
-## sample1        Wt    typeA         1
-## sample2        Wt    typeA         2
-## sample3        Wt    typeA         3
-## sample4        KO    typeA         1
-## sample5        KO    typeA         2
-## sample6        KO    typeA         3
-## sample7        Wt    typeB         1
-## sample8        Wt    typeB         2
-## sample9        Wt    typeB         3
-## sample10       KO    typeB         1
-## sample11       KO    typeB         2
-## sample12       KO    typeB         3
+   genotype celltype replicate
+1        Wt    typeA         1
+2        Wt    typeA         2
+3        Wt    typeA         3
+4        KO    typeA         1
+5        KO    typeA         2
+6        KO    typeA         3
+7        Wt    typeB         1
+8        Wt    typeB         2
+9        Wt    typeB         3
+10       KO    typeB         1
+11       KO    typeB         2
+12       KO    typeB         3
 ```
 
-> Note: By default, `read.csv` converts (= coerces) columns that contain characters (i.e., text) into the `factor` data type. Depending on what you want to do with
-> the data, you may want to keep these columns as `character`. To do so, `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which can be set to `FALSE`.
+> If you did not create this dataframe you can use the `read.csv` function to read in a file containing the same information. The file is a csv (comma separated values) file. 
+>
+	metadata <- read.csv(file='data/mouse_exp_design.csv')
+>
+>
+> The function has *one required argument* and several *specifications* that can be provided. The mandatory argument is a path to the file and filename, which in our case is `mouse_exp_design.csv` file. We will put the function to the right of the assignment operator, meaning that **any output will be saved as the variable name provided on the left**.
+>
+> *Note: By default, `read.csv` converts (= coerces) columns that contain characters (i.e., text) into the `factor` data type. Depending on what you want to do with the data, you may want to keep these columns as `character`. To do so, `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which can be set to `FALSE`.*
 
 
 Suppose we had a larger file, we might not want to display all the contents in the console. Instead we could check the top (the first 6 lines) of this `data.frame` using the function `head()`:

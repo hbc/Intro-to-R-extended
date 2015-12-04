@@ -225,9 +225,9 @@ So, what exactly happened when we applied the `factor()` function? The set of un
 ***
 **Exercise**
 
-For our experimental analyses, we are working with normal cells, cells knocked out for geneA (a very exciting gene), and cells overexpressing geneA. We have three replicates for our normal cells, our knock-out cells, and our overexpressing cells.
+For our experimental analyses, we are working with three different sets of cells: normal, cells knocked out for geneA (a very exciting gene), and cells overexpressing geneA. We have three replicates for each celltype.
 
-1. Create a vector named `samplegroup` of length nine with three control ("Ctrl") samples, three knock-out ("KO") samples, and three over-expressing ("OE") samples.
+1. Create a vector named `samplegroup`. This vector will contain nine elements: 3 control ("CTL") samples, 3 knock-out ("KO") samples, and 3 over-expressing ("OE") samples.
 2. Turn `samplegroup` into a factor data structure.
 
 ***

@@ -26,7 +26,7 @@ The `class()` function is useful in indicating the datatype or data structure of
 	class(glengths)
 
 
-We could also use class on a data frame or any other type of object. Let's use the metadata file that we created to test out some more functions. 
+We could also use class on a data frame or any other type of object. Let's use the `metadata` file that we created to test out some more functions. 
 
 
 Take a look at the dataframe by typing out the variable name `metadata` and pressing return. The file contains information describing the samples in our study. Each row holds information for a single sample, and the columns represent `genotype`(WT or KO),  `celltype` (typeA or typeB), and `replicate number`.
@@ -60,6 +60,9 @@ Take a look at the dataframe by typing out the variable name `metadata` and pres
 > *Note: By default, `read.csv` converts (= coerces) columns that contain characters (i.e., text) into the `factor` data type. Depending on what you want to do with the data, you may want to keep these columns as `character`. To do so, `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which can be set to `FALSE`.*
 
 
+
+
+
 Suppose we had a larger file, we might not want to display all the contents in the console. Instead we could check the top (the first 6 lines) of this `data.frame` using the function `head()`:
 
 
@@ -72,17 +75,17 @@ Let's now check the __str__ucture of this `data.frame` in more details with the 
 
 
 ```
-## 'data.frame':	12 obs. of  3 variables:
-##  $ genotype : Factor w/ 2 levels "KO","Wt": 2 2 2 1 1 1 2 2 2 1 ...
-##  $ celltype : Factor w/ 2 levels "typeA","typeB": 1 1 1 1 1 1 2 2 2 2 ...
-##  $ replicate: int  1 2 3 1 2 3 1 2 3 1 ...
+'data.frame':	12 obs. of  3 variables:
+ $ genotype : Factor w/ 2 levels "KO","Wt": 2 2 2 1 1 1 2 2 2 1 ...
+ $ celltype : Factor w/ 2 levels "typeA","typeB": 1 1 1 1 1 1 2 2 2 2 ...
+ $ replicate: num  1 2 3 1 2 3 1 2 3 1 ...
 ```
 
 As you can see, the columns `genotype` and `celltype` are of the `factor` class, whereas the replicate column has been interpreted as integer data type.
 
 __You can also get this information from the "Environment" tab in RStudio.__
 
-### Inspecting `data.frame` objects
+### Functions for data inspection
 
 We already saw how the functions `head()` and `str()` can be useful to check the
 content and the structure of a `data.frame`. Here is a non-exhaustive list of
@@ -111,13 +114,14 @@ objects besides `data.frame`.
 ***
 **Exercise** 
 
-1. What is the class of the variable `metadata`?
-2. How many rows and how many columns are there?
-3. Load in data again, storing it as `test_data` and using `stringsAsFactors=F`. How does this change the structure of the data?
+1. How many rows and how many columns are there in `metadata`?
+2. We need to add row names to `metadata` so that it corresponds with our data file when we bring it in. The vector of sample names are provided below. Using the functions listed above, assign `metadata` a new set of row names.
 
+	rnames <- c("sample1", "sample2", "sample3", "sample4", "sample5", "sample6", "sample7", "sample8", "sample9", "sample10", 
+				"sample11", "sample12") 
 ***
 
-## Indexing and sequences
+## Selecting data using indexes and sequences
 
 When analyzing data, we often want to partition the data so that we are only working with selected columns or rows. A data frame or data matrix is simply a collection of vectors combined together. So let's begin with vectors, and then extend those concepts to dataframes.
 
@@ -130,28 +134,44 @@ Let's start by creating a vector called age:
 	age <- c(15, 18, 22, 45, 52, 56, 67, 73, 81)
 
 
-To index from a data structure, we use the the square bracket notation `[]`. Suppose we only wanted the fifth value of this vector, we would use the following syntax:
+To select from a data structure, we use the the square bracket notation `[]`. Suppose we only wanted the fifth value of this vector, we would use the following syntax:
 
 	age[5]
 
-If we wanted to index more than one element we would still use the square bracket notation, but rather than using a single value we would pass in a *vector of the index values*:
+If we wanted to select more than one element we would still use the square bracket notation, but rather than using a single value we would pass in a *vector of the index values*:
 
 	idx <- c(3,5,7) # create vector of the elements of interest
 	age[idx]
 
 
-To access a sequence of continuous values from a vector, we would use `:` which is a special function that creates numeric vectors of integer in increasing or decreasing order. Let's select the *first five values* from age:
+To select a sequence of continuous values from a vector, we would use `:` which is a special function that creates numeric vectors of integer in increasing or decreasing order. Let's select the *first five values* from age:
 
 	age[1:5]
 
-Alternatively, if you wanted the reverse could try `5:1` for instance, and see what is returned. The function `seq()` (for __seq__uence) can also be used to create sequences, but allow for more complex patterns. Passing in the `by` argument will allow you to generate a sequence based on the specified interval:
+Alternatively, if you wanted the reverse could try `5:1` for instance, and see what is returned. 
+
+
+The function `seq()` (for __seq__uence) can also be used to create sequences,
+
+	seq(1,5)
+
+If we place the `seq` function inside the square brackets this will do exactly the same thing as `age[1:5]`. Test it out for yourself:
+
+	age[seq(1,5)]
+
+The `seq` function can also allow for more complex patterns. Passing in the `by` argument will allow you to generate a sequence based on the specified interval:
 
 	seq(1, 10, by=2)
 
-Additionally, the `length.out` parameter will provide the restriction on the maximum length of the resulting vector. A combinination of parameters can also be used:
+Additionally, the `length.out` parameter will provide the restriction on the maximum length of the resulting vector:
+
+	seq(5, 10, length.out=3)  # equal breaks of sequence into vector length = length.out 
+
+
+A combinination of parameters can also be used:
 
 ```r
-seq(5, 10, length.out=3)       # equal breaks of sequence into vector length = length.out
+
 seq(50, by=5, length.out=10)   # sequence 50 by 5 until you hit vector length = length.out
 seq(1, 8, by=3)                # sequence by 3 until you hit 8
 ```
@@ -162,7 +182,7 @@ We briefly introduced factors in the last lesson, but it becomes more intuitive 
 
 	levels(expression)
 
-With the establishment of defined levels, we can then use the `summary()` function to classify and count the elements for each level. 
+With the establishment of defined levels, we can then use the `summary()` function to classify and count the elements for each level: 
 
 	summary(expression)
 
@@ -178,9 +198,15 @@ levels(expression)
 min(expression) ## works!
 ```
 
+***
+**Exercise**
+1. Use the `samplegroup` vector we created in a previous lesson, and change that to an ordered factor such that KO < CTL < OE. 
+
+***
+
 ### Dataframes
 
-Dataframes (and matrices) have 2 dimensions (rows and columns), so if we want to extract some specific data from it we need to specify the "coordinates" we want from it. We use the same square bracket notation but rather than providing a single index, there are *two inputs required*. Within the square bracket, **row numbers come first followed by column numbers (and the two are separated by a comma)**. For example:
+Dataframes (and matrices) have 2 dimensions (rows and columns), so if we want to select some specific data from it we need to specify the "coordinates" we want from it. We use the same square bracket notation but rather than providing a single index, there are *two indexes required*. Within the square bracket, **row numbers come first followed by column numbers (and the two are separated by a comma)**. For example:
 
 	metadata[1, 1]   # first element in the first column of the data frame
 	metadata[1, 3]   # first element in the 3rd column
@@ -241,11 +267,11 @@ metadata[, c("genotype", "celltype")]
 
 ### Lists
 
-Indexing a list requires a slightly different notation, even though in theory a list is a vector (that contains multiple data structures). To index a specific component of a list, you need to use double bracket notation `[[]]`. Let's use the `list1` that we created previously, and index the second component:
+Selecting componenets from a list requires a slightly different notation, even though in theory a list is a vector (that contains multiple data structures). To select a specific component of a list, you need to use double bracket notation `[[]]`. Let's use the `list1` that we created previously, and index the second component:
 
 	list1[[2]]
 
-What do you see printed to the console? Using the double bracket notation is useful for accessing the individual components whilst preserving the original data structure. When creating this list we know we had originally stored a dataframe in the second component. With the `class` function we can check if that is what we retrieve from indexing:
+What do you see printed to the console? Using the double bracket notation is useful for **accessing the individual components whilst preserving the original data structure.** When creating this list we know we had originally stored a dataframe in the second component. With the `class` function we can check if that is what we retrieve:
 
 	comp2 <- list1[[2]]
 	class(comp2)
@@ -262,7 +288,7 @@ Now, if we wanted to reference the first element of that vector we would use:
 
 	[1] "ecoli"
 
-You can also do the same for dataframes and matrices, although with larger datasets it is not advisable. Instead, it is better to save the contents of a list component to a variable (as we did above) and further manipulate it. Also, it is important to note that when indexing vectors we can only **access one component at a time**. To access multiple components of a list, see the note below. 
+You can also do the same for dataframes and matrices, although with larger datasets it is not advisable. Instead, it is better to save the contents of a list component to a variable (as we did above) and further manipulate it. Also, it is important to note that when selecting components we can only **access one at a time**. To access multiple components of a list, see the note below. 
 
 > Note: Using the single bracket notation also works wth lists. The difference is the class of the information that is retrieved. Using single bracket notation i.e. `list1[1]` will return the contents in a list form and *not the original data structure*. The benefit of this notation is that it allows indexing by vectors so you can access multiple components of the list at once.
 
@@ -271,9 +297,9 @@ You can also do the same for dataframes and matrices, although with larger datas
 
 **Exercise**  
 
-Let's practice inspecting lists. Create a list named `random` with the following components: `all_data`, `metadata`, `age`, `list1`, `samplename`, and `number`.
+Let's practice inspecting lists. Create a list named `random` with the following components: `all_data`, `metadata`, `age`, `list1`, `samplegroup`, and `number`.
 
-1. Print out the values stored in the `samplename` vector component.
+1. Print out the values stored in the `samplegroup` component.
 	
 2. From the `all_data` component of the list, extract the number of counts for geneX for `samplename= 'C2'`.
 	

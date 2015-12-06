@@ -94,17 +94,7 @@ You can check what base packages are loaded by typing into the console:
 
 
 In this workshop we will mostly be using functions from the standard base packages. However, the more you work with R you will come to realize that there is a cornucopia of R packages that offer a wide variety of functionality. To use additional packages will require installation.
-***
-**Exercise**
 
-1. Compute the [standard error](http://en.wikipedia.org/wiki/Standard_error) for `glengths`. This will require multiple functions, and you may need to use the `?help` to find out more. (Hint: SE is the standard deviation divided by the square root of *n*; where n is the number of observations.)
-
-2. Suppose we wanted to add a column containing age information for all of our samples in the `metadata` dataframe that we previously created. To do this the `cbind` function is very useful. Let's investigate how to use the `cbind` function to add the `age` vector below to `metadata`. Name this new dataframe `all_data`.
-
-	# age vector to add
-	age <- c(4,5,5,5,5,4,5,4,5,5,5,4)
-
-***
  
 Packages for R can be installed from the [CRAN](http://cran.r-project.org/) package repository using the `install.packages` function. An example is given below for the `ggplot2` package that will be required for some images we will create later on. Run this code to install `ggplot2`.
 
@@ -131,7 +121,7 @@ biocLite('ggplot2')
 
 Finally, R packages can also be installed from source. This is useful when you do not have an internet connection (and have the source files locally), since the other two methods are retrieving the source files from remote sites. For this class, if the other two methods for installation did not work for you can install `ggplot2` from source. (We have provided for you a compressed file containing all the required information to build and install the package in the repo). 
 
-To install from source, we use the same `install.packages` function but we have additional *arguments* that provide specifications to *change from defaults*:
+To install from source, we use the same `install.packages` function but we have additional arguments that provide *specifications* to *change from defaults*:
 
 	install.packages('ggplot2_1.0.1.tar.gz', type="source", repos=NULL)
 
@@ -170,7 +160,7 @@ the help files across all packages available.
 ***
 **Exercise**
 
-1. Suppose we wanted to add a column containing age information for all of our samples in the `metadata` dataframe that we previously created. To do this the `cbind` function is very useful. Let's investigate how to use the `cbind` function to add the `age` vector below to `metadata`. Name this new dataframe `all_data`.
+1. Suppose we wanted to add a column containing age information for all of our samples in the `metadata` dataframe that we previously created. To do this the `cbind` function is very useful. Let's investigate how to use the `cbind` function using R help `?`. Add the `age` vector below to `metadata`. Name this new dataframe `all_data`.
 
 	# age vector to add
 	age <- c(4,5,5,5,5,4,5,4,5,5,5,4)
@@ -213,15 +203,7 @@ instead of your 50,000 rows and 10,000 columns one, provide the small one with
 the description of your problem. When appropriate, try to generalize what you
 are doing so even people who are not in your field can understand the question.
 
-To share an object with someone else, if it's relatively small, you can use the
-function `dput()`. It will output R code that can be used to recreate the exact same
-object as the one in memory:
-
-```{r, results='show'}
-dput(head(iris)) # iris is an example data.frame that comes with R
-```
-
-If the object is larger, provide either the raw file (i.e., your CSV file) with
+To share an object with someone else, you can provide either the raw file (i.e., your CSV file) with
 your script up to the point of the error (and after removing everything that is
 not relevant to your issue). Alternatively, in particular if your questions is
 not related to a `data.frame`, you can save any other R data structure that you have in your environment to a file:

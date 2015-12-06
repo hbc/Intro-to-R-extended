@@ -162,8 +162,10 @@ the help files across all packages available.
 
 1. Suppose we wanted to add a column containing age information for all of our samples in the `metadata` dataframe that we previously created. To do this the `cbind` function is very useful. Let's investigate how to use the `cbind` function using R help `?`. Add the `age` vector below to `metadata`. Name this new dataframe `all_data`.
 
-	# age vector to add
+```
+	#age vector to add
 	age <- c(4,5,5,5,5,4,5,4,5,5,5,4)
+```
 
 ***
 

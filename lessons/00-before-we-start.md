@@ -2,7 +2,7 @@
 layout: topic
 title: Before we start
 author: Data Carpentry contributors
-minutes: 15
+minutes: 20
 ---
 
 ## Learning Objectives

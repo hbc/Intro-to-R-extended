@@ -2,7 +2,7 @@
 title: "Data manipulation"
 date: "03/03/2015"
 layout: topic
-minutes: 30 
+minutes: 60
 ---
 
 ## Learning Objectives

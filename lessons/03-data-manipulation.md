@@ -498,18 +498,22 @@ We know that all samples are present, but are they in the same order:
 ***
 **Exercise** 
 
-We have a list of IDs for genes of particular interest to us. Instead of scrolling through our list of counts, we want to see the number of counts associated with each of these genes. Let's use the `%in%` operator to extract the information for those genes from `rpkm_data`.
+We have a list of IDs for marker genes of particular interest. We want to extract count information associated with each of these genes, without having to scroll through our matrix of count. We can do this using the `%in%` operator to extract the information for those genes from `rpkm_data`.
 
-1. Create a vector for your important gene IDs, and use the %in% operator to determine whether these genes are in the row names of our `rpkm_data` dataset.
+1. Create a vector for your important gene IDs, and use the %in% operator to determine whether these genes are contained in the row names of our `rpkm_data` dataset.
 
-	- important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", 	"ENSMUSG00000065619", "ENSMUSG00000047945", "ENSMUSG00000081010", 	"ENSMUSG00000030970")
+```
+	important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG00000065619", "ENSMUSG00000047945", "ENSMUSG00000081010", 	"ENSMUSG00000030970")
+
+```
 	
-2. Extract the rows for the important genes from your `rpkm_data` dataset.	
+2. Extract the rows containing the important genes from your `rpkm_data` dataset.	
+
 ***
 
 ### The `match` function
 
-We'll be using the `match` function to re-roder samples. This function takes at least 2 arguments: 1) a vector of values to *be matched*, and 2) a vector of values to be *matched against*. The function returns the position of the matches in the second vector. We can use the vectors A and B created previously to demonstrate how it works:
+We'll be using the `match` function to re-order samples. This function takes at least 2 arguments: 1) a vector of values to *be matched*, and 2) a vector of values to be *matched against*. The function returns the position of the matches in the second vector. We can use the vectors A and B created previously to demonstrate how it works:
 
 	match(A,B)
 

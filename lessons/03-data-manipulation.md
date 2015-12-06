@@ -29,7 +29,7 @@ The `class()` function is useful in indicating the datatype or data structure of
 We could also use class on a data frame or any other type of object. Let's use the `metadata` file that we created to test out some more functions. 
 
 
-Take a look at the dataframe by typing out the variable name `metadata` and pressing return. The file contains information describing the samples in our study. Each row holds information for a single sample, and the columns represent `genotype`(WT or KO),  `celltype` (typeA or typeB), and `replicate number`.
+Take a look at the dataframe by typing out the variable name `metadata` and pressing return; the variable contains information describing the samples in our study. Each row holds information for a single sample, and the columns represent `genotype`(WT or KO),  `celltype` (typeA or typeB), and `replicate number`.
 
 
 	metadata
@@ -50,17 +50,14 @@ Take a look at the dataframe by typing out the variable name `metadata` and pres
 12       KO    typeB         3
 ```
 
+> **NOTE**: 
+> 
 > If you did not create this dataframe you can use the `read.csv` function to read in a file containing the same information. The file is a csv (comma separated values) file. 
 >
 	metadata <- read.csv(file='data/mouse_exp_design.csv')
->
->
-> The function has *one required argument* and several *specifications* that can be provided. The mandatory argument is a path to the file and filename, which in our case is `mouse_exp_design.csv` file. We will put the function to the right of the assignment operator, meaning that **any output will be saved as the variable name provided on the left**.
->
-> *Note: By default, `read.csv` converts (= coerces) columns that contain characters (i.e., text) into the `factor` data type. Depending on what you want to do with the data, you may want to keep these columns as `character`. To do so, `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which can be set to `FALSE`.*
-
-
-
+> 
+> *By default, `read.csv` converts (= coerces) columns that contain characters (i.e., text) into the `factor` data type. Depending on what you want to do with the data, you may want to keep these columns as `character`. To do so, `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which can be set to `FALSE`.*
+> 
 
 
 Suppose we had a larger file, we might not want to display all the contents in the console. Instead we could check the top (the first 6 lines) of this `data.frame` using the function `head()`:
@@ -117,13 +114,16 @@ objects besides `data.frame`.
 1. How many rows and how many columns are there in `metadata`?
 2. We need to add row names to `metadata` so that it corresponds with our data file when we bring it in. The vector of sample names are provided below. Using the functions listed above, assign `metadata` a new set of row names.
 
+```
 	rnames <- c("sample1", "sample2", "sample3", "sample4", "sample5", "sample6", "sample7", "sample8", "sample9", "sample10", 
 				"sample11", "sample12") 
+```
+
 ***
 
 ## Selecting data using indexes and sequences
 
-When analyzing data, we often want to partition the data so that we are only working with selected columns or rows. A data frame or data matrix is simply a collection of vectors combined together. So let's begin with vectors, and then extend those concepts to dataframes.
+When analyzing data, we often want to **partition the data so that we are only working with selected columns or rows.** A data frame or data matrix is simply a collection of vectors combined together. So let's begin with vectors, and then extend those concepts to dataframes.
 
 ### Vectors
 
@@ -178,7 +178,7 @@ seq(1, 8, by=3)                # sequence by 3 until you hit 8
 
 ### Factors
 
-We briefly introduced factors in the last lesson, but it becomes more intuitive once you've had a chance to work with them. Remember that when we created our factor, we took the set of unique elements in the expression vector were obtained, ordered alphabetically, and integer value-label pairs were created (i.e high=1, low=2, medium=3). The unique elements are referred to as "factor levels", and we can use the function `levels()` to idenitfy the different categories for a factor:  
+We briefly introduced factors in the last lesson, but it only becomes more intuitive once you've had a chance to work with them. Remember that when we created our factor, we took the set of unique elements in the expression vector were obtained, ordered alphabetically, and integer value-label pairs were created (i.e high=1, low=2, medium=3). The unique elements are referred to as "factor levels", and we can use the function `levels()` to idenitfy the different categories for a factor:  
 
 	levels(expression)
 
@@ -200,6 +200,7 @@ min(expression) ## works!
 
 ***
 **Exercise**
+
 1. Use the `samplegroup` vector we created in a previous lesson, and change that to an ordered factor such that KO < CTL < OE. 
 
 ***
@@ -211,7 +212,7 @@ Dataframes (and matrices) have 2 dimensions (rows and columns), so if we want to
 	metadata[1, 1]   # first element in the first column of the data frame
 	metadata[1, 3]   # first element in the 3rd column
 
-Now if you only wanted to select based on rows, you would provide the indexes for the rows and leave the columns index blank. The key here is to include the comma, to let R know that you are accessing a 2 dimensional data structure:
+Now if you only wanted to select based on rows, you would provide the indexes for the rows and leave the columns index blank. The key here is to include the comma, to let R know that you are accessing a 2-dimensional data structure:
 
 	metadata[3, ]    # the 3rd row for all columns
 	metadata[1:3, ] # first three rows
@@ -227,12 +228,15 @@ For larger datasets, it can be tricky to remember the column number that corresp
 or 2? oh, right... they are in column 1). In some cases, the column number for a variable can change if the script you are using adds or removes
 columns. It's therefore often better to use column names to refer to a particular variable, and it makes your code easier to read and your intentions clearer.
 
-You can do operations on a particular column, by selecting it using the `$` sign. In this case, the entire column is a vector. For instance, to extract all the gentotypes from our dataset, we can use: `metadata$genotype`. You can use `names(metadata)` or `colnames(metadata)` to remind yourself of the column names. That vector can then be indexed for
-specific values. For example, if we wanted the genotype information for the first five samples in `metadata`:
+You can do operations on a particular column, by selecting it using the `$` sign. In this case, the entire column is a vector. For instance, to extract all the gentotypes from our dataset, we can use: 
+
+	metadata$genotype 
+
+You can use `names(metadata)` or `colnames(metadata)` to remind yourself of the column names. We can then supply index values to select specific values from that vector. For example, if we wanted the genotype information for the first five samples in `metadata`:
 
 	metadata$genotype[1:5]
 
-To select multiple columns by name the square bracket syntax is used by concatenating a vector of strings that correspond to column names: 
+The `$` allows you to select a single column by name. To select multiple columns by name, you need to  concatenate a vector of strings that correspond to column names: 
 
 ```
 metadata[, c("genotype", "celltype")]
@@ -260,14 +264,14 @@ metadata[, c("genotype", "celltype")]
 **Exercise** 
 
 1. The function `nrow()` on a `data.frame` returns the number of rows. Use it, in conjuction with `seq()` to create a new `data.frame` called `data_by_2` that includes every other row of the metadata.
-2. Extract only those samples in the dataframe `all_data` where `samplename` is "C1", "C2", "C3", "KO1", "KO2", or "KO3".
+
 
 ***
 
 
 ### Lists
 
-Selecting componenets from a list requires a slightly different notation, even though in theory a list is a vector (that contains multiple data structures). To select a specific component of a list, you need to use double bracket notation `[[]]`. Let's use the `list1` that we created previously, and index the second component:
+Selecting components from a list requires a slightly different notation, even though in theory a list is a vector (that contains multiple data structures). To select a specific component of a list, you need to use double bracket notation `[[]]`. Let's use the `list1` that we created previously, and index the second component:
 
 	list1[[2]]
 
@@ -301,7 +305,7 @@ Let's practice inspecting lists. Create a list named `random` with the following
 
 1. Print out the values stored in the `samplegroup` component.
 	
-2. From the `all_data` component of the list, extract the number of counts for geneX for `samplename= 'C2'`.
+2. From the `all_data` component of the list, extract the `age` column. From the aga values select only the last 5 values.
 	
 ***
 
@@ -309,25 +313,27 @@ Assigning names to the components in a list can help identify what each list com
 
 Adding names to components of a list uses the same function as adding names to the columns of a dataframe, `names()`.
 	
-Let's check and see if the `random` list we just created currently has names for the components:
+Let's check and see if the `list1` has names for the components:
 
-	names(random)Let's assign names to the components of the random vector:
+	names(list1) 
 
-	names(random) <- c("all_data", "metadata", "age", "list1", "samplename")
+When we created the list we had combined the `species` vector with  a dataframe `df` and the `number` variable. Let's assign the original names to the components:
+
+	names(list1) <- c("species", "df", "number")
 	
-	names(random)
+	names(list1)
 	
-Now that we have named our list components, we can extract components using the $ similar to extracting columns from a dataframe. To attain a component of a list using the component name, use list_name$component_name:
+Now that we have named our list components, we can extract components using the `$` similar to extracting columns from a dataframe. To obtain a component of a list using the component name, use `list_name$component_name`:
 
-To extract the `all_data` dataframe from the `random` list:
+To extract the `df` dataframe from the `list1` list:
 
-	random$all_data
+	list1$df
 
-Now we have three ways that we could extract a component from a list. Let's extract the `age` vector from the `random` list:
+Now we have three ways that we could extract a component from a list. Let's extract the `species` vector from `list1`:
 
-	random[[3]]
-	random[["age"]]
-	random$age
+	list1[[1]]
+	list1[["species"]]
+	list1$species
 
 ***
 
@@ -335,10 +341,12 @@ Now we have three ways that we could extract a component from a list. Let's extr
 
 Let's practice combining ways to extract data from the data structures we have covered so far:
 
-1. Extract the sixth element of the `age` vector from the `random` list.
-2. Extract the control samples ("C1", "C2", "C3")from the `metadata` dataframe from the `random` list.
-3. Extract all elements from the `sex` vector from `list1` from the `random` list.
-4. Extract every other element of the `sex` vector from `list1` from the `random` list.
+1. Set names for the `random` list you created in the last exercise.
+2. Extract the third component of the `age` vector from the `random` list.
+3. Extract the genotype information from the `metadata` dataframe from the `random` list.
+
+***
+
 
 ## Subsetting data
 
@@ -380,14 +388,16 @@ Alternatively, we could try looking at only the first two replicates of each sam
 
 **Exercise** 
 
-1. Return only those samples from `all_data` dataframe with genotype `HH`.
-2. Using the `metadata` dataframe, return only the counts for geneX from those samples where `sex` is female and `age` is greater than 4.
+1. Return only those samples from `all_data` dataframe with age == 4.
+2. Using the `all_data` dataframe, return only the samples where `genotype` is Wt and `age` is greater than 4.
 
 ***
 
 ## Matching data 
 
-Often when working with genomic data, we have a data file that corresponds with our metadata file. The data file contains measurements from the biological assay for each individual sample. In our case, the biological assay is gene expression and data was generated using RNA-Seq. Let's bring in the data matrix of RPKM values:
+Often when working with genomic data, we have a data file that corresponds with our metadata file. The data file contains measurements from the biological assay for each individual sample. In our case, the biological assay is gene expression and data was generated using RNA-Seq. Let's bring in the data matrix of RPKM values.
+
+We will read in the RPKM file using the the `read.csv` function which has *one required argument* and several *specifications* that can be provided. The mandatory argument is a path to the file and filename, which in our case is `data/counts.rpkm` file. We will put the function to the right of the assignment operator, meaning that **any output will be saved as the variable name provided on the left**.
 
 
 	rpkm_data <- read.csv("data/counts.rpkm")

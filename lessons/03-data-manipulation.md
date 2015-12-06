@@ -269,84 +269,6 @@ metadata[, c("genotype", "celltype")]
 ***
 
 
-### Lists
-
-Selecting components from a list requires a slightly different notation, even though in theory a list is a vector (that contains multiple data structures). To select a specific component of a list, you need to use double bracket notation `[[]]`. Let's use the `list1` that we created previously, and index the second component:
-
-	list1[[2]]
-
-What do you see printed to the console? Using the double bracket notation is useful for **accessing the individual components whilst preserving the original data structure.** When creating this list we know we had originally stored a dataframe in the second component. With the `class` function we can check if that is what we retrieve:
-
-	comp2 <- list1[[2]]
-	class(comp2)
-
-You can also reference what is inside the component by adding and additional bracket. For example, in the first component we have a vector stored. 
-
-	list1[[1]]
-	
-	[1] "ecoli" "human" "corn" 
-
-Now, if we wanted to reference the first element of that vector we would use:
-
-	list1[[1]][1]
-
-	[1] "ecoli"
-
-You can also do the same for dataframes and matrices, although with larger datasets it is not advisable. Instead, it is better to save the contents of a list component to a variable (as we did above) and further manipulate it. Also, it is important to note that when selecting components we can only **access one at a time**. To access multiple components of a list, see the note below. 
-
-> Note: Using the single bracket notation also works wth lists. The difference is the class of the information that is retrieved. Using single bracket notation i.e. `list1[1]` will return the contents in a list form and *not the original data structure*. The benefit of this notation is that it allows indexing by vectors so you can access multiple components of the list at once.
-
-
-***
-
-**Exercise**  
-
-Let's practice inspecting lists. Create a list named `random` with the following components: `all_data`, `metadata`, `age`, `list1`, `samplegroup`, and `number`.
-
-1. Print out the values stored in the `samplegroup` component.
-	
-2. From the `all_data` component of the list, extract the `age` column. From the aga values select only the last 5 values.
-	
-***
-
-Assigning names to the components in a list can help identify what each list component contains, as well as, facilitating the extraction of values from list components. 
-
-Adding names to components of a list uses the same function as adding names to the columns of a dataframe, `names()`.
-	
-Let's check and see if the `list1` has names for the components:
-
-	names(list1) 
-
-When we created the list we had combined the `species` vector with  a dataframe `df` and the `number` variable. Let's assign the original names to the components:
-
-	names(list1) <- c("species", "df", "number")
-	
-	names(list1)
-	
-Now that we have named our list components, we can extract components using the `$` similar to extracting columns from a dataframe. To obtain a component of a list using the component name, use `list_name$component_name`:
-
-To extract the `df` dataframe from the `list1` list:
-
-	list1$df
-
-Now we have three ways that we could extract a component from a list. Let's extract the `species` vector from `list1`:
-
-	list1[[1]]
-	list1[["species"]]
-	list1$species
-
-***
-
-**Exercise**
-
-Let's practice combining ways to extract data from the data structures we have covered so far:
-
-1. Set names for the `random` list you created in the last exercise.
-2. Extract the third component of the `age` vector from the `random` list.
-3. Extract the genotype information from the `metadata` dataframe from the `random` list.
-
-***
-
 
 ## Subsetting data
 
@@ -417,105 +339,17 @@ It looks as if the sample names (header) in our data matrix are similar to the r
 
 What we want to know is, **do we have data for every sample that we have metadata?** 
 
-### The `%in%` operator
- 
-Although lacking in [documentation](http://dr-k-lo.blogspot.com/2013/11/in-in-r-underused-in-operator.html) this operator is well-used and convenient once you get the hang of it. The operator is used with the following syntax: 
-
-	vector1_of_values %in% vector2_of_values
-
-
-It will take a vector as input to the left and will **evaluate each element to see if there is a match in the vector that follows on the right of the operator.** *The two vectors do not have to be the same size.* This operation will return a vector of the same length as vector1 containing logical values to indicate whether or not there was a match. Take a look at the example below:
-
-
-	A <- c(1,3,5,7,9,11)   # odd numbers
-	B <- c(2,4,6,8,10,12)  # even numbers
-
-	# test to see if any of A are in B	
-	A %in% B
-
-
-```
-## [1] FALSE FALSE FALSE FALSE FALSE FALSE
-```
-
-Since vector A contains only odd numbers and vector B contains only even numbers, there is no overlap and so the vector returned contains a `FALSE` for each element. Let's change a couple of numbers inside vector B to match vector A.
-
-
-```r
-B <- c(2,4,6,8,1,5)  # add some odd numbers in 
-
-# test to see if any of A are in B
-A %in% B
-```
-
-```
-## [1]  TRUE FALSE  TRUE FALSE FALSE FALSE
-```
-
-The logical vector returned tells us which elements are matching and which are not.  In this example the vectors are small and so it's easy to count by eye; but when we work with large datasets this is not practical. A quick way to assess whether or not we had any matches would be to use the `any` function to see if any of the values contained in vector A are also in vector B:
-
-	any(A %in% B)
-
-
-The `all` function is also useful. Given a logical vector, it will tell you whether are all values returned are `TRUE`. If there is atleast one `FALSE` value, the `all` function will return a `FALSE` and you know that all of A are not contained in B.
-
-
-	all(A %in% B)
-
-Suppose we had **two vectors that had the same values but just not in the same order**. We could also use `all` to test for that. Rather than using the `%in%` operator we would use `==` and compare each element to the same position in the other vector. Unlike the `%in%` operator, **for this to work you must have two vectors that are of equal length**.
-
-```r
-A <- c(1,2,3,4,5)
-B <- c(5,4,3,2,1)  # same numbers but backwards 
-
-# test to see if any of A are in B
-A %in% B
-
-# test to see if any of A is equal to B
-A == B
-
-# use all to check if they are a perfect match
-all(A == B)
-
-```
-
-Let's try this on our data and see whether we have metadata information for all samples in our expression data. We'll start by creating two vectors; one with the `row.names` of the metadata and `colnames` of the RPKM data. These are base functions in R which allow you to extract the row and column names as a vector:
-
-	x <- row.names(metadata)
-	y <- colnames(rpkm_data)
-
-Now check to see that all of `x` are in `y`:
-
-	all(x %in% y)
-
-
-We know that all samples are present, but are they in the same order:
-
-	all(x == y)
-
-**Looks like all of the samples are there, but will need to reordered.**
-
-***
-**Exercise** 
-
-We have a list of IDs for marker genes of particular interest. We want to extract count information associated with each of these genes, without having to scroll through our matrix of count. We can do this using the `%in%` operator to extract the information for those genes from `rpkm_data`.
-
-1. Create a vector for your important gene IDs, and use the %in% operator to determine whether these genes are contained in the row names of our `rpkm_data` dataset.
-
-```
-	important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG00000065619", "ENSMUSG00000047945", "ENSMUSG00000081010", 	"ENSMUSG00000030970")
-
-```
-	
-2. Extract the rows containing the important genes from your `rpkm_data` dataset.	
-
-***
 
 ### The `match` function
 
-We'll be using the `match` function to re-order samples. This function takes at least 2 arguments: 1) a vector of values to *be matched*, and 2) a vector of values to be *matched against*. The function returns the position of the matches in the second vector. We can use the vectors A and B created previously to demonstrate how it works:
+We'll be using the `match` function to evaluate which samples are present in both data structure, and then re-order them. This function takes at least 2 arguments: 1) a vector of values to *be matched*, and 2) a vector of values to be *matched against*. The function returns the position of the matches in the second vector. Let's create vectors A and B to demonstrate how it works:
+
+	A <- c(1,2,3,4,5)
+	B <- c(5,4,3,2,1)  # same numbers but backwards 
 
 	match(A,B)
+	
+	[1] 5 4 3 2 1
 
 The function should return a vector of size `length(A)`. Each number that is returned represents the index of vector B where the matching value was observed. 
 
@@ -533,12 +367,12 @@ And try to `match` again:
 Note, for values that don't match by default return an `NA` value. You can specify what values you would have it assigned using `nomatch` argument. Also, if there is more than one matching value found only the first is reported.
 
 
-We are trying to *match the row names of our metadata with the column names of our expression data*, so these will be the arguments for `match` (we had previously assigned these to `x` and `y`, respectively). Using these two arguments we will retrieve a vector of match indices. This vector represents the re-ordering of the column names in our data matrix to be identical to the rows in metadata:
+We are trying to *match the row names of our metadata with the column names of our expression data*, so these will be the arguments for `match`. Using these two arguments we will retrieve a vector of match indices. The resulting vector represents the re-ordering of the column names in our data matrix to be identical to the rows in metadata:
  
 	m <- match(row.names(metadata), colnames(rpkm_data))
 
 
-Now we can create a new data matrixin which columns are re-ordered based on the match indices:
+Now we can create a new data matrix in which columns are re-ordered based on the match indices:
 
 	rpkm_ordered  <- rpkm_data[,m]
 

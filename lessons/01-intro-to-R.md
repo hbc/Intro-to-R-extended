@@ -271,47 +271,6 @@ Let's add some additional data to coincide with our sample groups factor vector 
 ***
 
 
-### Lists
-
-Lists are a data structure in R that can be perhaps a bit daunting at first, but soon become amazingly useful. A list is a data structure that can hold any number of any types of other data structures.
-
-![list](../img/list.png)
-
-
-If you have vector, a dataframe, and a character/numeric variable, you can put all of those into one list object by using the `list()` function and placing all the items you wish to combine within parantheses:
-
-	list1 <- list(species, df, number)
-
-Print out the list to screen to take a look at the components:
-
-```
-
-	[[1]]
-	[1] "ecoli" "human" "corn" 
-
-	[[2]]
-	  species glengths
-	1   ecoli      4.6
-	2   human   3000.0
-	3    corn  50000.0
-
-	[[3]]
-	[1] 5
-
-```
-
-There are three components corresponding to the three different variables we passed in, and what you see is that structure of each is retained. Each component of a list is referenced based on the number position. For example since the dataframe was the second structure we passed in, it is referenced with `list1[[2]]`. We will talk more about how to inspect and manipulate components of lists in later lessons.
-
-
-***
-**Exercise**
-
-1. Create a list with `metadata`, `genotype`, and `number`.
-2. Print out only the contents of the `genotype` factor variable.
-
-***
-
-
 ---
 *The materials used in this lesson is adapted from work that is Copyright © Data Carpentry (http://datacarpentry.org/). 
 All Data Carpentry instructional material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).*

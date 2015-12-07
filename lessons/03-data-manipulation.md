@@ -10,6 +10,7 @@ minutes: 60
 * Using indexes and sequences to select data from vectors and dataframes
 * Subsetting data using logical operators
 * Matching and re-organizing data
+* Writing data to file
 
 
 ## Inspecting data structures
@@ -56,7 +57,7 @@ Take a look at the dataframe by typing out the variable name `metadata` and pres
 >
 	metadata <- read.csv(file='data/mouse_exp_design.csv')
 > 
-> *By default, `read.csv` converts (= coerces) columns that contain characters (i.e., text) into the `factor` data type. Depending on what you want to do with the data, you may want to keep these columns as `character`. To do so, `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which can be set to `FALSE`.*
+> *This function is described in more detail a bit later in the lesson, when we load in our data file.*
 > 
 
 
@@ -270,7 +271,7 @@ metadata[, c("genotype", "celltype")]
 
 
 
-## Subsetting data
+## Subsetting data by values
 
 Another way of partitioning your data, is by filtering based on the content that is in your dataframe using the `subset()` function. For example, we can look at the samples of a specific celltype "typeA":
 
@@ -323,6 +324,22 @@ We will read in the RPKM file using the the `read.csv` function which has *one r
 
 
 	rpkm_data <- read.csv("data/counts.rpkm")
+
+
+> *Note: By default, `read.csv` converts (= coerces) columns that contain characters (i.e., text) into the `factor` data type. Depending on what you want to do with the data, you may want to keep these columns as `character`. To do so, `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which can be set to `FALSE`.*
+> 
+> There are several functions in R for reading in data, depending on the type of data you are working with. TThe table below lists the functions needed to import data from common file formats.
+> 
+> | Data Type  | Function | Package
+> | -----------:|:----------------:|:---------------:|
+> | comma separated (.csv)  | read.csv()	| utils (default) |
+> | other delimited formats | read.table(); read.csv() | utils (default) |
+> | Stata version 7-12 (.dta) | read.dta() | foreign |
+> | Stata version 13-14 (.dta) | readdta() | haven |
+> | SPSS (.sav) |	read.spss() | foreign |
+> | SAS (.sas7bdat) | read.sas7bdat() | sas7bdat |
+> | Excel (.xls, .xlsx) | readWorksheetFromFile() | XLConnect |
+
 
 
 Take a look at the first few lines of the data matrix to see what's in there.

@@ -328,7 +328,7 @@ We will read in the RPKM file using the the `read.csv` function which has *one r
 
 > *Note: By default, `read.csv` converts (= coerces) columns that contain characters (i.e., text) into the `factor` data type. Depending on what you want to do with the data, you may want to keep these columns as `character`. To do so, `read.csv()` and `read.table()` have an argument called `stringsAsFactors` which can be set to `FALSE`.*
 > 
-> There are several functions in R for reading in data, depending on the type of data you are working with. TThe table below lists the functions needed to import data from common file formats.
+> There are several functions in R for reading in data, depending on the type of data you are working with. The table below lists the functions needed to import data from common file formats.
 > 
 > | Data Type  | Function | Package
 > | -----------:|:----------------:|:---------------:|
@@ -400,12 +400,28 @@ Check and see what happened by using `head`. You can also verify that column nam
 	all(row.names(metadata) == colnames(rpkm_ordered))
 
 
+### Writing to file 
+
+Everything we have done so far has only modified the data in R; the files have remained unchanged. Now that we have re-ordered our data matrix to match our metadata, it's a good idea to save that to file in case we need it for future analyses.
+
+
+To write our matrix to file in comma separated format (.csv), we can use the `write.csv` function. There are two required arguments: the data structure you are exporting, and the path and filename that you are exporting to. By default the delimiter is set, and columns will be separated by a comma:
+
+	write.csv(rpkm_ordered, file="data/counts.rpkm_ordered.csv")
+
+Similar to reading in data, there are a wide variety of functions available allowing you to export data in specific formats. Another commonly used function is `write.table`, which allows you to specify the delimiter you wish to use. This function is commonly used to create tab-delimited files.
+
+
 ***
 **Exercise** 
 
-NEEDS TO BE ADDED
+NEEDS TO BE ADDED INCL WRITE.TABLE
 
 ***
+
+
+
+
 
 > ### An R package for data manipulation
 > The methods presented above are using base R functions for data manipulation. For more advanced R users, 

@@ -22,15 +22,15 @@ More recently, R users have moved away from base graphic options and towards a p
 library(ggplot2)
 ```
 
-The `ggplot()` function is used to initialize the basic graph structure, then we add to it. The basic idea is that you specify different parts of the plot, and add them together using the `+` operator.
+The `ggplot()` function is used to **initialize the basic graph structure**, then we add to it. The basic idea is that you specify different parts of the plot, and add them together using the `+` operator.
 
-We will start with a blank plot and will find that you will get an error, because you need to add layers.
+We will start with a blank plot and will find that you will get an error, because you need to **add layers**.
 
 ```{r, eval=FALSE}
 ggplot(df) # note the error 
 ```
 
-Geometric objects are the actual marks we put on a plot. Examples include:
+**Geometric objects** are the actual marks we put on a plot. Examples include:
 
 * points (`geom_point`, for scatter plots, dot plots, etc)
 * lines (`geom_line`, for time series, trend lines, etc)
@@ -60,15 +60,47 @@ ggplot(df) +
 
  ![ggscatter1](../img/gg-scatter-1.png) 
 
-The labels on the x-axis are quite hard to read. To do this we need to add an additional theme layer. The ggplot2 `theme` system handles non-data plot elements such as:
+
+Now that we have the required aesthetics, let's add some extras like color to the plot. We can `color` the points on the plot based on genotype, by specifying the column of information in our data frame:
+
+```{r, fig.align='center'}
+ggplot(metadata) +
+  geom_point(aes(x = row.names(df), y= samplemeans, color = genotype)) 
+```
+
+ ![ggscatter1.1](../img/gg-scatter-1.1.png) 
+
+
+Alternatively, we could color based on celltype. If we wanted both celltype and genotype identified on the plot, the `shape` aesthetic would allow us to assign the shape of data point. Add in `shape = celltype` to your aesthetic and see how it changes your plot:
+
+```{r, fig.align='center'}
+ggplot(metadata) +
+  geom_point(aes(x = row.names(df), y= samplemeans, color = genotype, shape = celltype)) 
+```
+
+ ![ggscatter1.2](../img/gg-scatter-1.2.png) 
+
+
+The size of the data points are quite small. We can adjust within the `geom_point()` but does not need to be included in `aes()` since we are specifying how large we want the data points, rather than mapping it to a variable.
+
+
+```{r, fig.align='center'}
+ggplot(metadata) +
+  geom_point(aes(x = row.names(df), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) 
+```
+
+ ![ggscatter1.3](../img/gg-scatter-1.3.png) 
+
+The labels on the x-axis are also quite hard to read. To do this we need to add an additional **theme layer**. The ggplot2 `theme` system handles non-data plot elements such as:
 
 * Axis labels
 * Plot background
 * Facet label backround
 * Legend appearance
 
-There are built-in themes we can use, or we can adjust specific elements. For our figure we will change the x-axis labels to be plotted on a 45 degree angle with a small horizontal shift to avoid overlap. We will also add some additional aesthetics by mapping them to other variables in our dataframe. _For example, the color of the points will reflect the genotype and the shape will reflect celltype._ The size of the points can be adjusted within the `geom_point` but does not need to be included in `aes()` since the value is not mapping to a variable.
+There are built-in themes we can use, or we can adjust specific elements. For our figure we will change the x-axis labels to be plotted on a 45 degree angle with a small horizontal shift to avoid overlap.
 
+ 
 ```{r, fig.align='center'}
 ggplot(metadata) +
   geom_point(aes(x = row.names(df), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) +
@@ -77,6 +109,41 @@ ggplot(metadata) +
 
  ![ggscatter2](../img/gg-scatter-2.png) 
 
+
+### Exporting figures to file
+
+There are two ways in which figures and plots can be output to a file (rather than simply displaying on screen). The first (and easiest) is to export directly from the RStudio 'Plots' panel, by clicking on `Export` when the image is plotted. This will give you the option of `png` or `pdf` and selecting the directory to which you wish to save it to. The second option is to use R functions in the console, allowing you the flexibility to specify parameters to dictate the size and resolution of the output image. Some of the more popular formats include `pdf()`, `png`.
+
+Initialize a plot that will be written directly to a file using `pdf`, `png` etc. Within the function you will need to specify a name for your image, and the with and height (optional). Then create a plot using the usual functions in R. Finally, close the file using the `dev.off()` function. There are also `bmp`, `tiff`, and `jpeg` functions, though the jpeg function has proven less stable than the others.
+
+
+
+```r
+pdf("figure/barplot.pdf")
+ggplot(data=df, aes(x=row.names(df), y=samplemeans, fill=genotype)) +
+  geom_bar(colour="black", stat="identity") +
+  ggtitle('Average expression for each sample') +
+  xlab('') +
+  ylab('Mean expression') +
+  theme(plot.title = element_text(size = rel(2.0)),
+        axis.title = element_text(size = rel(1.5)),
+        axis.text = element_text(size = rel(1.25)),
+        axis.text.x = element_text(angle=45, vjust=0.5, hjust=0.6, size = rel(1.25)))
+dev.off()
+```
+
+
+
+
+***
+
+**Exercise**
+
+1. The current axis labels default to what we gave as input to `geom_point`. We can change this by adding additional layers called `xlab()` and `ylab()` for the x- and y-axis, respectively. Add these layers to the current plot such that the x-axis is labeled "samples" and the y-axis is labeled "mean expression".
+2. Use the `ggtitle` layer to add a title to your plot.
+3. Export this image to a pdf file.
+
+***
 
 ## Histogram
 
@@ -144,36 +211,6 @@ ggplot(data=df, aes(x= genotype, y=samplemeans, fill=celltype)) +
 
 We have only scratched the surface here. To learn more, see the [ggplot reference site](http://docs.ggplot2.org/), and Winston Chang's excellent [Cookbook for R](http://wiki.stdout.org/rcookbook/Graphs/) site. Though slightly out of date, [ggplot2: Elegant Graphics for Data Anaysis](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/0387981403) is still the definative book on this subject.
 
-
-***
-
-**Exercise**
-
-NEED TO ADD EXERCISE FOR GGPLOT
-
-***
-
-## Writing figures to file
-
-There are two ways in which figures and plots can be output to a file (rather than simply displaying on screen). The first (and easiest) is to export directly from the RStudio 'Plots' panel, by clicking on `Export` when the image is plotted. This will give you the option of `png` or `pdf` and selecting the directory to which you wish to save it to. The second option is to use R functions in the console, allowing you the flexibility to specify parameters to dictate the size and resolution of the output image. Some of the more popular formats include `pdf()`, `png`.
-
-Initialize a plot that will be written directly to a file using `pdf`, `png` etc. Within the function you will need to specify a name for your image, and the with and height (optional). Then create a plot using the usual functions in R. Finally, close the file using the `dev.off()` function. There are also `bmp`, `tiff`, and `jpeg` functions, though the jpeg function has proven less stable than the others.
-
-
-
-```r
-pdf("figure/barplot.pdf")
-ggplot(data=df, aes(x=row.names(df), y=samplemeans, fill=genotype)) +
-  geom_bar(colour="black", stat="identity") +
-  ggtitle('Average expression for each sample') +
-  xlab('') +
-  ylab('Mean expression') +
-  theme(plot.title = element_text(size = rel(2.0)),
-        axis.title = element_text(size = rel(1.5)),
-        axis.text = element_text(size = rel(1.25)),
-        axis.text.x = element_text(angle=45, vjust=0.5, hjust=0.6, size = rel(1.25)))
-dev.off()
-```
 
 
 

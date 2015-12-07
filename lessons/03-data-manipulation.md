@@ -419,7 +419,7 @@ We are particularly interested in the expression of some specific genes. We woul
 1. We learned previously how to read in data from a data.frame. We will use a different function, `scan()` to bring in a vector of values. Look up how to use the `scan()` function to read in your list of genes, `important_genes.txt`. Save the list of genes as character values in a vector called `important_genes`.
 2. Now, let's find the positions of our important genes (`important_genes`) in the counts dataframe (`rpkm_data`) by using the `match()` function. Save the positions of the genes as a vector of positions called `m`.
 3. Extract the rows for our important genes from the `rpkm_data` using the `m` indexes, and save as `counts_important_genes`.
-4. Write the count information for our important genes to file using `write.table`, and save as a tab-delimited file called `Important_gene_counts.txt`. 
+4. Write the count information for our important genes to file using `write.table()`, and save as a tab-delimited file called `Important_gene_counts.txt`. 
 
 > **NOTE**:
 >  

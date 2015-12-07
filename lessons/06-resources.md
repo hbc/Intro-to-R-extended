@@ -1,10 +1,5 @@
 
----
-title: "R resources"
-date: "03/03/2015"
-layout: topic
 
----
 
 ## Resources for R
 

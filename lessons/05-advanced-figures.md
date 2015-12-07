@@ -112,27 +112,26 @@ ggplot(metadata) +
 
 ### Exporting figures to file
 
-There are two ways in which figures and plots can be output to a file (rather than simply displaying on screen). The first (and easiest) is to export directly from the RStudio 'Plots' panel, by clicking on `Export` when the image is plotted. This will give you the option of `png` or `pdf` and selecting the directory to which you wish to save it to. The second option is to use R functions in the console, allowing you the flexibility to specify parameters to dictate the size and resolution of the output image. Some of the more popular formats include `pdf()`, `png`.
-
-Initialize a plot that will be written directly to a file using `pdf`, `png` etc. Within the function you will need to specify a name for your image, and the with and height (optional). Then create a plot using the usual functions in R. Finally, close the file using the `dev.off()` function. There are also `bmp`, `tiff`, and `jpeg` functions, though the jpeg function has proven less stable than the others.
+There are two ways in which figures and plots can be output to a file (rather than simply displaying on screen). The first (and easiest) is to export directly from the RStudio 'Plots' panel, by clicking on `Export` when the image is plotted. This will give you the option of `png` or `pdf` and selecting the directory to which you wish to save it to. 
 
 
+The second option is to use R functions in the console, allowing you the flexibility to specify parameters to dictate the size and resolution of the output image.  In R’s terminology, output is directed to a particular output device and that dictates the output format that will be produced.  A device must be created or “opened” in order to receive graphical output and, for devices that create a file
+on disk, the device must also be closed in order to complete the output.
 
-```r
-pdf("figure/barplot.pdf")
-ggplot(data=df, aes(x=row.names(df), y=samplemeans, fill=genotype)) +
-  geom_bar(colour="black", stat="identity") +
-  ggtitle('Average expression for each sample') +
-  xlab('') +
-  ylab('Mean expression') +
-  theme(plot.title = element_text(size = rel(2.0)),
-        axis.title = element_text(size = rel(1.5)),
-        axis.text = element_text(size = rel(1.25)),
-        axis.text.x = element_text(angle=45, vjust=0.5, hjust=0.6, size = rel(1.25)))
+Let's print our scatterplot to a pdf file format. First you need to initialize a plot using a function which specifies the graphical format you intend on creating i.e.`pdf()`, `png()`, `tiff()` etc. Within the function you will need to specify a name for your image, and the with and height (optional). This will open up the device that you wish to write to:
+
+	pdf("figure/scatterplot.pdf")
+
+
+Then we plot the image to the device, using the ggplot scatterplot that we just created. Finally, close the file using the `dev.off()` function. There are also `bmp`, `tiff`, and `jpeg` functions, though the jpeg function has proven less stable than the others.
+
+```
+ggplot(metadata) +
+  geom_point(aes(x = row.names(df), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) +
+  theme(axis.text.x = element_text(angle=45, hjust=1))
+
 dev.off()
 ```
-
-
 
 
 ***
@@ -141,13 +140,14 @@ dev.off()
 
 1. The current axis labels default to what we gave as input to `geom_point`. We can change this by adding additional layers called `xlab()` and `ylab()` for the x- and y-axis, respectively. Add these layers to the current plot such that the x-axis is labeled "samples" and the y-axis is labeled "mean expression".
 2. Use the `ggtitle` layer to add a title to your plot.
-3. Export this image to a pdf file.
+3. Export this image to a pdf file called "revised_scatterplot.pdf".
 
 ***
 
+
 ## Histogram
 
-To plot a histogram we require another geometric object `geom_bar`, which requires a statistical transformation. Some plot types (such as scatterplots) do not require transformations, each point is plotted at x and y coordinates equal to the original value. Other plots, such as boxplots, histograms, prediction lines etc. need to be transformed, and usually has a default statistic that can be changed via the `stat_bin` argument. 
+To plot a histogram we require another type of geometric object `geom_bar`, which requires a statistical transformation. Some plot types (such as scatterplots) do not require transformations, each point is plotted at x and y coordinates equal to the original value. Other plots, such as boxplots, histograms, prediction lines etc. need to be transformed, and usually has a default statistic that can be changed via the `stat_bin` argument. 
 
 ```{r, eval=FALSE}
 ggplot(df) +

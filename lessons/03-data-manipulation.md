@@ -414,8 +414,24 @@ Similar to reading in data, there are a wide variety of functions available allo
 
 ***
 **Exercise** 
+We are particularly interested in the expression of some specific genes. We would like to extract the count data for these genes and save this information to file.
 
-NEEDS TO BE ADDED INCL WRITE.TABLE
+1. We learned previously how to read in data from a data.frame. We will use a different function, `scan()` to bring in a vector of values. Look up how to use the `scan()` function to read in your list of genes, `important_genes.txt`. Save the list of genes as character values in a vector called `important_genes`.
+2. Now, let's find the positions of our important genes (`important_genes`) in the counts dataframe (`rpkm_data`) by using the `match()` function. Save the positions of the genes as a vector of positions called `m`.
+3. Extract the rows for our important genes from the `rpkm_data` using the `m` indexes, and save as `counts_important_genes`.
+4. Write the count information for our important genes to file using `write.table`, and save as a tab-delimited file called `Important_gene_counts.txt`. 
+
+> **NOTE**:
+>  
+> Writing a vector of values to file requires a different function than the functions available for writing dataframes. You can use `write()` to save a vector of values to file. For example:
+>
+
+		write(important_genes, "important_genes.txt", ncolumns=1)
+>
+> Sometimes when writing a dataframe with row names to file, the column names will align starting with the row names column. To avoid this, you can include the argument `col.names = NA` when writing to file to ensure all of the column names line up with the correct column values.
+> 
+> 
+
 
 ***
 

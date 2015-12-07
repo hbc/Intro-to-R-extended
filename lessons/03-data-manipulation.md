@@ -416,7 +416,7 @@ Similar to reading in data, there are a wide variety of functions available allo
 **Exercise** 
 
 
-We are particularly interested in the expression of some specific marker genes. We would like to extract the count data for these genes and save this information to file.
+We are particularly interested in the expression of some specific marker genes. We would like to extract the expression data for these genes and save this information to file.
 
 1. We learned previously how to read in data from a data.frame. We will use a different function, `scan()` to bring in a vector of values. Look up how to use the `scan()` function uing R help `?`. The list of genes you need to read in is located in the `data` directory. The files is called `important_genes.txt`.  `scan` will read in the list of genes as a character vector. Assign this vector to teh varaible `important_genes`.
 2. Now, let's find the positions of our important genes (`important_genes`) in the RPKM dataframe (`rpkm_data`) by using the `match()` function. Save the positions of the genes as a vector of positions called `m`.
@@ -440,18 +440,17 @@ We are particularly interested in the expression of some specific marker genes. 
 
 
 
-
-> ### An R package for data manipulation
-> The methods presented above are using base R functions for data manipulation. For more advanced R users, 
-> the package `dplyr` is a fairly new (2014) package that tries to provide easy
-> tools for the most common data manipulation tasks. It is built to work directly
-> with data frames. The thinking behind it was largely inspired by the package
-> `plyr` which has been in use for some time but suffered from being slow in some
-> cases.` dplyr` addresses this by porting much of the computation to C++. An
-> additional feature is the ability to work with data stored directly in an
-> external database. The benefits of doing this are that the data can be managed
-> natively in a relational database, queries can be conducted on that database,
->and only the results of the query returned.
+### An R package for data manipulation
+The methods presented above are using base R functions for data manipulation. For more advanced R users, 
+the package `dplyr` is a fairly new (2014) package that tries to provide easy
+tools for the most common data manipulation tasks. It is built to work directly
+with data frames. The thinking behind it was largely inspired by the package
+`plyr` which has been in use for some time but suffered from being slow in some
+cases.` dplyr` addresses this by porting much of the computation to C++. An
+additional feature is the ability to work with data stored directly in an
+external database. The benefits of doing this are that the data can be managed
+natively in a relational database, queries can be conducted on that database,
+and only the results of the query returned.
 
 
 ---

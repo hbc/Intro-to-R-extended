@@ -414,12 +414,14 @@ Similar to reading in data, there are a wide variety of functions available allo
 
 ***
 **Exercise** 
-We are particularly interested in the expression of some specific genes. We would like to extract the count data for these genes and save this information to file.
 
-1. We learned previously how to read in data from a data.frame. We will use a different function, `scan()` to bring in a vector of values. Look up how to use the `scan()` function to read in your list of genes, `important_genes.txt`. Save the list of genes as character values in a vector called `important_genes`.
-2. Now, let's find the positions of our important genes (`important_genes`) in the counts dataframe (`rpkm_data`) by using the `match()` function. Save the positions of the genes as a vector of positions called `m`.
-3. Extract the rows for our important genes from the `rpkm_data` using the `m` indexes, and save as `counts_important_genes`.
-4. Write the count information for our important genes to file using `write.table()`, and save as a tab-delimited file called `Important_gene_counts.txt`. 
+
+We are particularly interested in the expression of some specific marker genes. We would like to extract the count data for these genes and save this information to file.
+
+1. We learned previously how to read in data from a data.frame. We will use a different function, `scan()` to bring in a vector of values. Look up how to use the `scan()` function uing R help `?`. The list of genes you need to read in is located in the `data` directory. The files is called `important_genes.txt`.  `scan` will read in the list of genes as a character vector. Assign this vector to teh varaible `important_genes`.
+2. Now, let's find the positions of our important genes (`important_genes`) in the RPKM dataframe (`rpkm_data`) by using the `match()` function. Save the positions of the genes as a vector of positions called `m`.
+3. Extract the rows for our important genes from the `rpkm_data` using the `m` indexes, and save as `rpkm_important_genes`.
+4. Write the expression data for our important genes to file using `write.table()`, and save as a tab-delimited file called `Important_gene_counts.txt`. 
 
 > **NOTE**:
 >  

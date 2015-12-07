@@ -91,9 +91,9 @@ ggplot(metadata) +
 
  ![ggscatter1.3](../img/gg-scatter-1.3.png) 
 
-The labels on the x-axis are also quite hard to read. To do this we need to add an additional **theme layer**. The ggplot2 `theme` system handles non-data plot elements such as:
+The labels on the x-axis ticks are also quite hard to read. To do this we need to add an additional **theme layer**. The ggplot2 `theme` system handles non-data plot elements such as:
 
-* Axis labels
+* Axis label aesthetics
 * Plot background
 * Facet label backround
 * Legend appearance

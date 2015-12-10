@@ -330,7 +330,8 @@ Alternatively, we could try looking at only the first two replicates of each sam
 **Exercise** 
 
 1. Return only those samples from `all_data` dataframe with age == 4.
-2. Using the `all_data` dataframe, return only the samples where `genotype` is Wt and `age` is greater than 4.
+2. Using the `all_data` dataframe, return only the samples where `genotype` is Wt *and* `age` is greater than 4.
+3. Another operator which is use in the same way as `&` if the OR operator `|`. From the `all_data` return samples that are of Wt genotype *or* age == 4.  
 
 ***
 

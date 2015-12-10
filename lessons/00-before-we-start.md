@@ -28,29 +28,15 @@ for statistics but also data science.
 * Large and growing community of peers.
 
 
-## Presentation of RStudio
+## What is RStudio?
 
 RStudio is freely available open-source IDE (Integrated Development Environment). RStudio provides an environment with many features to make using R easier and is a great alternative to working on R in the terminal.
 
-**The RStudio interface has four main panels:**
-
-1. Console: where you can type commands and see output
-2. Editor: where you can type out commands and save to file. You can also run in console with `Ctrl + Enter`
-3. Workspace/History: workspace shows all active objects and history keeps track of all commands run in console
-4. Files/Plots/Packages/Help
-
-Helpful RStudio features include:
-
-* automatic syntax highlighting/formatting in the editor
-* direct code execution from editor to console
-* real-time access to environment, plotting and history
-* good tool for workspace management
-
 ## Before we get started
 
-Access main screen for the github repository for this workshop: https://github.com/hbc/Intro-to-R-extended. Find the "Download Zip" button located to the far right of the **green** "New pull request" button. Click on that button and a zip file 'Intro-to-R-master.zip' will be downloaded to your computer, keep note of it's location. These are the materials required for this workshop.
+Access main screen for the github repository for this workshop: https://github.com/hbc/Intro-to-R-extended. Click on the "Download Zip" button located to the far right of the **green** 'New pull request' button and a zip file 'Intro-to-R-master.zip' will be downloaded to your computer; keep note of it's location. These are the materials required for this workshop.
 
-* Move the `Intro-to-R-extended-master.zip` to your Dektop and extract contents. You should now have a directory by the same name on your Desktop.
+* Move the `Intro-to-R-extended-master.zip` to your Desktop and extract contents. You should now have a directory by the same name on your Desktop.
 * Open up RStudio
 * Under the `File` menu, click on `New project`, choose `New directory`, then
   `Existing Directory`
@@ -65,6 +51,21 @@ Your working directory should now look like this:
 * Create a new R script (File > New File > R script) and save it in your working
   directory (e.g. `intro-to-Rscript.R`). Here, you can type all the commands we run during the workshop, and save it for later reference.
 
+##Presentation of RStudio
+
+**The RStudio interface has four main panels:**
+
+1. Console: where you can type commands and see output
+2. Editor: where you can type out commands and save to file. You can also run in console with `Ctrl + Enter`
+3. Workspace/History: workspace shows all active objects and history keeps track of all commands run in console
+4. Files/Plots/Packages/Help
+
+Some of the RStudio features that make using R easier include:
+
+* automatic syntax highlighting/formatting in the editor
+* direct code execution from editor to console
+* real-time access to environment, plotting and history
+* good tool for workspace management
 
 ## Best practices
 

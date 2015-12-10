@@ -21,7 +21,7 @@ The general usage for a function is the name of the function followed by paranth
 
 	function_name(input)
 
-The input(s) are called **arguments** and can be anything, not only numbers or characters, but also other data structures. Exactly what each argument means differs per function, and must be looked up in the documentation (we will discuss help options at the end of this lesson). Arguments serve two main purposes: 1) they can be a physical object (any data structure) on which the function carrries out a task on or 2) an argument can provide specifications that alter the way the function operates. This will become mroe clear as we start to use functions later in the lesson.
+The input(s) are called **arguments** and can be anything, not only numbers or characters, but also other data structures. Exactly what each argument means differs per function, and must be looked up in the documentation (we will discuss help options at the end of this lesson). Arguments serve two main purposes: 1) they can be a physical object (any data structure) on which the function carrries out a task on or 2) an argument can provide specifications that alter the way the function operates. This will become clearer as we start to use functions later in the lesson.
 
 Most functions can take several arguments, but many have so-called *defaults*. If you don't specify such an argument when calling the function, the function
 itself will fall back on using the *default*. This is a standard value that the author of the function specified as being "good enough in standard cases". An

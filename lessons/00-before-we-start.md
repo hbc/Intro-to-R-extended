@@ -30,7 +30,14 @@ for statistics but also data science.
 
 ## What is RStudio?
 
-RStudio is freely available open-source IDE (Integrated Development Environment). RStudio provides an environment with many features to make using R easier and is a great alternative to working on R in the terminal.
+RStudio is freely available open-source IDE (Integrated Development Environment). RStudio provides an environment with many features to make using R easier and is a great alternative to working on R in the terminal. 
+
+Some of the RStudio features that make using R easier include:
+
+* automatic syntax highlighting/formatting in the editor
+* direct code execution from editor to console
+* real-time access to environment, plotting and history
+* good tool for workspace management
 
 ## Before we get started
 
@@ -56,20 +63,6 @@ Access main screen for the github repository for this workshop: https://github.c
 2. Editor: where you can type out commands and save to file. You can also run in console with `Ctrl + Enter`
 3. Workspace/History: workspace shows all active objects and history keeps track of all commands run in console
 4. Files/Plots/Packages/Help
-
-Some of the RStudio features that make using R easier include:
-
-* automatic syntax highlighting/formatting in the editor
-* direct code execution from editor to console
-* real-time access to environment, plotting and history
-* good tool for workspace management
-
-## Best practices
-
-* Code and workflow are more reproducible if we can document everything that we do.
-* Our end goal is not just to "do stuff", but to do it in a way that anyone can easily and exactly replicate our workflow and results. 
-* All code should be written in the editor and saved to file, rather than working in the console. The R console should be used to inspect objects, test a function or get help. 
-* Use `#` signs to comment. **Comment liberally** in your R scripts. This will help future you and other collabrators know what each line of code (or code block) was meant to do. Anything to the right of a `#` is ignored by R. A shortcut for this is `Ctrl + Shift + C` if you want to comment an entire chunk of text.
 
 ### Organizing your working directory
 
@@ -117,7 +110,12 @@ a complete command. This is because you have not 'closed' a parenthesis or
 quotation. If you're in Rstudio and this happens, click inside the console
 window and press `Ctrl+c`; this should help you out of trouble.
 
+## Best practices
 
+* Code and workflow are more reproducible if we can document everything that we do.
+* Our end goal is not just to "do stuff", but to do it in a way that anyone can easily and exactly replicate our workflow and results. 
+* All code should be written in the editor and saved to file, rather than working in the console. The R console should be used to inspect objects, test a function or get help. 
+* Use `#` signs to comment. **Comment liberally** in your R scripts. This will help future you and other collabrators know what each line of code (or code block) was meant to do. Anything to the right of a `#` is ignored by R. A shortcut for this is `Ctrl + Shift + C` if you want to comment an entire chunk of text.
 
 ---
 *The materials used in this lesson is adapted from work that is Copyright © Data Carpentry (http://datacarpentry.org/). 

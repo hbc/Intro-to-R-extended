@@ -129,18 +129,18 @@ When analyzing data, we often want to **partition the data so that we are only w
 
 ### Vectors
 
-If we want to extract one or several values from a vector, we must provide one or several indexes in square brackets. The index represents the element number within a vector (or the compartment number, if you think of the bucket analogy). R indexes start at 1. Programming languages like Fortran, MATLAB, and R start counting at 1, because that's what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because that's simpler for computers to do.
+If we want to extract one or several values from a vector, we must provide one or several indexes using square brackets `[ ]` syntax. The **index represents the element number within a vector** (or the compartment number, if you think of the bucket analogy). R indexes start at 1. Programming languages like Fortran, MATLAB, and R start counting at 1, because that's what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because that's simpler for computers to do.
 
 Let's start by creating a vector called age:
 
 	age <- c(15, 18, 22, 45, 52, 56, 67, 73, 81)
 
 
-To select from a data structure, we use the the square bracket notation `[]`. Suppose we only wanted the fifth value of this vector, we would use the following syntax:
+Suppose we only wanted the fifth value of this vector, we would use the following syntax:
 
 	age[5]
 
-If we wanted to select more than one element we would still use the square bracket notation, but rather than using a single value we would pass in a *vector of the index values*:
+If we wanted to select more than one element we would still use the square bracket syntax, but rather than using a single value we would pass in a *vector of several index values*:
 
 	idx <- c(3,5,7) # create vector of the elements of interest
 	age[idx]

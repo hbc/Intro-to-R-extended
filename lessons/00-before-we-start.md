@@ -36,6 +36,9 @@ RStudio is freely available open-source IDE (Integrated Development Environment)
 
 Access main screen for the github repository for this workshop: https://github.com/hbc/Intro-to-R-extended. Click on the "Download Zip" button located to the far right of the **green** 'New pull request' button and a zip file 'Intro-to-R-master.zip' will be downloaded to your computer; keep note of it's location. These are the materials required for this workshop.
 
+![Download zip](../img/download_zip.png)
+
+
 * Move the `Intro-to-R-extended-master.zip` to your Desktop and extract contents. You should now have a directory by the same name on your Desktop.
 * Open up RStudio
 * Under the `File` menu, click on `New project`, choose `New directory`, then

@@ -148,7 +148,7 @@ hist(samplemeans)
 
  ![hist-1](../figure/unnamed-chunk-14-1.png) 
 
-The range of values for sample means is 22 to 39. As you can see R will automatically calculate the intervals to use. There are many options to determine how to break up the intervals. Let's increase the number of breaks to see how that changes the plot:
+The range of values for sample means is 9 to 16. As you can see R will automatically calculate the intervals to use. There are many options to determine how to break up the intervals. Let's increase the number of breaks to see how that changes the plot:
 
 
 ```r

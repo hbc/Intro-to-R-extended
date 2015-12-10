@@ -72,7 +72,7 @@ I am adding 3 and 5. R is fun!
 Now R is trying to run that sentence as a command, and it 
 doesn't work. We get an error in the console *"Error: unexpected symbol in "I am" means that the R interpreter did not know what to do with that command."*
 
-Ok so it's great that R is a glorified caluculator, but obviously
+Ok so it's great that R is a glorified calculator, but obviously
 we want to do more interesting things. 
 
 To do useful and interesting things, we need to assign _values_ to

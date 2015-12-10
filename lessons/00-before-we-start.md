@@ -16,8 +16,9 @@ minutes: 20
 ## What is R?
 
 R is a versatile, open source programming/scripting language that's useful both
-for statistics but also data science. Inspired by the programming language S.
+for statistics but also data science. 
 
+* Inspired by the programming language S.
 * Open source software under GPL.
 * Superior (if not just comparable) to commercial alternatives. R has over 7,000
   user contributed packages at this time. It's widely used both in academia and

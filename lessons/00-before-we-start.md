@@ -51,7 +51,7 @@ Access main screen for the github repository for this workshop: https://github.c
 * Under the `File` menu, click on `New project`, choose `New directory`, then
   `Existing Directory`
 * Use `Browse...` to locate the `Intro-to-R-extended-master` directory and then `Create Project`. This will be your **working directory** for the rest of the day
-  (e.g., `~/Desktop/Intro-to-R-exetended-master`)
+  (e.g., `~/Desktop/Intro-to-R-extended-master`)
 * Create a new R script (File > New File > R script) and save it in your working
   directory (e.g. `intro-to-Rscript.R`). Here, you can type all the commands we run during the workshop, and save it for later reference.
 

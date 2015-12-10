@@ -46,7 +46,7 @@ Let's start by first ensuring good documentation for the script we create today.
 	## Intro to R Workshop
 	## Dec 11, 2015
 
-As we continue through exercises remember to comment liberally, and describe what we are doing in each section!
+**As we continue through exercises remember to comment liberally, and describe what we are doing in each section!**
 
 Now we can use our keyboard shortcuts to move to the console (`Ctrl + 2`). You can get output from R simply by typing in math in the console. Test it out:
 

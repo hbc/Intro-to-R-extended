@@ -237,7 +237,7 @@ If you were selecting specific columns from the data frame - the rows are left b
 
 	metadata[ ,3]    # the entire 3rd column
 	
-Just like with vectors, you can select multiple rows and columns at a time. Within the square brackets, you need to provide a vector of teh desired values:	
+Just like with vectors, you can select multiple rows and columns at a time. Within the square brackets, you need to provide a vector of the desired values:	
 
 	metadata[ ,1:3] # first three columns
 	metadata[c(1,3,7), ] # first, third and seventh rows

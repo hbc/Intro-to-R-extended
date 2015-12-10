@@ -194,13 +194,22 @@ With the establishment of defined levels, we can then use the `summary()` functi
 
 	summary(expression)
 
-Factors can be ordered or unordered and are an important class for statistical analysis and for plotting. Sometimes, the order of the factors does not matter, other times you might want to specify the order because it is meaningful (e.g., "low" < "medium" < "high") or it is required by particular type of analysis. 
+Factors can be ordered or unordered. Sometimes, the order of the factors does not matter, other times you might want to specify the order because it is meaningful (e.g., "low" < "medium" < "high") or it is required by particular type of analysis. 
 
-In the example above, the factor is unordered. To order factor levels we need to specify the desired order of levels and add an argument to the function `ordered=TRUE`. In this way, R can access the elements as their actual integer values. Try the example below: 
+In the example above, the factor is unordered. You can check this by trying the following:
+
+	min(expression) # doesn't work!
+
+To order factor levels, you can simply add an argument to the function `ordered=TRUE`:
+
+	factor(expression, ordered=TRUE)
+	
+	[1] low    high   medium high   low    medium high  
+	Levels: high < low < medium
+
+But what you'll find is that by default R will order levels by alpahabetical order. In order to get the desired ordering (i.e. "low" < "medium" < "high") we need to specify the order of levels and add the argument `ordered=TRUE`.
 
 ```{r}
-min(expression) # doesn't work!
-
 expression <- factor(expression, levels=c("low", "medium", "high"), ordered=TRUE)
 levels(expression)
 min(expression) ## works!

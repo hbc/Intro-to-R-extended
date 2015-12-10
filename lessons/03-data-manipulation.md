@@ -180,7 +180,13 @@ seq(1, 8, by=3)                # sequence by 3 until you hit 8
 
 ### Factors
 
-We briefly introduced factors in the last lesson, but it only becomes more intuitive once you've had a chance to work with them. Remember that when we created our factor, we took the set of unique elements in the expression vector were obtained, ordered alphabetically, and integer value-label pairs were created (i.e high=1, low=2, medium=3). The unique elements are referred to as "factor levels", and we can use the function `levels()` to idenitfy the different categories for a factor:  
+We briefly introduced factors in the last lesson, but it only becomes more intuitive once you've had a chance to work with them. Remember that when we created our factor, we took the set of unique elements in the expression vector were obtained, ordered alphabetically, and integer value-label pairs were created (i.e high=1, low=2, medium=3). To view the integer assignments under the hood you can use `str`:
+
+	str(expression)
+	
+	Factor w/ 3 levels "high","low","medium": 2 1 3 1 2 3 1
+
+The unique elements are referred to as "factor levels", and we can use the function `levels()` to idenitfy the different categories/levels for a factor:  
 
 	levels(expression)
 

@@ -17,7 +17,7 @@ minutes: 45
 
 A key feature of R is functions. Functions are **"self contained" modules of code that accomplish a specific task**. Functions usually take in some sort of data structure (value, vector, dataframe etc.), process it, and return a result.
 
-The general usage for a function is the name of the function followed by parantheses:
+The general usage for a function is the name of the function followed by parentheses:
 
 	function_name(input)
 

@@ -50,7 +50,7 @@ Now what would happen if we called the function on a *vector of values* instead 
 	sqrt(glengths)
 
 
-In this case the task was performed on each individual value of the vector `number` and the respective results were displayed.
+In this case the task was performed on each individual value of the vector `glengths` and the respective results were displayed.
 
 
 Let's try another function, this time using one that we can change some of the *options*, for example `round`:

@@ -268,7 +268,7 @@ Upon inspection of our dataframe, we see that although the species vector was a 
 ***
 **Exercise**
 
-Let's add some additional data to coincide with our sample groups factor vector we recently created to generate a data frame with all of the information.
+We need to generate a data frame containing all of the information for each of our samples in our experiment. Our dataset contains 12 samples and the information to include for each is listed below.
 
 1. Create 3 factor variables with 12 values each: 
 	

@@ -41,7 +41,7 @@ Some of the RStudio features that make using R easier include:
 
 ## Before we get started
 
-Access main screen for the github repository for this workshop: https://github.com/hbc/Intro-to-R-extended. Click on the "Download Zip" button located to the far right of the **green** 'New pull request' button and a zip file 'Intro-to-R-master.zip' will be downloaded to your computer; keep note of it's location. These are the materials required for this workshop.
+Access main screen for the github repository for this workshop: https://github.com/hbc/Intro-to-R-extended. Click on the "Download Zip" button located to the far right of the green 'New pull request' button and a zip file 'Intro-to-R-master.zip' will be downloaded to your computer; keep note of it's location. These are the materials required for this workshop.
 
 ![Download zip](../img/download_zip.png)
 

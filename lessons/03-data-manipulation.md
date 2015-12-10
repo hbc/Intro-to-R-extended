@@ -67,7 +67,7 @@ Suppose we had a larger file, we might not want to display all the contents in t
 	head(metadata)
 
 
-Previously, we had mentioned that character values get converted to factors by default using `data.frame`. ANother way to assess this change would be to use the __`str`__ucture function. YOu will get specific details on each column:
+Previously, we had mentioned that character values get converted to factors by default using `data.frame`. Another way to assess this change would be to use the __`str`__ucture function. YOu will get specific details on each column:
 
 
 	str(metadata)

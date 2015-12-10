@@ -232,13 +232,15 @@ Dataframes (and matrices) have 2 dimensions (rows and columns), so if we want to
 Now if you only wanted to select based on rows, you would provide the indexes for the rows and leave the columns index blank. The key here is to include the comma, to let R know that you are accessing a 2-dimensional data structure:
 
 	metadata[3, ]    # the 3rd row for all columns
-	metadata[1:3, ] # first three rows
-	metadata[c(1,3,7), ] # first, third and seventh rows
 
-Similarly, if you were selecting specific columns from the data frame - the rows are left blank:
+If you were selecting specific columns from the data frame - the rows are left blank:
 
 	metadata[ ,3]    # the entire 3rd column
+	
+Just like with vectors, you can select multiple rows and columns at a time. Within the square brackets, you need to provide a vector of teh desired values:	
 
+	metadata[ ,1:3] # first three columns
+	metadata[c(1,3,7), ] # first, third and seventh rows
 
 
 For larger datasets, it can be tricky to remember the column number that corresponds to a particular variable. (Is celltype in column 1

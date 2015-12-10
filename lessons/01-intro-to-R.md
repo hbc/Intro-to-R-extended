@@ -258,7 +258,11 @@ We can create a dataframe by bringing vectors together to form columns in our da
 
 	df <- data.frame(species, glengths)
 
-Beware of `data.frame()`’s default behaviour which turns strings into factors. If we were to inspect our dataframe, you would see that although the species vector was a character vector, it automatically got converted into a factor inside the data frame. To change the default settings you can use `stringAsFactors = FALSE` to suppress this behaviour.
+Beware of `data.frame()`’s default behaviour which turns strings into factors. Print your data frame to the console:
+
+	df
+
+Upon inspection of our dataframe, we see that although the species vector was a character vector, it automatically got converted into a factor inside the data frame (the removal of quotation marks). To change the default settings you can use `stringAsFactors = FALSE` to suppress this behaviour.
 
 
 ***

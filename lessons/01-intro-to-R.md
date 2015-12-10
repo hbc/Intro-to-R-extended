@@ -225,7 +225,11 @@ Now we can convert this character vector into a *factor* using the `factor()` fu
  
 	expression <- factor(expresssion)
 
-So, what exactly happened when we applied the `factor()` function? The set of unique elements in the expression vector were obtained, ordered alphabetically, and integer value-label pairs were created (i.e high=1, low=2, medium=3). This in effect assigns the different levels. We will talk more about factors when we start exploring dataframes.
+So, what exactly happened when we applied the `factor()` function? 
+
+![factor_new](../img/factors_new.png)
+
+The set of unique elements in the expression vector were obtained, ordered alphabetically, and integer value-label pairs were created (i.e high=1, low=2, medium=3). This in effect assigns the different levels. We will talk more about factors when we start exploring dataframes.
 
 
 ***

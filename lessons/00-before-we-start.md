@@ -45,12 +45,6 @@ Access main screen for the github repository for this workshop: https://github.c
   `Existing Directory`
 * Use `Browse...` to locate the `Intro-to-R-extended-master` directory and then `Create Project`. This will be your **working directory** for the rest of the day
   (e.g., `~/Desktop/Intro-to-R-exetended-master`)
-
-Your working directory should now look like this:
-
-![How it should look like at the beginning of this lesson](../img/r_starting_how_it_should_look.png)
-
- 
 * Create a new R script (File > New File > R script) and save it in your working
   directory (e.g. `intro-to-Rscript.R`). Here, you can type all the commands we run during the workshop, and save it for later reference.
 
@@ -79,8 +73,11 @@ Some of the RStudio features that make using R easier include:
 
 ### Organizing your working directory
 
-You should separate the original data (raw data) from intermediate datasets that
-you may create for the need of a particular analysis. For instance, you may want
+Your working directory should look like this:
+
+![How it should look like at the beginning of this lesson](../img/r_starting_how_it_should_look.png)
+
+To organize your working directory for a particular analysis, you should separate the original data (raw data) from intermediate datasets. For instance, you may want
 to create a `data/` directory within your working directory that stores the raw
 data, and have a `results/` directory for intermediate datasets and a
 `figures/` directory for the plots you will generate.

@@ -9,8 +9,6 @@ minutes: 60
 * Generating simple statistics in R
 * Applying functions to multiple rows/columns of a matrix
 * Visualizing data using basic plots in R
-* Advanced plots (introducing `ggplot`)
-* Writing images (and other things) to file
 
 
 ## Calculating simple statistics

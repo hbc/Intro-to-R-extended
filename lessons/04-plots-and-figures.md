@@ -73,7 +73,7 @@ df <- cbind(metadata, samplemeans)
 
 
 ### Scatterplot
-Let's start with a **scatterplot**. A scatter plot provides a graphical view of the relationship between two sets of continuous numerical data. We don't have a variable in our metadata that is a continous variable, so there is nothing to plot it against but we can plot the values against their index values just to demonstrate the function.
+Let's start with a **scatterplot**. A scatter plot provides a graphical view of the relationship between two sets of continuous numbers. We don't have another variable in our metadata that is a continuous variable, so there is nothing to plot `samplemeans` against, but we can plot the values against their index values just to demonstrate the function.
 
 
 ```r
@@ -82,7 +82,7 @@ plot(samplemeans)
 
  ![scatter-1](../figure/scatter-plot1-1.png) 
 
-Each point represents a sample and the value on the x-axis is the sample number, where the values on the y-axis correspond to the average expression for that sample. For any plot you can customize many features of your graphs (fonts, colors, axes, titles) through [graphic options](http://www.statmethods.net/advgraphs/parameters.html)
+Each point represents a sample and the value on the x-axis is the sample number (independent variable), where the values on the y-axis correspond to the average expression for that sample (dependent variable). For any plot you can customize many features of your graphs (fonts, colors, axes, titles) through [graphic options](http://www.statmethods.net/advgraphs/parameters.html)
 We can change the shape of the data point using `pch`.
 
 

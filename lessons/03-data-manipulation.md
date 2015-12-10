@@ -125,7 +125,7 @@ objects besides `data.frame`.
 
 ## Selecting data using indexes and sequences
 
-When analyzing data, we often want to **partition the data so that we are only working with selected columns or rows.** A data frame or data matrix is simply a collection of vectors combined together. So let's begin with vectors, and then extend those concepts to dataframes.
+When analyzing data, we often want to **partition the data so that we are only working with selected columns or rows.** A data frame or data matrix is simply a collection of vectors combined together. So let's begin with vectors and how to access differnt elements, and then extend those concepts to dataframes.
 
 ### Vectors
 

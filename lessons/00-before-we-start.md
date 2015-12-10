@@ -11,8 +11,6 @@ minutes: 20
 * Creating a directory structure for efficient data management
 * Learning how to interact with R
 
-
-
 ## What is R?
 
 R is a versatile, open source programming/scripting language that's useful both
@@ -32,19 +30,19 @@ for statistics but also data science.
 
 ## Presentation of RStudio
 
-RStudio is freely available open-source IDE (Integrated Development Environment). It is a great alternative to working on R in the terminal for many reasons:
-
-* automatic syntax highlighting/formatting in the editor
-* direct code execution from editor to console
-* real-time access to environment, plotting and history
-* good tool for workspace management
+RStudio is freely available open-source IDE (Integrated Development Environment). RStudio provides an environment with many features to make using R easier and is a great alternative to working on R in the terminal.
 
 **The RStudio interface has four main panels:**
-
 1. Console: where you can type commands and see output
 2. Editor: where you can type out commands and save to file. You can also run in console with `Ctrl + Enter`
 3. Workspace/History: workspace shows all active objects and history keeps track of all commands run in console
 4. Files/Plots/Packages/Help
+
+Helpful RStudio features include:
+* automatic syntax highlighting/formatting in the editor
+* direct code execution from editor to console
+* real-time access to environment, plotting and history
+* good tool for workspace management
 
 ## Before we get started
 

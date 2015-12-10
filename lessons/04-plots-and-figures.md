@@ -168,9 +168,9 @@ hist(samplemeans, xlab="Mean expression level", main="", col="darkgrey", border=
 
 ##Boxplot
 
-Using addiitonal sample information from our metadata, we can use plots to compare values between the two different celltypes 'typeA' and 'typeB' using a **boxplot**. A boxplot provides a graphical view the center and spread of the distribution, including the median (50th percentile), first and third quartiles (25th and 75th percentiles, respectively), maximum, and minimum of a data set. 
+Using addiitonal sample information from our metadata, we can use plots to compare values between different factor levels or categories. For example, we can compare the sample means across celltypes 'typeA' and 'typeB' using a **boxplot**.
 
-In the boxplot, the box extends from the first (Q1) to the third quartile (Q3), with the line in the middle marking the median. The whiskers of the plot reach the minimum and maximum values that are not outliers. 
+A boxplot provides a graphical view of the distribution of data based on a five number summary. The top and bottom of the box represent the (1) first and (2) third quartiles (25th and 75th percentiles, respectively). The line inside the box represents the (3) median (50th percentile). The whiskers extending above and below the box represent the (4) maximum, and (5) minimum of a data set. The whiskers of the plot reach the minimum and maximum values that are not outliers. 
 
 Outliers are determined using the interquartile range (IQR), which is defined as: Q3 - Q1. Any values that exceeds 1.5 x IQR below Q1 or above Q3 are considered outliers and are represented as points above or below the whiskers. These outliers are useful to identify any unexpected observations.
 

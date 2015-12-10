@@ -82,7 +82,7 @@ plot(samplemeans)
 
  ![scatter-1](../figure/scatter-plot1-1.png) 
 
-Each point represents a sample and the value on the x-axis is the sample number (independent variable), where the values on the y-axis correspond to the average expression for that sample (dependent variable). For any plot you can customize many features of your graphs (fonts, colors, axes, titles) through [graphic options](http://www.statmethods.net/advgraphs/parameters.html)
+Each point represents a sample and the value on the x-axis is the sample number (independent variable), where the values on the y-axis correspond to the average expression for that sample (dependent variable). For any plot you can customize many features of your graphs (fonts, colors, axes, titles) through [graphic options](http://www.statmethods.net/advgraphs/parameters.html).
 We can change the shape of the data point using `pch`.
 
 

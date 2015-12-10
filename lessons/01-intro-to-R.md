@@ -41,7 +41,7 @@ meta <- read.delim(file.path(metaDir, '2015-1018_sample_key.csv'), header=T, sep
 
 _NOTE: indentation and consistency in spacing to improve clarity and legibility_
 
-Let's start by first creating good documentation for the script we create today. Let's move to the editor, and using the comments character `#` to add a line or two as a title for our script:
+Let's start by first ensuring good documentation for the script we create today. Move to the editor, and using the comments character `#` to add a line or two as a title for our script:
 
 	## Intro to R Workshop
 	## Dec 11, 2015

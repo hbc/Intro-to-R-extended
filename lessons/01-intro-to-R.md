@@ -212,16 +212,16 @@ species
 
 ### Factors
 
-A **factor** is a vector that can contain only predefined values, and is used to **store categorical data**. Factors are built on top of integer vectors using two attributes: the class(), “factor”, which makes them behave differently from regular integer vectors, and the levels(), which defines the set of allowed categories/factor levels. To create a factor vector we use the `factor()` function.
+A **factor** is a vector that can contain only predefined values, and is used to **store categorical data**. Each unique category is referred to as a **factor level**. Factors are built on top of integer vectors such that each factor level is assigned an integer value. Let's create a factor vector and explore a bit more. 
 
 ![factors](../img/factors_sm.png)
 
-Lets start by creating a character vector describing three different levels of expression:
+We'll start by creating a character vector describing three different levels of expression:
 
 	expression <- c("low", "high", "medium", "high", "low", "medium", "high")
 
 
-Now we can convert this character vector into a *factor*:
+Now we can convert this character vector into a *factor* using the `factor()` function:
  
 	expression <- factor(expresssion)
 

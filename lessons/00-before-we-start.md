@@ -46,7 +46,7 @@ Helpful RStudio features include:
 
 ## Before we get started
 
-To get started take a look at the middle panel (under the red bar) of the main screen for this repo. You will find on the right hand side a button that allows you to 'Download ZIP'. You will need to click on that and a zip file 'Intro-to-R-master.zip' will be dowloaded to your computer, keep note of it's location. These are the materials required for this workshop.
+Access main screen for the github repository for this workshop: https://github.com/hbc/Intro-to-R-extended. Find the "Download Zip" button located to the far right of the **green** "New pull request" button. Click on that button and a zip file 'Intro-to-R-master.zip' will be downloaded to your computer, keep note of it's location. These are the materials required for this workshop.
 
 * Move the `Intro-to-R-extended-master.zip` to your Dektop and extract contents. You should now have a directory by the same name on your Desktop.
 * Open up RStudio

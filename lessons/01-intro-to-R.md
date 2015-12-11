@@ -223,7 +223,7 @@ We'll start by creating a character vector describing three different levels of 
 
 Now we can convert this character vector into a *factor* using the `factor()` function:
  
-	expression <- factor(expresssion)
+	expression <- factor(expression)
 
 So, what exactly happened when we applied the `factor()` function? 
 

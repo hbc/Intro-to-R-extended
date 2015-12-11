@@ -191,7 +191,7 @@ Similar to the plots above, we can pass in arguments to add in extras to the box
 
 1. Customize the boxplot using `boxplot(samplemeans~celltype, df, xlab = "Cell Type")` function. The `xlab` argument allowed us to add a label to the x-axis. Provide a similar argument to label the y-axis as "Expression". Also, similar to the scatter plot earlier, give the plot a title: "Average expression differences between celltypes" 
 
-2. Use R help to customize the boxplot: color `type A` group = "blue" and the `type B` group = "lightblue". When finished, the figure should appear similar to:
+2. Use R help to customize the boxplot: color `type A` group = "blue" and the `type B` group = "red". When finished, the figure should appear similar to:
 
  ![box-2](../figure/unnamed-chunk-16-1.png) 
 

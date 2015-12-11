@@ -187,9 +187,9 @@ boxplot(samplemeans~celltype, df)
 
 **Exercise** 
 
-Similar to the plots above, we can pass in arguments to add in extras like plot title, axis labels and colors.
+Similar to the plots above, we can pass in arguments to add in extras to the boxplot function like plot title, axis labels and colors.
 
-1. Look up the boxplot function in help, and color `type A` group = blue and the `type B` group = red. Give the plot a title: "Average expression differences between celltypes" and label the y-axis as "Expression". Your figure should look like the figure below:
+1. Use R help to customize the boxplot: color `type A` group = blue and the `type B` group = red. Give the plot a title: "Average expression differences between celltypes" and label the y-axis as "Expression". When finished, the figure should appear similar to:
 
  ![box-2](../figure/unnamed-chunk-16-1.png) 
 

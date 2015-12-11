@@ -18,10 +18,7 @@ We have a few useful resources listed here, if this has sparked enough interest 
 * RStudio keyboard shortcuts [cheatsheet:](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
 
 ## Contact us
-Consults: [bioinformatics@hsph.harvard.edu](mailto:bioinformatics@hsph.harvard.edu)
-
-Training: [hbctraining@hsph.harvard.edu](mailto:hbctraining@hsph.harvard.edu)
-
+Question about Consults? Email us at [bioinformatics@hsph.harvard.edu](mailto:bioinformatics@hsph.harvard.edu)
+<br>Question about Training? Email us at [hbctraining@hsph.harvard.edu](mailto:hbctraining@hsph.harvard.edu)
 Website: [http://bioinformatics.sph.harvard.edu](http://bioinformatics.sph.harvard.edu)
-
 Twitter: [@bioinfocore](https://twitter.com/bioinfocore)

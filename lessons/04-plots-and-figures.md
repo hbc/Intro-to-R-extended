@@ -102,7 +102,7 @@ plot(samplemeans, pch=8, main="Scatter plot of mean values")
  ![scatter-3](../figure/unnamed-chunk-9-1.png) 
 
 ## Barplot
-Barplots are useful for representing the distribution of a quantitative variable (numeric). A **barplot**  would be much more useful to compare the samplemeans (numeric variable) for each sample. We can use `barplot` to draw a single bar representing each sample and the height indicates the average expression level. 
+Barplots are useful for comparing the distribution of a quantitative variable (numeric) between groups or categories. A **barplot**  would be much more useful to compare the samplemeans (numeric variable) for each sample. We can use `barplot` to draw a single bar representing each sample and the height indicates the average expression level. 
 
 
 ```r

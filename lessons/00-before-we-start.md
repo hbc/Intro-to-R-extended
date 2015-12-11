@@ -17,10 +17,9 @@ R is a versatile, open source programming/scripting language that's useful both
 for statistics but also data science. 
 
 * Inspired by the programming language S.
-* Open source software under GPL.
-* Superior (if not just comparable) to commercial alternatives. R has over 7,000
-  user contributed packages at this time. It's widely used both in academia and
-  industry.
+* Open source software 
+* Superior (if not just comparable) to commercial alternatives like MATLAB. R has over 7,000
+  user contributed packages at this time. 
 * Available on all platforms.
 * Not just for statistics, but also general purpose programming.
 * For people who have experience in programmming: R is both an object-oriented

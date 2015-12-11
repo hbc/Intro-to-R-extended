@@ -73,7 +73,7 @@ df <- cbind(metadata, samplemeans)
 
 
 ### Scatterplot
-Let's start with a **scatterplot**. A scatter plot provides a graphical view of the relationship between two sets of continuous numbers. We don't have another variable in our metadata that is a continuous variable, so there is nothing to plot `samplemeans` against, but we can plot the values against their index values just to demonstrate the function.
+Let's start with a **scatterplot**. A scatter plot provides a graphical view of the relationship between two sets of continuous numeric data. We don't have another variable in our metadata that is a continuous variable, so there is nothing to plot `samplemeans` against, but we can plot the values against their index values just to demonstrate the function.
 
 
 ```r

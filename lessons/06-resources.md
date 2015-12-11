@@ -17,3 +17,8 @@ We have a few useful resources listed here, if this has sparked enough interest 
 * For advanced plottting: [ggplot reference site](http://docs.ggplot2.org/), and Winston Chang's excellent [Cookbook for R](http://wiki.stdout.org/rcookbook/Graphs/) site. Though slightly out of date, [ggplot2: Elegant Graphics for Data Anaysis](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/0387981403) is still the definative book on this subject.
 * RStudio keyboard shortcuts [cheatsheet:](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
 
+## Contact us
+Consults: [bioinformatics@hsph.harvard.edu](mailto:bioinformatics@hsph.harvard.edu)
+Training: [hbctraining@hsph.harvard.edu](mailto:hbctraining@hsph.harvard.edu)
+Website: [http://bioinformatics.sph.harvard.edu](http://bioinformatics.sph.harvard.edu)
+Twitter: [@bioinfocore](https://twitter.com/bioinfocore)

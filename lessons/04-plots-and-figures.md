@@ -139,7 +139,7 @@ barplot(samplemeans, names.arg=c(1:12), horiz=TRUE)
  ![bar-4](../figure/unnamed-chunk-13-1.png) 
 
 ## Histogram
-If we are interested in an overall distribution of values, a **histogram** is a plot very commonly used. It plots the frequencies that data appears within certain ranges. To plot a histogram of the data use the `hist` command:
+If we are interested in an overall distribution of numerical data, a **histogram** is a plot very commonly used. It plots the frequencies that data appears within certain ranges. To plot a histogram of the data use the `hist` command:
 
 
 ```r

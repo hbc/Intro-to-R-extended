@@ -118,8 +118,8 @@ Now, when we plot the data we can reorder the dataframe based on the `ordering` 
 
 ```
  ggplot(df) +
-+     geom_point(aes(x = reorder(row.names(df), ordering), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) +
-+     theme(axis.text.x = element_text(angle=45, hjust=1))
+    geom_point(aes(x = reorder(row.names(df), ordering), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) +
+    theme(axis.text.x = element_text(angle=45, hjust=1))
 
 ```
 
@@ -143,10 +143,9 @@ Let's print our scatterplot to a pdf file format. First you need to initialize a
 Then we plot the image to the device, using the ggplot scatterplot that we just created. Finally, close the file using the `dev.off()` function. There are also `bmp`, `tiff`, and `jpeg` functions, though the jpeg function has proven less stable than the others.
 
 ```
-ggplot(df) +
-  geom_point(aes(x = row.names(df), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) +
-  theme(axis.text.x = element_text(angle=45, hjust=1))
-
+ ggplot(df) +
+    geom_point(aes(x = reorder(row.names(df), ordering), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) +
+    theme(axis.text.x = element_text(angle=45, hjust=1))
 dev.off()
 ```
 

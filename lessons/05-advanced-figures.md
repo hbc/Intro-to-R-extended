@@ -43,7 +43,7 @@ ggplot(df) +
   geom_point() # note what happens here
 ```
 
-Each type of geom usually has a **required set of aesthetics** to be set, and usually accepts only a subset of all aesthetics --refer to the geom help pages to see what mappings each geom accepts. Aesthetic mappings are set with the aes() function. Examples include:
+For a more exhaustive list on all possible geometric objects and when to use them check out [Hadley Wickham's RPubs](http://rpubs.com/hadley/ggplot2-layers). Each type of geom usually has a **required set of aesthetics** to be set, and usually accepts only a subset of all aesthetics --refer to the geom help pages to see what mappings each geom accepts. Aesthetic mappings are set with the aes() function. Examples include:
 
 * position (i.e., on the x and y axes)
 * color ("outside" color)
@@ -64,7 +64,7 @@ ggplot(df) +
 Now that we have the required aesthetics, let's add some extras like color to the plot. We can `color` the points on the plot based on genotype, by specifying the column of information in our data frame:
 
 ```{r, fig.align='center'}
-ggplot(metadata) +
+ggplot(df) +
   geom_point(aes(x = row.names(df), y= samplemeans, color = genotype)) 
 ```
 
@@ -74,7 +74,7 @@ ggplot(metadata) +
 Alternatively, we could color based on celltype. If we wanted both celltype and genotype identified on the plot, the `shape` aesthetic would allow us to assign the shape of data point. Add in `shape = celltype` to your aesthetic and see how it changes your plot:
 
 ```{r, fig.align='center'}
-ggplot(metadata) +
+ggplot(df) +
   geom_point(aes(x = row.names(df), y= samplemeans, color = genotype, shape = celltype)) 
 ```
 
@@ -85,7 +85,7 @@ The size of the data points are quite small. We can adjust within the `geom_poin
 
 
 ```{r, fig.align='center'}
-ggplot(metadata) +
+ggplot(df) +
   geom_point(aes(x = row.names(df), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) 
 ```
 
@@ -102,12 +102,29 @@ There are built-in themes we can use, or we can adjust specific elements. For ou
 
  
 ```{r, fig.align='center'}
-ggplot(metadata) +
+ggplot(df) +
   geom_point(aes(x = row.names(df), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) +
   theme(axis.text.x = element_text(angle=45, hjust=1))
 ```
 
  ![ggscatter2](../img/gg-scatter-2.png) 
+
+
+You may have noticed that by default ggplot has re-ordered our samples based on the alphabetical order of the row names. However, we would like to preserve the original order of our metadata dataframe within our plot. To do so we need to specify the order, by adding an additional column to our data frame:
+
+	df$ordering <- 1:12
+
+Now, when we plot the data we can reorder the dataframe based on the `ordering` column using the `reorder` function:
+
+```
+ ggplot(df) +
++     geom_point(aes(x = reorder(row.names(df), ordering), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) +
++     theme(axis.text.x = element_text(angle=45, hjust=1))
+
+```
+
+ ![ggscatterordered](../img/gg-scatter-ordered.png) 
+
 
 
 ### Exporting figures to file
@@ -126,7 +143,7 @@ Let's print our scatterplot to a pdf file format. First you need to initialize a
 Then we plot the image to the device, using the ggplot scatterplot that we just created. Finally, close the file using the `dev.off()` function. There are also `bmp`, `tiff`, and `jpeg` functions, though the jpeg function has proven less stable than the others.
 
 ```
-ggplot(metadata) +
+ggplot(df) +
   geom_point(aes(x = row.names(df), y= samplemeans, color = genotype, shape = celltype), size = rel(3.0)) +
   theme(axis.text.x = element_text(angle=45, hjust=1))
 
@@ -175,8 +192,8 @@ For a barplot, we also use the geometric object `geom_bar` except we need to cha
 
 
 ```r
-ggplot(data=df, aes(x=row.names(df), y=samplemeans, fill=genotype)) +
-  geom_bar(colour="black", stat="identity") +
+ggplot(df) +
+  geom_bar(aes(x=row.names(df), y=samplemeans, fill=genotype), colour="black", stat="identity") +
   ggtitle('Average expression for each sample') +
   xlab('') +
   ylab('Mean expression') +
@@ -195,8 +212,8 @@ Now that we have all the required information for plotting with ggplot2 let's tr
 
 
 ```r
-ggplot(data=df, aes(x= genotype, y=samplemeans, fill=celltype)) + 
-  geom_boxplot() + 
+ggplot(df) + 
+  geom_boxplot(aes(x= genotype, y=samplemeans, fill=celltype)) + 
   ggtitle('Genotype differences in average gene expression') +
   xlab('Genotype') +
   ylab('Mean expression') +

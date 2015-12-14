@@ -2,7 +2,7 @@
 layout: topic
 title: Introduction to R
 author: Data Carpentry contributors
-minutes: 40
+minutes: 70
 ---
 
 ## Learning Objectives

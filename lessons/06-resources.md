@@ -16,7 +16,7 @@ We have a few useful resources listed here, if this has sparked enough interest 
 * HarvardX course ["Statistics and R for the Life Sciences"](https://courses.edx.org/courses/HarvardX/PH525.1x/1T2015/info)
 * For advanced plottting: [ggplot reference site](http://docs.ggplot2.org/), and Winston Chang's excellent [Cookbook for R](http://wiki.stdout.org/rcookbook/Graphs/) site. Though slightly out of date, [ggplot2: Elegant Graphics for Data Anaysis](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/0387981403) is still the definative book on this subject.
 * RStudio keyboard shortcuts [cheatsheet:](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
-* ggplot2 plot creation: [//rpubs.com/hadley/ggplot2-layers](//rpubs.com/hadley/ggplot2-layers)
+* ggplot2 plot layers and types of geoms: [//rpubs.com/hadley/ggplot2-layers](//rpubs.com/hadley/ggplot2-layers)
 
 ## Contact us
 Question about Consults? Email us at [bioinformatics@hsph.harvard.edu](mailto:bioinformatics@hsph.harvard.edu)

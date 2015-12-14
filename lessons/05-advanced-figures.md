@@ -2,7 +2,7 @@
 title: "Advanced figures"
 date: "03/03/2015"
 layout: topic
-minutes: 40 
+minutes: 90 
 ---
 
 ## Learning Objectives 

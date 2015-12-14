@@ -2,7 +2,7 @@
 title: "Plots and figures"
 date: "03/03/2015"
 layout: topic
-minutes: 60 
+minutes: 40 
 ---
 
 ## Learning Objectives 

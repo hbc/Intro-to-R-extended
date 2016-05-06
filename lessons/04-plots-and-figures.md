@@ -195,10 +195,6 @@ Similar to the plots above, we can pass in arguments to add in extras to the box
 
  ![box-2](../figure/unnamed-chunk-16-1.png) 
 
-***
-
-
-
 ---
 
 *To share or reuse these materials, please find the attribution and license details at [license.md](https://github.com/hbc/Intro-to-R-extended/blob/master/license.md).*

@@ -23,3 +23,7 @@ Question about Consults? Email us at [bioinformatics@hsph.harvard.edu](mailto:bi
 <br>Question about Training? Email us at [hbctraining@hsph.harvard.edu](mailto:hbctraining@hsph.harvard.edu)
 <br>Website: [http://bioinformatics.sph.harvard.edu](http://bioinformatics.sph.harvard.edu)
 <br>Twitter: [@bioinfocore](https://twitter.com/bioinfocore)
+
+***
+
+*To share or reuse these materials, please find the attribution and license details at [license.md](https://github.com/hbc/Intro-to-R-extended/blob/master/license.md).*

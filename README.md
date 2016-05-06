@@ -6,5 +6,5 @@ To get started take a look at the middle panel (under the red bar) of the main s
 
 ---
 
-*For attribution details to share and reuse these materials, please go to [license.md](https://github.com/hbc/Intro-to-R-extended/blob/master/license.md).*
+*To share or reuse these materials, please find the attribution and license details at [license.md](https://github.com/hbc/Intro-to-R-extended/blob/master/license.md).*
 

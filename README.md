@@ -6,5 +6,5 @@ To get started take a look at the middle panel (under the red bar) of the main s
 
 ---
 
-Please see [license.md](https://github.com/hbc/Intro-to-R-extended/blob/master/license.md) for licensing information
+*Please see [license.md](https://github.com/hbc/Intro-to-R-extended/blob/master/license.md) for licensing information.*
 
